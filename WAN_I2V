@@ -119,6 +119,10 @@ CLIPVISION_MODELS=(
 	"https://huggingface.co/calcuis/wan-gguf/resolve/main/clip_vision_h_fp16.safetensors"
 )
 
+UPSCALE_MODELS=(
+	"https://huggingface.co/FacehugmanIII/4x_foolhardy_Remacri/resolve/main/4x_foolhardy_Remacri.pth"
+)
+
 CONTROLNET_MODELS=(
 	#"https://huggingface.co/XLabs-AI/flux-controlnet-collections/resolve/main/flux-hed-controlnet-v3.safetensors"
 	#"https://huggingface.co/XLabs-AI/flux-controlnet-collections/resolve/main/flux-canny-controlnet-v3.safetensors"
@@ -185,6 +189,9 @@ function provisioning_start() {
     provisioning_get_models \
         "${WORKSPACE}/ComfyUI/models/vae" \
         "${VAE_MODELS[@]}"
+    provisioning_get_models \
+        "${WORKSPACE}/ComfyUI/models/upscale_models" \
+        "${UPSCALE_MODELS[@]}"
     provisioning_get_models \
         "${WORKSPACE}/ComfyUI/models/esrgan" \
         "${ESRGAN_MODELS[@]}"
