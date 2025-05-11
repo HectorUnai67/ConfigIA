@@ -97,16 +97,7 @@ LORA_MODELS=(
     #"https://huggingface.co/mushroomfleet/HyVid-Lora-Collection/resolve/main/kbk_backrooms_comfyui.safetensors"
     #"https://huggingface.co/mushroomfleet/HyVid-Lora-Collection/resolve/main/fxf-tokyoMeet-comfy.safetensors"
     #"https://huggingface.co/Kijai/HunyuanVideo_comfy/resolve/main/hyvideo_FastVideo_LoRA-fp8.safetensors"
-    "https://huggingface.co/HectorUnai/test/resolve/main/Anna_epoch50.safetensors"
 )
-
-LORA_MODELS_LORAS=(
-    #"x"
-}
-
-LORA_MODELS_ACCIONES_SEXO=(
-    #"x"
-}
 
 VAE_MODELS=(
     #"https://huggingface.co/camenduru/FLUX.1-dev/resolve/main/ae.sft"
@@ -148,23 +139,6 @@ CONTROLNET_MODELS=(
 )
 
 ### DO NOT EDIT BELOW HERE UNLESS YOU KNOW WHAT YOU ARE DOING ###
-
-# Descargar y descomprimir el ZIP de Loras
-function provisioning_download_loras_zip() {
-    ZIP_URL="https://huggingface.co/HectorUnai/test/resolve/main/loras.zip"
-    DEST_DIR="${WORKSPACE}/ComfyUI/models/loras/loras"
-    TEMP_ZIP="/tmp/loras.zip"
-
-    echo "Descargando archivo ZIP de Loras..."
-    wget -q --show-progress --output-document="$TEMP_ZIP" "$ZIP_URL"
-
-    echo "Descomprimiendo en $DEST_DIR..."
-    mkdir -p "$DEST_DIR"
-    unzip -o "$TEMP_ZIP" -d "$DEST_DIR"
-
-    echo "Eliminando archivo ZIP temporal..."
-    rm -f "$TEMP_ZIP"
-}
 
 function provisioning_start() {
     if [[ ! -d /opt/environments/python ]]; then 
@@ -208,7 +182,6 @@ function provisioning_start() {
         "${WORKSPACE}/ComfyUI/models/clip_vision" \
         "${CLIP_VISION_MODELS[@]}"
     provisioning_get_workflows
-    provisioning_download_loras_zip
     provisioning_print_end
 }
 
