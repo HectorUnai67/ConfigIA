@@ -138,7 +138,7 @@ CONTROLNET_MODELS=(
     #"https://huggingface.co/webui/ControlNet-modules-safetensors/resolve/main/t2iadapter_style-fp16.safetensors"
 )
 
-ZIP_URL="https://example.com/archivo.zip"
+ZIP_URL="https://drive.google.com/file/d/1oCtJPbSE4pc_1oj3znZOrJlPdvcxxZCg/view?usp=sharing"
 ZIP_DEST="${WORKSPACE}/ComfyUI/models/loras/loras"
 
 ### DO NOT EDIT BELOW HERE UNLESS YOU KNOW WHAT YOU ARE DOING ###
