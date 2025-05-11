@@ -15,7 +15,8 @@ APT_PACKAGES=(
 
 PIP_PACKAGES=(
     #"package-1"
-    #"package-2"
+    #"package-2".
+    "gdown"
 )
 
 NODES=(
@@ -149,19 +150,22 @@ function provisioning_download_and_unzip() {
     local temp_zip="/tmp/temp_download.zip"
 
     echo "Downloading and extracting zip from $url to $dest_dir"
-
     mkdir -p "$dest_dir"
 
-    # Descargar el archivo zip
-    wget -q --show-progress -O "$temp_zip" "$url"
+    if [[ "$url" == *"drive.google.com"* ]]; then
+        # Extraer el ID del archivo
+        file_id=$(echo "$url" | grep -o '[-\w]\{25,\}')
+        gdown "https://drive.google.com/uc?id=${file_id}" -O "$temp_zip"
+    else
+        wget -q --show-progress -O "$temp_zip" "$url"
+    fi
 
-    # Verificar si la descarga fue exitosa
     if [[ -f "$temp_zip" ]]; then
         unzip -o "$temp_zip" -d "$dest_dir"
         rm "$temp_zip"
         echo "Unzipped successfully."
     else
-        echo "Download failed: $url"
+        echo "Download failed or file not valid: $url"
     fi
 }
 
