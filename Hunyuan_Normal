@@ -16,7 +16,6 @@ APT_PACKAGES=(
 PIP_PACKAGES=(
     #"package-1"
     #"package-2"
-    "gdown"
 )
 
 NODES=(
@@ -151,7 +150,7 @@ CONTROLNET_MODELS=(
 
 # Descargar y descomprimir el ZIP de Loras
 function provisioning_download_loras_zip() {
-    ZIP_URL="https://huggingface.co/HectorUnai/test/resolve/main/loras.zip?download=true"
+    ZIP_URL="https://huggingface.co/HectorUnai/test/resolve/main/loras.zip"
     DEST_DIR="${WORKSPACE}/ComfyUI/models/loras/loras"
     TEMP_ZIP="/tmp/loras.zip"
 
