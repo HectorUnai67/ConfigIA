@@ -101,31 +101,11 @@ LORA_MODELS=(
 )
 
 LORA_MODELS_LORAS=(
-    
+    #"x"
 }
 
 LORA_MODELS_ACCIONES_SEXO=(
-    
-}
-
-LORA_MODELS_ACCIONES_BLOWJOB=(
-    
-}
-
-LORA_MODELS=(
-    
-}
-
-LORA_MODELS=(
-    
-}
-
-LORA_MODELS=(
-    
-}
-
-LORA_MODELS=(
-    
+    #"x"
 }
 
 VAE_MODELS=(
