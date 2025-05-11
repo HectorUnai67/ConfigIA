@@ -138,7 +138,32 @@ CONTROLNET_MODELS=(
     #"https://huggingface.co/webui/ControlNet-modules-safetensors/resolve/main/t2iadapter_style-fp16.safetensors"
 )
 
+ZIP_URL="https://example.com/archivo.zip"
+ZIP_DEST="${WORKSPACE}/ComfyUI/models/loras/loras"
+
 ### DO NOT EDIT BELOW HERE UNLESS YOU KNOW WHAT YOU ARE DOING ###
+
+function provisioning_download_and_unzip() {
+    local url="$1"
+    local dest_dir="$2"
+    local temp_zip="/tmp/temp_download.zip"
+
+    echo "Downloading and extracting zip from $url to $dest_dir"
+
+    mkdir -p "$dest_dir"
+
+    # Descargar el archivo zip
+    wget -q --show-progress -O "$temp_zip" "$url"
+
+    # Verificar si la descarga fue exitosa
+    if [[ -f "$temp_zip" ]]; then
+        unzip -o "$temp_zip" -d "$dest_dir"
+        rm "$temp_zip"
+        echo "Unzipped successfully."
+    else
+        echo "Download failed: $url"
+    fi
+}
 
 function provisioning_start() {
     if [[ ! -d /opt/environments/python ]]; then 
@@ -182,6 +207,7 @@ function provisioning_start() {
         "${WORKSPACE}/ComfyUI/models/clip_vision" \
         "${CLIP_VISION_MODELS[@]}"
     provisioning_get_workflows
+    provisioning_download_and_unzip "$ZIP_URL" "$ZIP_DEST"
     provisioning_print_end
 }
 
