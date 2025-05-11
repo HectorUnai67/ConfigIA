@@ -100,6 +100,34 @@ LORA_MODELS=(
     #"https://huggingface.co/Kijai/HunyuanVideo_comfy/resolve/main/hyvideo_FastVideo_LoRA-fp8.safetensors"
 )
 
+LORA_MODELS_LORAS=(
+    
+}
+
+LORA_MODELS_ACCIONES_SEXO=(
+    
+}
+
+LORA_MODELS_ACCIONES_BLOWJOB=(
+    
+}
+
+LORA_MODELS=(
+    
+}
+
+LORA_MODELS=(
+    
+}
+
+LORA_MODELS=(
+    
+}
+
+LORA_MODELS=(
+    
+}
+
 VAE_MODELS=(
     #"https://huggingface.co/camenduru/FLUX.1-dev/resolve/main/ae.sft"
     #"https://huggingface.co/stabilityai/sdxl-vae/resolve/main/sdxl_vae.safetensors"
@@ -139,39 +167,23 @@ CONTROLNET_MODELS=(
     #"https://huggingface.co/webui/ControlNet-modules-safetensors/resolve/main/t2iadapter_style-fp16.safetensors"
 )
 
-ZIP_URL="https://drive.google.com/file/d/1oCtJPbSE4pc_1oj3znZOrJlPdvcxxZCg/view?usp=sharing"
-ZIP_DEST="${WORKSPACE}/ComfyUI/models/loras/loras"
-
 ### DO NOT EDIT BELOW HERE UNLESS YOU KNOW WHAT YOU ARE DOING ###
 
-function provisioning_download_and_unzip() {
-    local url="$1"
-    local dest_dir="$2"
-    local temp_zip="/tmp/temp_download.zip"
+# Descargar y descomprimir el ZIP de Loras
+function provisioning_download_loras_zip() {
+    ZIP_URL="https://huggingface.co/HectorUnai/test/resolve/main/loras.zip?download=true"
+    DEST_DIR="${WORKSPACE}/ComfyUI/models/loras/loras"
+    TEMP_ZIP="/tmp/loras.zip"
 
-    echo "Downloading and extracting zip from $url to $dest_dir"
-    mkdir -p "$dest_dir"
+    echo "Descargando archivo ZIP de Loras..."
+    wget -q --show-progress --output-document="$TEMP_ZIP" "$ZIP_URL"
 
-    # Asegurarse de que gdown esté instalado si se va a usar
-    if [[ "$url" == *"drive.google.com"* ]]; then
-        if ! command -v gdown &> /dev/null; then
-            echo "gdown not found, installing..."
-            pip_install gdown
-        fi
+    echo "Descomprimiendo en $DEST_DIR..."
+    mkdir -p "$DEST_DIR"
+    unzip -o "$TEMP_ZIP" -d "$DEST_DIR"
 
-        file_id=$(echo "$url" | grep -o '[-\w]\{25,\}')
-        gdown "https://drive.google.com/uc?id=${file_id}" -O "$temp_zip"
-    else
-        wget -q --show-progress -O "$temp_zip" "$url"
-    fi
-
-    if [[ -f "$temp_zip" ]]; then
-        unzip -o "$temp_zip" -d "$dest_dir"
-        rm "$temp_zip"
-        echo "Unzipped successfully."
-    else
-        echo "Download failed or file not valid: $url"
-    fi
+    echo "Eliminando archivo ZIP temporal..."
+    rm -f "$TEMP_ZIP"
 }
 
 function provisioning_start() {
@@ -216,7 +228,7 @@ function provisioning_start() {
         "${WORKSPACE}/ComfyUI/models/clip_vision" \
         "${CLIP_VISION_MODELS[@]}"
     provisioning_get_workflows
-    provisioning_download_and_unzip "$ZIP_URL" "$ZIP_DEST"
+    provisioning_download_loras_zip
     provisioning_print_end
 }
 
