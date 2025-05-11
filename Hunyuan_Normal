@@ -152,8 +152,13 @@ function provisioning_download_and_unzip() {
     echo "Downloading and extracting zip from $url to $dest_dir"
     mkdir -p "$dest_dir"
 
+    # Asegurarse de que gdown esté instalado si se va a usar
     if [[ "$url" == *"drive.google.com"* ]]; then
-        # Extraer el ID del archivo
+        if ! command -v gdown &> /dev/null; then
+            echo "gdown not found, installing..."
+            pip_install gdown
+        fi
+
         file_id=$(echo "$url" | grep -o '[-\w]\{25,\}')
         gdown "https://drive.google.com/uc?id=${file_id}" -O "$temp_zip"
     else
