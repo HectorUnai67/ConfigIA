@@ -50,6 +50,8 @@ NODES=(
 	"https://github.com/Fannovel16/ComfyUI-Frame-Interpolation"
 	"https://github.com/yolain/ComfyUI-Easy-Use"
 	"https://github.com/M1kep/ComfyLiterals"
+	"https://github.com/FlyingFireCo/tiled_ksampler"
+	"https://github.com/calcuis/gguf"
 )
 
 WORKFLOWS=(
