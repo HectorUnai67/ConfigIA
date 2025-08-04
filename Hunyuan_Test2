@@ -92,7 +92,7 @@ TEXTENCODERS_MODELS=(
     "https://huggingface.co/Comfy-Org/HunyuanVideo_repackaged/resolve/main/split_files/text_encoders/llava_llama3_fp16.safetensors" #16.1GB
     "https://huggingface.co/Comfy-Org/HunyuanVideo_repackaged/resolve/main/split_files/text_encoders/clip_l.safetensors" #246MB
     "https://civitai.com/api/download/models/1648387?type=Model&format=SafeTensor&size=pruned&fp=fp32" #29.9GB
-    "https://civitai.com/api/download/models/1377767?type=Model&format=SafeTensor&size=full&fp=fp32"
+    "https://civitai.com/api/download/models/1377767?type=Model&format=SafeTensor&size=full&fp=fp32" #1.59GB
 )
 
 LORA_MODELS=(
