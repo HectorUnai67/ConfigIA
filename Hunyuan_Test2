@@ -47,6 +47,10 @@ NODES=(
     "https://github.com/kijai/ComfyUI-HunyuanVideoWrapper"
     "https://github.com/ShmuelRonen/ComfyUI-EmptyHunyuanLatent"
     "https://github.com/chengzeyi/Comfy-WaveSpeed"
+    "https://github.com/WarpedAnimation/ComfyUI-WarpedToolset"
+    "https://github.com/aria1th/ComfyUI-LogicUtils"
+    "https://github.com/facok/ComfyUI-TeaCacheHunyuanVideo"
+    "https://github.com/Fannovel16/ComfyUI-Frame-Interpolation"
 )
 
 WORKFLOWS=(
