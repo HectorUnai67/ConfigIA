@@ -88,10 +88,10 @@ CLIP_VISION_MODELS=(
 )
 
 TEXTENCODERS_MODELS=(
-    ###"https://huggingface.co/Comfy-Org/HunyuanVideo_repackaged/resolve/main/split_files/text_encoders/llava_llama3_fp8_scaled.safetensors"
-    "https://huggingface.co/Comfy-Org/HunyuanVideo_repackaged/resolve/main/split_files/text_encoders/llava_llama3_fp16.safetensors"
-    "https://huggingface.co/Comfy-Org/HunyuanVideo_repackaged/resolve/main/split_files/text_encoders/clip_l.safetensors"    
-    "https://civitai.com/api/download/models/1648387?type=Model&format=SafeTensor&size=pruned&fp=fp32" #30GB
+    ###"https://huggingface.co/Comfy-Org/HunyuanVideo_repackaged/resolve/main/split_files/text_encoders/llava_llama3_fp8_scaled.safetensors" #9.09GB
+    "https://huggingface.co/Comfy-Org/HunyuanVideo_repackaged/resolve/main/split_files/text_encoders/llava_llama3_fp16.safetensors" #16.1GB
+    "https://huggingface.co/Comfy-Org/HunyuanVideo_repackaged/resolve/main/split_files/text_encoders/clip_l.safetensors" #246MB" 
+    "https://civitai.com/api/download/models/1648387?type=Model&format=SafeTensor&size=pruned&fp=fp32" #29.9GB
 )
 
 LORA_MODELS=(
