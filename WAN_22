@@ -82,8 +82,8 @@ DIFFUSION_MODELS=(
 	#"https://huggingface.co/city96/Wan2.1-I2V-14B-720P-gguf/resolve/main/wan2.1-i2v-14b-720p-Q8_0.gguf"
 	#"https://huggingface.co/calcuis/wan-gguf/resolve/main/wan2.1-i2v-14b-480p-q5_k_m.gguf"
 	#"https://civitai-delivery-worker-prod.5ac0637cfd0766c97916cefa3764fbdf.r2.cloudflarestorage.com/model/1512773/wan14bt2vfusionix.qDmb.safetensors?X-Amz-Expires=86400&response-content-disposition=attachment%3B%20filename%3D%22wan2114BFusionx_fusionxText2video.safetensors%22&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=e01358d793ad6966166af8b3064953ad/20250721/us-east-1/s3/aws4_request&X-Amz-Date=20250721T104018Z&X-Amz-SignedHeaders=host&X-Amz-Signature=84f0fe13e34ff66fc633e7733ca5ce64aa3af413fddc11894ec7cc5e56a9188e"
-	##"https://huggingface.co/vrgamedevgirl84/Wan14BT2VFusioniX/resolve/main/Wan14BT2VFusioniX_fp16_.safetensors" #28.6 GB (Todo sumado 61.4 GB)
-	##"https://huggingface.co/vrgamedevgirl84/Wan14BT2VFusioniX/resolve/main/Wan14Bi2vFusioniX_fp16.safetensors" #32.8 GB
+	"https://huggingface.co/vrgamedevgirl84/Wan14BT2VFusioniX/resolve/main/Wan14BT2VFusioniX_fp16_.safetensors" #28.6 GB (Todo sumado 61.4 GB)
+	"https://huggingface.co/vrgamedevgirl84/Wan14BT2VFusioniX/resolve/main/Wan14Bi2vFusioniX_fp16.safetensors" #32.8 GB
 	"https://huggingface.co/QuantStack/Wan2.2-T2V-A14B-GGUF/resolve/main/HighNoise/Wan2.2-T2V-A14B-HighNoise-Q5_K_M.gguf" #10.8 GB (Todo sumado 43.2 GB)
 	"https://huggingface.co/QuantStack/Wan2.2-T2V-A14B-GGUF/resolve/main/LowNoise/Wan2.2-T2V-A14B-LowNoise-Q5_K_M.gguf" #10.8 GB
 	"https://huggingface.co/QuantStack/Wan2.2-I2V-A14B-GGUF/resolve/main/HighNoise/Wan2.2-I2V-A14B-HighNoise-Q5_K_M.gguf" #10.8 GB
