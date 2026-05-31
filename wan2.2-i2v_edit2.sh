@@ -85,8 +85,6 @@ download_input() {
 # The destination is $MODELS_DIR/loras/ and gdown will recreate subfolders
 # (e.g. acciones/, extras/, ...) exactly as they are in Google Drive.
 download_gdrive_loras() {
-  local dest_parent
-  dest_parent="$(dirname "$MODELS_DIR/loras")"   # = $MODELS_DIR
   local loras_dir="$MODELS_DIR/loras"
 
   echo "==> Installing/upgrading gdown..."
@@ -95,22 +93,23 @@ download_gdrive_loras() {
   echo "==> Downloading Google Drive loras folder (ID: $GDRIVE_LORAS_FOLDER_ID)..."
   echo "    Destination: $loras_dir"
 
-  mkdir -p "$dest_parent"
+  mkdir -p "$loras_dir"
 
-  # --folder        : download the whole folder recursively
-  # --remaining-ok  : skip files that already exist (resume-friendly)
-  # -O              : output directory (gdown places folder contents here)
-  #
-  # gdown creates a subdirectory named after the Drive folder inside -O.
-  # We point -O to $MODELS_DIR so that the result is $MODELS_DIR/loras/
-  # matching the Drive folder name exactly.
-  gdown \
+  # --folder  : descarga la carpeta de Drive recursivamente
+  # --continue: salta archivos ya existentes (idempotente)
+  # -O        : apunta a $MODELS_DIR/loras directamente; gdown vuelca
+  #             el contenido dentro sin crear subcarpeta extra
+  # Si falla (quota de Drive, etc.) registra el aviso pero no aborta
+  # el script, para que las descargas de HuggingFace sigan adelante.
+  if ! gdown \
     --folder \
     --continue \
-    -O "$dest_parent" \
-    "https://drive.google.com/drive/folders/$GDRIVE_LORAS_FOLDER_ID"
-
-  echo "✓ Google Drive loras folder downloaded to: $loras_dir"
+    -O "$loras_dir" \
+    "https://drive.google.com/drive/folders/$GDRIVE_LORAS_FOLDER_ID"; then
+    echo "[WARN] gdown encontro errores descargando la carpeta de Drive. Continuando..."
+  else
+    echo "✓ Google Drive loras folder downloaded to: $loras_dir"
+  fi
 }
 
 # HuggingFace download helper
