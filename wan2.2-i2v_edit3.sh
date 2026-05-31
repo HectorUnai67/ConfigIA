@@ -15,6 +15,7 @@ HF_MAX_PARALLEL=3
 HF_LORAS_ZIPS=(
   "https://huggingface.co/HectorUnai/test/resolve/main/acciones.zip|acciones"
   "https://huggingface.co/HectorUnai/test/resolve/main/otros.zip|otros"
+  "https://huggingface.co/HectorUnai/test/resolve/main/extras.zip|extras"
 )
 
 # Model declarations: "URL|OUTPUT_PATH"
@@ -31,10 +32,6 @@ HF_MODELS=(
   |$MODELS_DIR/loras/SVI_v2_PRO_Wan2.2-I2V-A14B_HIGH_lora_rank_128_fp16.safetensors"
   "https://huggingface.co/Kijai/WanVideo_comfy/resolve/main/LoRAs/Stable-Video-Infinity/v2.0/SVI_v2_PRO_Wan2.2-I2V-A14B_LOW_lora_rank_128_fp16.safetensors
   |$MODELS_DIR/loras/SVI_v2_PRO_Wan2.2-I2V-A14B_LOW_lora_rank_128_fp16.safetensors"
-  "https://huggingface.co/Kijai/WanVideo_comfy/resolve/main/LoRAs/Wan22_Lightx2v/Wan_2_2_I2V_A14B_HIGH_lightx2v_4step_lora_v1030_rank_64_bf16.safetensors
-  |$MODELS_DIR/loras/extras/Wan_2_2_I2V_A14B_HIGH_lightx2v_4step_lora_v1030_rank_64_bf16.safetensors"
-  "https://huggingface.co/lightx2v/Wan2.2-Distill-Loras/resolve/main/wan2.2_i2v_A14b_low_noise_lora_rank64_lightx2v_4step_1022.safetensors
-  |$MODELS_DIR/loras/extras/wan2.2_i2v_A14b_low_noise_lora_rank64_lightx2v_4step_1022.safetensors"
 )
 ### End Configuration ###
 
