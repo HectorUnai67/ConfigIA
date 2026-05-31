@@ -10,9 +10,11 @@ HF_SEMAPHORE_DIR="${WORKSPACE_DIR}/hf_download_sem_$$"
 HF_MAX_PARALLEL=3
 
 # Google Drive ZIP file ID (carpeta loras comprimida)
-# ZIPs de loras alojados en HuggingFace — añadir más URLs según se necesite
+# ZIPs de loras alojados en HuggingFace
+# Formato: "URL|SUBCARPETA_DESTINO_DENTRO_DE_LORAS"
 HF_LORAS_ZIPS=(
-  "https://huggingface.co/HectorUnai/test/resolve/main/acciones.zip"
+  "https://huggingface.co/HectorUnai/test/resolve/main/acciones.zip|acciones"
+  "https://huggingface.co/HectorUnai/test/resolve/main/otros.zip|otros"
 )
 
 # Model declarations: "URL|OUTPUT_PATH"
@@ -99,16 +101,21 @@ download_hf_loras_zips() {
   local loras_dir="$MODELS_DIR/loras"
   mkdir -p "$loras_dir"
 
-  for zip_url in "${HF_LORAS_ZIPS[@]}"; do
+  for entry in "${HF_LORAS_ZIPS[@]}"; do
+    local zip_url="${entry%%|*}"
+    local subfolder="${entry##*|}"
     local zip_name
     zip_name=$(basename "$zip_url" | cut -d'?' -f1)
     local zip_path="/tmp/$zip_name"
+    local dest_dir="$loras_dir/$subfolder"
+
+    mkdir -p "$dest_dir"
 
     if [ -f "$zip_path" ]; then
       echo "==> ZIP ya descargado, reutilizando: $zip_path"
     else
       echo "==> Descargando $zip_name desde HuggingFace..."
-      if ! wget -q --show-progress -O "$zip_path" "$zip_url"; then
+      if ! curl -L --progress-bar -o "$zip_path" "$zip_url"; then
         echo "[WARN] No se pudo descargar $zip_url. Continuando..."
         rm -f "$zip_path"
         continue
@@ -116,10 +123,10 @@ download_hf_loras_zips() {
       echo "✓ ZIP descargado: $zip_path"
     fi
 
-    echo "==> Descomprimiendo $zip_name en $loras_dir ..."
-    unzip -o "$zip_path" -d "$loras_dir"
+    echo "==> Descomprimiendo $zip_name en $dest_dir ..."
+    unzip -o "$zip_path" -d "$dest_dir"
     rm -f "$zip_path"
-    echo "✓ $zip_name descomprimido en: $loras_dir"
+    echo "✓ $zip_name descomprimido en: $dest_dir"
   done
 }
 
@@ -128,51 +135,43 @@ download_hf_file() {
   local output_path="$2"
   local max_retries=5
   local retry_delay=2
+  local filename
+  filename=$(basename "$output_path")
 
   local slot=$(acquire_slot)
 
   if [ -f "$output_path" ]; then
-    echo "File already exists: $output_path (skipping)"
+    echo "File already exists: $filename (skipping)"
     release_slot "$slot"
     return 0
   fi
 
-  local repo=$(echo "$url" | sed -n 's|https://huggingface.co/\([^/]*/[^/]*\)/resolve/.*|\1|p')
-  local file_path=$(echo "$url" | sed -n 's|https://huggingface.co/[^/]*/[^/]*/resolve/[^/]*/\(.*\)|\1|p')
+  mkdir -p "$(dirname "$output_path")"
 
-  if [ -z "$repo" ] || [ -z "$file_path" ]; then
-    echo "ERROR: Invalid HuggingFace URL: $url"
-    release_slot "$slot"
-    return 1
-  fi
-
-  local temp_dir=$(mktemp -d)
   local attempt=1
-
   while [ $attempt -le $max_retries ]; do
-    echo "Downloading $file_path (attempt $attempt/$max_retries)..."
+    echo "==> Descargando $filename (intento $attempt/$max_retries)..."
 
-    if hf download "$repo" \
-      "$file_path" \
-      --local-dir "$temp_dir" \
-      --cache-dir "$temp_dir/.cache" 2>&1; then
-
-      mkdir -p "$(dirname "$output_path")"
-      mv "$temp_dir/$file_path" "$output_path"
-      rm -rf "$temp_dir"
+    if curl -L \
+      --progress-bar \
+      --retry 3 \
+      --retry-delay 5 \
+      --continue-at - \
+      -o "$output_path" \
+      "$url"; then
       release_slot "$slot"
-      echo "✓ Successfully downloaded: $(basename $output_path)"
+      echo "✓ Descargado: $filename"
       return 0
     else
-      echo "✗ Download failed (attempt $attempt/$max_retries), retrying in ${retry_delay}s..."
+      echo "✗ Falló la descarga de $filename (intento $attempt/$max_retries), reintentando en ${retry_delay}s..."
       sleep $retry_delay
       retry_delay=$((retry_delay * 2))
       attempt=$((attempt + 1))
     fi
   done
 
-  echo "ERROR: Failed to download $output_path after $max_retries attempts"
-  rm -rf "$temp_dir"
+  echo "ERROR: No se pudo descargar $filename tras $max_retries intentos"
+  rm -f "$output_path"
   release_slot "$slot"
   return 1
 }
