@@ -55,6 +55,8 @@ trap 'script_error $LINENO' ERR
 
 main() {
     . /venv/main/bin/activate
+    # Limpiar lockfiles huerfanos de ejecuciones anteriores
+    find "$MODELS_DIR" -name "*.lock" -type d -exec rmdir {} + 2>/dev/null || true
     mkdir -p "$HF_SEMAPHORE_DIR"
     write_workflow
     write_api_workflow
