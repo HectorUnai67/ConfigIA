@@ -52,8 +52,6 @@ trap 'script_error $LINENO' ERR
 main() {
     . /venv/main/bin/activate
     mkdir -p "$HF_SEMAPHORE_DIR"
-    write_workflow
-    write_api_workflow
     download_input
     download_gdrive_loras
 
