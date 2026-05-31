@@ -36,6 +36,8 @@ HF_MODELS=(
 
 script_cleanup() {
    rm -rf "$HF_SEMAPHORE_DIR"
+   # Detener el monitor de progreso si sigue activo
+   kill "$PROGRESS_PID" 2>/dev/null || true
 }
 
 script_error() {
@@ -47,9 +49,33 @@ script_error() {
 trap script_cleanup EXIT
 trap 'script_error $LINENO' ERR
 
+# Muestra cada 30s el tamaño actual de los archivos que se están descargando
+progress_monitor() {
+  while true; do
+    sleep 30
+    echo "--- [PROGRESO $(date '+%H:%M:%S')] ---"
+    # Archivos .incomplete en /tmp (descargas HF en curso)
+    find /tmp -name "*.incomplete" 2>/dev/null | while read f; do
+      size=$(du -sh "$f" 2>/dev/null | cut -f1)
+      name=$(basename "$f" | sed 's/=.*$//')
+      echo "  Descargando: $name  ->  $size"
+    done
+    # Archivos ya completados en MODELS_DIR
+    find "$MODELS_DIR" -name "*.safetensors" 2>/dev/null | while read f; do
+      size=$(du -sh "$f" 2>/dev/null | cut -f1)
+      echo "  Completado:  $(basename $f)  ($size)"
+    done
+  done
+}
+
 main() {
     . /venv/main/bin/activate
     mkdir -p "$HF_SEMAPHORE_DIR"
+
+    # Arrancar monitor de progreso en background
+    progress_monitor &
+    PROGRESS_PID=$!
+
     download_input
     download_gdrive_loras
 
@@ -64,6 +90,8 @@ main() {
     for pid in "${pids[@]}"; do
         wait "$pid" || exit 1
     done
+
+    echo "==> Todas las descargas completadas."
 }
 
 download_input() {
@@ -100,7 +128,6 @@ download_hf_file() {
 
   local slot=$(acquire_slot)
 
-  # Si el archivo ya existe, saltarlo
   if [ -f "$output_path" ]; then
     echo "File already exists: $output_path (skipping)"
     release_slot "$slot"
@@ -131,7 +158,7 @@ download_hf_file() {
       mv "$temp_dir/$file_path" "$output_path"
       rm -rf "$temp_dir"
       release_slot "$slot"
-      echo "✓ Successfully downloaded: $output_path"
+      echo "✓ Successfully downloaded: $(basename $output_path)"
       return 0
     else
       echo "✗ Download failed (attempt $attempt/$max_retries), retrying in ${retry_delay}s..."
