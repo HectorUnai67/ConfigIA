@@ -10,8 +10,10 @@ HF_SEMAPHORE_DIR="${WORKSPACE_DIR}/hf_download_sem_$$"
 HF_MAX_PARALLEL=3
 
 # Google Drive ZIP file ID (carpeta loras comprimida)
-# https://drive.google.com/file/d/1E9RQFpInxt_sRNO-9elu1y2qER4MLodD/view?usp=sharing
-GDRIVE_LORAS_ZIP_ID="1E9RQFpInxt_sRNO-9elu1y2qER4MLodD"
+# ZIPs de loras alojados en HuggingFace — añadir más URLs según se necesite
+HF_LORAS_ZIPS=(
+  "https://huggingface.co/HectorUnai/test/resolve/main/acciones.zip"
+)
 
 # Model declarations: "URL|OUTPUT_PATH"
 HF_MODELS=(
@@ -72,7 +74,7 @@ main() {
     PROGRESS_PID=$!
 
     download_input
-    download_gdrive_loras_zip
+    download_hf_loras_zips
 
     pids=()
     for model in "${HF_MODELS[@]}"; do
@@ -93,35 +95,32 @@ download_input() {
   wget -O "$COMFYUI_DIR/input/input.jpg" https://raw.githubusercontent.com/Comfy-Org/example_workflows/refs/heads/main/video/wan/2.2/input.jpg
 }
 
-download_gdrive_loras_zip() {
+download_hf_loras_zips() {
   local loras_dir="$MODELS_DIR/loras"
-  local zip_path="/tmp/loras_gdrive.zip"
-
-  echo "==> Installing/upgrading gdown..."
-  pip install -q --upgrade gdown
-
   mkdir -p "$loras_dir"
 
-  # Si el zip ya está descargado lo reutilizamos
-  if [ -f "$zip_path" ]; then
-    echo "==> ZIP ya descargado, reutilizando: $zip_path"
-  else
-    echo "==> Descargando ZIP de Google Drive (ID: $GDRIVE_LORAS_ZIP_ID)..."
-    if ! gdown \
-      --continue \
-      -O "$zip_path" \
-      "https://drive.google.com/uc?id=$GDRIVE_LORAS_ZIP_ID"; then
-      echo "[WARN] gdown no pudo descargar el ZIP. Continuando sin loras de Drive..."
-      rm -f "$zip_path"
-      return 0
-    fi
-    echo "✓ ZIP descargado: $zip_path"
-  fi
+  for zip_url in "${HF_LORAS_ZIPS[@]}"; do
+    local zip_name
+    zip_name=$(basename "$zip_url" | cut -d'?' -f1)
+    local zip_path="/tmp/$zip_name"
 
-  echo "==> Descomprimiendo en $loras_dir ..."
-  unzip -o "$zip_path" -d "$loras_dir"
-  rm -f "$zip_path"
-  echo "✓ Loras de Drive descomprimidas en: $loras_dir"
+    if [ -f "$zip_path" ]; then
+      echo "==> ZIP ya descargado, reutilizando: $zip_path"
+    else
+      echo "==> Descargando $zip_name desde HuggingFace..."
+      if ! wget -q --show-progress -O "$zip_path" "$zip_url"; then
+        echo "[WARN] No se pudo descargar $zip_url. Continuando..."
+        rm -f "$zip_path"
+        continue
+      fi
+      echo "✓ ZIP descargado: $zip_path"
+    fi
+
+    echo "==> Descomprimiendo $zip_name en $loras_dir ..."
+    unzip -o "$zip_path" -d "$loras_dir"
+    rm -f "$zip_path"
+    echo "✓ $zip_name descomprimido en: $loras_dir"
+  done
 }
 
 download_hf_file() {
