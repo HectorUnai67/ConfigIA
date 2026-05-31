@@ -106,7 +106,7 @@ download_gdrive_loras() {
   # matching the Drive folder name exactly.
   gdown \
     --folder \
-    --remaining-ok \
+    --continue \
     -O "$dest_parent" \
     "https://drive.google.com/drive/folders/$GDRIVE_LORAS_FOLDER_ID"
 
