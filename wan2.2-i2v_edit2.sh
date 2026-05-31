@@ -49,8 +49,6 @@ trap 'script_error $LINENO' ERR
 
 main() {
     . /venv/main/bin/activate
-    # Limpiar lockfiles huerfanos de ejecuciones anteriores
-    find "$MODELS_DIR" -name "*.lock" -type d -exec rmdir {} + 2>/dev/null || true
     mkdir -p "$HF_SEMAPHORE_DIR"
     download_input
     download_gdrive_loras
@@ -97,20 +95,14 @@ download_gdrive_loras() {
 download_hf_file() {
   local url="$1"
   local output_path="$2"
-  local lockfile="${output_path}.lock"
   local max_retries=5
   local retry_delay=2
 
   local slot=$(acquire_slot)
 
-  while ! mkdir "$lockfile" 2>/dev/null; do
-    echo "Another process is downloading to $output_path (waiting...)"
-    sleep 1
-  done
-
+  # Si el archivo ya existe, saltarlo
   if [ -f "$output_path" ]; then
     echo "File already exists: $output_path (skipping)"
-    rmdir "$lockfile"
     release_slot "$slot"
     return 0
   fi
@@ -120,7 +112,6 @@ download_hf_file() {
 
   if [ -z "$repo" ] || [ -z "$file_path" ]; then
     echo "ERROR: Invalid HuggingFace URL: $url"
-    rmdir "$lockfile"
     release_slot "$slot"
     return 1
   fi
@@ -139,7 +130,6 @@ download_hf_file() {
       mkdir -p "$(dirname "$output_path")"
       mv "$temp_dir/$file_path" "$output_path"
       rm -rf "$temp_dir"
-      rmdir "$lockfile"
       release_slot "$slot"
       echo "✓ Successfully downloaded: $output_path"
       return 0
@@ -153,7 +143,6 @@ download_hf_file() {
 
   echo "ERROR: Failed to download $output_path after $max_retries attempts"
   rm -rf "$temp_dir"
-  rmdir "$lockfile"
   release_slot "$slot"
   return 1
 }
