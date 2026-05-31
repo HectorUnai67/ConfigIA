@@ -13,9 +13,6 @@ HF_MAX_PARALLEL=3
 # ZIPs de loras alojados en HuggingFace
 # Formato: "URL|SUBCARPETA_DESTINO_DENTRO_DE_LORAS"
 HF_LORAS_ZIPS=(
-  "https://huggingface.co/HectorUnai/test/resolve/main/acciones.zip|acciones"
-  "https://huggingface.co/HectorUnai/test/resolve/main/otros.zip|otros"
-  "https://huggingface.co/HectorUnai/test/resolve/main/extras.zip|extras"
 )
 
 # Model declarations: "URL|OUTPUT_PATH"
