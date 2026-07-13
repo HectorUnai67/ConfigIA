@@ -1,4 +1,3 @@
-
 #!/bin/bash
 
 set -euo pipefail
@@ -139,7 +138,7 @@ download_hf_file() {
       --retry 3 \
       --retry-delay 5 \
       --continue-at - \
-      --write-out "\n✓ Descargado:  (%{size_download_human} en %{time_total}s)\n" \
+      --write-out "\n✓ Descargado:  (%{size_download} bytes en %{time_total}s)\n" \
       --progress-bar \
       -o "$output_path" \
       "$url"; then
