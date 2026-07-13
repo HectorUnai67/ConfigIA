@@ -16,11 +16,12 @@ HF_LORAS_ZIPS=(
 )
 
 # Model declarations: "URL|OUTPUT_PATH"
+# APUNTANDO AL MIRROR PÚBLICO SIN RESTRICCIÓN DE ACCESO
 HF_MODELS=(
-  "https://huggingface.co/Comfy-Org/Wan_2.2_ComfyUI_Repackaged/resolve/main/split_files/text_encoders/umt5_xxl_fp16.safetensors|$MODELS_DIR/text_encoders/umt5_xxl_fp16.safetensors"
-  "https://huggingface.co/Comfy-Org/Wan_2.2_ComfyUI_Repackaged/resolve/main/split_files/vae/wan_2.1_vae.safetensors|$MODELS_DIR/vae/wan_2.1_vae.safetensors"
-  "https://huggingface.co/Comfy-Org/Wan_2.2_ComfyUI_Repackaged/resolve/main/split_files/diffusion_models/wan2.2_i2v_high_noise_14B_fp16.safetensors|$MODELS_DIR/diffusion_models/wan2.2_i2v_high_noise_14B_fp16.safetensors"
-  "https://huggingface.co/Comfy-Org/Wan_2.2_ComfyUI_Repackaged/resolve/main/split_files/diffusion_models/wan2.2_i2v_low_noise_14B_fp16.safetensors|$MODELS_DIR/diffusion_models/wan2.2_i2v_low_noise_14B_fp16.safetensors"
+  "https://huggingface.co/zhang821102/Wan_2.2_ComfyUI_Repackaged/resolve/main/split_files/text_encoders/umt5_xxl_fp16.safetensors|$MODELS_DIR/text_encoders/umt5_xxl_fp16.safetensors"
+  "https://huggingface.co/zhang821102/Wan_2.2_ComfyUI_Repackaged/resolve/main/split_files/vae/wan_2.1_vae.safetensors|$MODELS_DIR/vae/wan_2.1_vae.safetensors"
+  "https://huggingface.co/zhang821102/Wan_2.2_ComfyUI_Repackaged/resolve/main/split_files/diffusion_models/wan2.2_i2v_high_noise_14B_fp16.safetensors|$MODELS_DIR/diffusion_models/wan2.2_i2v_high_noise_14B_fp16.safetensors"
+  "https://huggingface.co/zhang821102/Wan_2.2_ComfyUI_Repackaged/resolve/main/split_files/diffusion_models/wan2.2_i2v_low_noise_14B_fp16.safetensors|$MODELS_DIR/diffusion_models/wan2.2_i2v_low_noise_14B_fp16.safetensors"
 )
 ### End Configuration ###
 
@@ -97,7 +98,7 @@ download_hf_loras_zips() {
     else
       echo "==> Descargando $zip_name desde HuggingFace..."
       if ! curl -L --progress-bar -o "$zip_path" "$zip_url"; then
-        echo "[WARN] No se pudo descargar $zip_url. Continuando..."
+        echo "[WARN] No se pudo descargar $zip_url. Continuing..."
         rm -f "$zip_path"
         continue
       fi
