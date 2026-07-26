@@ -52,5 +52,3 @@ downloads:
   # Nueva descarga de HuggingFace (ejemplo de ControlNet o Text Encoder)
   - url: https://huggingface.co/TenStrip/LTX2.3-10Eros/resolve/main/text_encoders/gemma-3-12b-it-ablit-norms-biproj-fp8mixed.safetensors
     dest: ${WORKSPACE}/ComfyUI/models/text_encoders/gemma-3-12b-it-ablit-norms-biproj-fp8mixed.safetensors
-
-?download=true
