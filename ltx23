@@ -7,6 +7,7 @@ extensions:
         - https://github.com/Comfy-Org/workflow_templates/raw/refs/heads/main/templates/video_ltx2_3_ia2v.json
         - https://github.com/Comfy-Org/workflow_templates/raw/refs/heads/main/templates/video_ltx2_3_i2v.json
         - https://github.com/Comfy-Org/workflow_templates/raw/refs/heads/main/templates/video_ltx2_3_flf2v.json
+        - https://raw.githubusercontent.com/HectorUnai67/ConfigIA/refs/heads/main/ltx23I2VWorkflow_v20_OK.json
 
 downloads:
   - url: https://raw.githubusercontent.com/Comfy-Org/workflow_templates/refs/heads/main/input/cactus_man.png
@@ -28,26 +29,28 @@ downloads:
 
   # Nueva descarga de Civitai
   - url: https://civitai.com/api/download/models/3082662
-    dest: /workspace/ComfyUI/models/loras/DR34ML4Y_LT3X_V3.safetensors
+    dest: ${WORKSPACE}/ComfyUI/models/loras/DR34ML4Y_LT3X_V3.safetensors
     headers:
       Authorization: "Bearer 363480edff8bfc6c50248cde29324757"
   - url: https://civitai.com/api/download/models/2857106
-    dest: /workspace/ComfyUI/models/loras/SexGod_Handjobs_LTX23_Rank64_v1.safetensors
+    dest: ${WORKSPACE}/ComfyUI/models/loras/SexGod_Handjobs_LTX23_Rank64_v1.safetensors
     headers:
       Authorization: "Bearer 363480edff8bfc6c50248cde29324757"
   - url: https://civitai.com/api/download/models/2778591
-    dest: /workspace/ComfyUI/models/loras/LTX2.3-Rogue-Missionary-Cowgirl-v3.safetensors
+    dest: ${WORKSPACE}/ComfyUI/models/loras/LTX2.3-Rogue-Missionary-Cowgirl-v3.safetensors
     headers:
       Authorization: "Bearer 363480edff8bfc6c50248cde29324757"
     - url: https://civitai.com/api/download/models/3086880
-    dest: /workspace/ComfyUI/models/loras/plora_sulfter_i2v-penis.safetensors
+    dest: ${WORKSPACE}/ComfyUI/models/loras/plora_sulfter_i2v-penis.safetensors
     headers:
       Authorization: "Bearer 363480edff8bfc6c50248cde29324757"
-    - url: https://civitai.com/api/download/models/3121529
-    dest: /workspace/ComfyUI/models/loras/ltx23I2VWorkflow_v20.json
+    - url: https://civitai.com/api/download/models/3109610
+    dest: ${WORKSPACE}/ComfyUI/models/checkpoints/ltx2310eros_v14.safetensors
     headers:
       Authorization: "Bearer 363480edff8bfc6c50248cde29324757"
 
   # Nueva descarga de HuggingFace (ejemplo de ControlNet o Text Encoder)
-  - url: https://huggingface.co/comfyanonymous/flux_text_encoders/resolve/main/t5xxl_fp8_e4m3fn.safetensors
-    dest: /workspace/ComfyUI/models/clip/t5xxl_fp8_e4m3fn.safetensors
+  - url: https://huggingface.co/TenStrip/LTX2.3-10Eros/resolve/main/text_encoders/gemma-3-12b-it-ablit-norms-biproj-fp8mixed.safetensors
+    dest: ${WORKSPACE}/ComfyUI/models/text_encoders/gemma-3-12b-it-ablit-norms-biproj-fp8mixed.safetensors
+
+?download=true
