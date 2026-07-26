@@ -3,10 +3,6 @@ extensions:
   - module: provisioner_comfyui
     config:
       workflows:
-        - https://github.com/Comfy-Org/workflow_templates/raw/refs/heads/main/templates/video_ltx2_3_t2v.json
-        - https://github.com/Comfy-Org/workflow_templates/raw/refs/heads/main/templates/video_ltx2_3_ia2v.json
-        - https://github.com/Comfy-Org/workflow_templates/raw/refs/heads/main/templates/video_ltx2_3_i2v.json
-        - https://github.com/Comfy-Org/workflow_templates/raw/refs/heads/main/templates/video_ltx2_3_flf2v.json
         - https://raw.githubusercontent.com/HectorUnai67/ConfigIA/refs/heads/main/ltx23I2VWorkflow_v20_OK.json
 
 downloads:
