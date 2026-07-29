@@ -3,7 +3,6 @@ extensions:
   - module: provisioner_comfyui
     config:
       workflows:
-        - https://github.com/Comfy-Org/workflow_templates/raw/refs/heads/main/templates/video_ltx2_3_i2v.json
         - https://raw.githubusercontent.com/HectorUnai67/ConfigIA/refs/heads/main/ltx23I2VWorkflow_v20_OK.json
 
 downloads:
@@ -23,35 +22,21 @@ downloads:
     dest: ${WORKSPACE}/ComfyUI/models/loras/LTX-2.3-OmniNFT-RL-Lora_bf16.safetensors
   - url: https://huggingface.co/TenStrip/LTX2.3_DMD_Lora/resolve/main/LTX2.3_DMD_reshaped_r256.safetensors
     dest: ${WORKSPACE}/ComfyUI/models/loras/LTX2.3_DMD_reshaped_r256.safetensors
-
-  # Nueva descarga de Civitai
-  - url: https://civitai.com/api/download/models/3082662
-    dest: ${WORKSPACE}/ComfyUI/models/loras/DR34ML4Y_LT3X_V3.safetensors
-    headers:
-      Authorization: "Bearer 363480edff8bfc6c50248cde29324757"
-  - url: https://civitai.com/api/download/models/2857106
-    dest: ${WORKSPACE}/ComfyUI/models/loras/SexGod_Handjobs_LTX23_Rank64_v1.safetensors
-    headers:
-      Authorization: "Bearer 363480edff8bfc6c50248cde29324757"
-  - url: https://civitai.com/api/download/models/2778591
-    dest: ${WORKSPACE}/ComfyUI/models/loras/LTX2.3-Rogue-Missionary-Cowgirl-v3.safetensors
-    headers:
-      Authorization: "Bearer 363480edff8bfc6c50248cde29324757"
-  - url: https://civitai.com/api/download/models/3086880
-    dest: ${WORKSPACE}/ComfyUI/models/loras/plora_sulfter_i2v-penis.safetensors
-    headers:
-      Authorization: "Bearer 363480edff8bfc6c50248cde29324757"
-  - url: https://civitai.com/api/download/models/3109610
-    dest: ${WORKSPACE}/ComfyUI/models/checkpoints/ltx2310eros_v14.safetensors
-    headers:
-      Authorization: "Bearer 363480edff8bfc6c50248cde29324757"
-  - url: https://civitai.com/api/download/models/2772932
-    dest: ${WORKSPACE}/ComfyUI/models/checkpoints/Penile_Praxis_V4.safetensors
-    headers:
-      Authorization: "Bearer 363480edff8bfc6c50248cde29324757"
-
-  # Nueva descarga de HuggingFace (ejemplo de ControlNet o Text Encoder)
   - url: https://huggingface.co/TenStrip/LTX2.3-10Eros/resolve/main/text_encoders/gemma-3-12b-it-ablit-norms-biproj-fp8mixed.safetensors
     dest: ${WORKSPACE}/ComfyUI/models/text_encoders/gemma-3-12b-it-ablit-norms-biproj-fp8mixed.safetensors
   - url: https://huggingface.co/dtarnow/UPscaler/resolve/main/RealESRGAN_x2plus.pth
     dest: ${WORKSPACE}/ComfyUI/models/upscale_models/RealESRGAN_x2plus.pth
+
+  # Nueva descarga de Civitai
+  - url: https://civitai.com/api/download/models/3109610
+    dest: ${WORKSPACE}/ComfyUI/models/checkpoints/ltx2310eros_v14.safetensors
+  - url: https://civitai.com/api/download/models/3082662
+    dest: ${WORKSPACE}/ComfyUI/models/loras/DR34ML4Y_LT3X_V3.safetensors
+  - url: https://civitai.com/api/download/models/2857106
+    dest: ${WORKSPACE}/ComfyUI/models/loras/SexGod_Handjobs_LTX23_Rank64_v1.safetensors
+  - url: https://civitai.com/api/download/models/2778591
+    dest: ${WORKSPACE}/ComfyUI/models/loras/LTX2.3-Rogue-Missionary-Cowgirl-v3.safetensors
+  - url: https://civitai.com/api/download/models/3086880
+    dest: ${WORKSPACE}/ComfyUI/models/loras/plora_sulfter_i2v-penis.safetensors
+  - url: https://civitai.com/api/download/models/2772932
+    dest: ${WORKSPACE}/ComfyUI/models/loras/Penile_Praxis_V4.safetensors
