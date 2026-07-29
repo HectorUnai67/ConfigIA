@@ -4,7 +4,7 @@ extensions:
   - module: provisioner_comfyui
     config:
       workflows:
-        - https://raw.githubusercontent.com/HectorUnai67/ConfigIA/refs/heads/main/ltx23I2VWorkflow_v20_OK.json
+        - https://github.com/Comfy-Org/workflow_templates/raw/refs/heads/main/templates/video_ltx2_3_i2v.json
 
 downloads:
   - url: https://raw.githubusercontent.com/Comfy-Org/workflow_templates/refs/heads/main/input/cactus_man.png
