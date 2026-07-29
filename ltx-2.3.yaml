@@ -1,1 +1,35 @@
 
+version: 1
+extensions:
+  - module: provisioner_comfyui
+    config:
+      workflows:
+        - https://raw.githubusercontent.com/HectorUnai67/ConfigIA/refs/heads/main/ltx23I2VWorkflow_v20_OK.json
+
+downloads:
+  - url: https://raw.githubusercontent.com/Comfy-Org/workflow_templates/refs/heads/main/input/cactus_man.png
+    dest: ${WORKSPACE}/ComfyUI/input/cactus_man.png
+  - url: https://raw.githubusercontent.com/Comfy-Org/workflow_templates/refs/heads/main/input/high_view_classic_car.png
+    dest: ${WORKSPACE}/ComfyUI/input/high_view_classic_car.png
+  - url: https://raw.githubusercontent.com/Comfy-Org/workflow_templates/refs/heads/main/input/low_view_classic_car.png
+    dest: ${WORKSPACE}/ComfyUI/input/low_view_classic_car.png
+  - url: https://raw.githubusercontent.com/Comfy-Org/workflow_templates/refs/heads/main/input/egyptian_queen.png
+    dest: ${WORKSPACE}/ComfyUI/input/egyptian_queen.png
+  - url: https://raw.githubusercontent.com/Comfy-Org/workflow_templates/refs/heads/main/input/ltx_23_audio.mp3
+    dest: ${WORKSPACE}/ComfyUI/input/ltx_23_audio.mp3
+
+    # Descarga existente de HuggingFace
+  - url: https://huggingface.co/Kijai/LTX2.3_comfy/resolve/main/loras/LTX-2.3-OmniNFT-RL-Lora_bf16.safetensors
+    dest: ${WORKSPACE}/ComfyUI/models/loras/LTX-2.3-OmniNFT-RL-Lora_bf16.safetensors
+  - url: https://huggingface.co/TenStrip/LTX2.3_DMD_Lora/resolve/main/LTX2.3_DMD_reshaped_r256.safetensors
+    dest: ${WORKSPACE}/ComfyUI/models/loras/LTX2.3_DMD_reshaped_r256.safetensors
+  - url: https://huggingface.co/TenStrip/LTX2.3-10Eros/resolve/main/text_encoders/gemma-3-12b-it-ablit-norms-biproj-fp8mixed.safetensors
+    dest: ${WORKSPACE}/ComfyUI/models/text_encoders/gemma-3-12b-it-ablit-norms-biproj-fp8mixed.safetensors
+  - url: https://huggingface.co/dtarnow/UPscaler/resolve/main/RealESRGAN_x2plus.pth
+    dest: ${WORKSPACE}/ComfyUI/models/upscale_models/RealESRGAN_x2plus.pth
+
+  # Nueva descarga de Civitai
+  - url: https://civitai.com/api/download/models/3109610
+    dest: /workspace/ComfyUI/models/checkpoints/ltx2310eros_v14.safetensors
+    headers:
+      Authorization: "Bearer 363480edff8bfc6c50248cde29324757"
