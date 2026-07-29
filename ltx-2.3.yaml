@@ -40,3 +40,13 @@ downloads:
     dest: ${WORKSPACE}/ComfyUI/models/loras/plora_sulfter_i2v-penis.safetensors
   - url: https://civitai.com/api/download/models/2772932
     dest: ${WORKSPACE}/ComfyUI/models/loras/Penile_Praxis_V4.safetensors
+  - url: https://civitai.com/api/download/models/3025398
+    dest: ${WORKSPACE}/ComfyUI/models/loras/LTX2.3_reasoning_Sulphur-2_I2V_V4.safetensors
+  - url: https://civitai.com/api/download/models/2986751
+    dest: ${WORKSPACE}/ComfyUI/models/loras/Sulphur_LTX 2.3_better _NSFW_motion.safetensors
+  - url: https://civitai.com/api/download/models/3057017
+    dest: ${WORKSPACE}/ComfyUI/models/loras/riding_fbs_animation_10Eros_i2v_v1.0.safetensors
+  - url: https://civitai.com/api/download/models/2952846
+    dest: ${WORKSPACE}/ComfyUI/models/loras/LTX2.3_Physics_V2_000002000.0.safetensors
+  - url: https://civitai.com/api/download/models/2929984
+    dest: ${WORKSPACE}/ComfyUI/models/loras/Kissing_Lora_2000.safetensors
