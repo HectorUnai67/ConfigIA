@@ -3,7 +3,7 @@ extensions:
   - module: provisioner_comfyui
     config:
       workflows:
-        - https://github.com/Comfy-Org/workflow_templates/raw/refs/heads/main/templates/video_ltx2_3_i2v.json
+        - https://raw.githubusercontent.com/HectorUnai67/ConfigIA/refs/heads/main/MrXin%20LTX%202.3%20I2V%20EROS%20V6.1%20OK.json
 
 downloads:
   - url: https://raw.githubusercontent.com/Comfy-Org/workflow_templates/refs/heads/main/input/cactus_man.png
