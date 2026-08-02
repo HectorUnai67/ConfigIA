@@ -18,15 +18,31 @@ downloads:
     dest: ${WORKSPACE}/ComfyUI/input/ltx_23_audio.mp3
 
     # Descarga existente de HuggingFace
-  - url: https://huggingface.co/Kijai/LTX2.3_comfy/resolve/main/loras/LTX-2.3-OmniNFT-RL-Lora_bf16.safetensors
+  - url: https://huggingface.co/Kijai/LTX2.3_comfy/resolve/main/loras/LTX-2.3-OmniNFT-RL-Lora_bf16.safetensors  # 617 MB
     dest: ${WORKSPACE}/ComfyUI/models/loras/LTX-2.3-OmniNFT-RL-Lora_bf16.safetensors
-  - url: https://huggingface.co/TenStrip/LTX2.3_DMD_Lora/resolve/main/LTX2.3_DMD_reshaped_r256.safetensors
+  - url: https://huggingface.co/TenStrip/LTX2.3_DMD_Lora/resolve/main/LTX2.3_DMD_reshaped_r256.safetensors  # 4.7 GB
     dest: ${WORKSPACE}/ComfyUI/models/loras/LTX2.3_DMD_reshaped_r256.safetensors
-  - url: https://huggingface.co/TenStrip/LTX2.3-10Eros/resolve/main/text_encoders/gemma-3-12b-it-ablit-norms-biproj-fp8mixed.safetensors
+  - url: https://huggingface.co/TenStrip/LTX2.3-10Eros/resolve/main/text_encoders/gemma-3-12b-it-ablit-norms-biproj-fp8mixed.safetensors  # 11.9 GB
     dest: ${WORKSPACE}/ComfyUI/models/text_encoders/gemma-3-12b-it-ablit-norms-biproj-fp8mixed.safetensors
-  - url: https://huggingface.co/dtarnow/UPscaler/resolve/main/RealESRGAN_x2plus.pth
+  - url: https://huggingface.co/dtarnow/UPscaler/resolve/main/RealESRGAN_x2plus.pth  # 67.1 MB
     dest: ${WORKSPACE}/ComfyUI/models/upscale_models/RealESRGAN_x2plus.pth
-  - url: https://huggingface.co/Kijai/LTX2.3_comfy/resolve/main/vae/taeltx2_3.safetensors
+  - url: https://huggingface.co/Kijai/LTX2.3_comfy/resolve/main/vae/taeltx2_3.safetensors  # 23 MB
     dest: ${WORKSPACE}/ComfyUI/models/vae/taeltx2_3.safetensors
-  - url: https://huggingface.co/Lightricks/LTX-2.3/resolve/main/ltx-2.3-spatial-upscaler-x2-1.1.safetensors
+  - url: https://huggingface.co/Lightricks/LTX-2.3/resolve/main/ltx-2.3-spatial-upscaler-x2-1.1.safetensors  # 950 MB
     dest: ${WORKSPACE}/ComfyUI/models/latent_upscale_models/ltx-2.3-spatial-upscaler-x2-1.1.safetensors
+  - url: https://huggingface.co/Kijai/LTX2.3_comfy/resolve/main/diffusion_models/ltx-2.3-22b-distilled_transformer_only_fp8_input_scaled_v3.safetensors  # 25 GB
+    dest: ${WORKSPACE}/ComfyUI/models/diffusion_models/ltx-2.3-22b-distilled_transformer_only_fp8_input_scaled_v3.safetensors 
+  - url: https://huggingface.co/Kijai/LTX2.3_comfy/resolve/main/vae/LTX23_audio_vae_bf16.safetensors   # 365 MB
+    dest: ${WORKSPACE}/ComfyUI/models/vae/LTX23_audio_vae_bf16.safetensors
+  - url: https://huggingface.co/Kijai/LTX2.3_comfy/resolve/main/vae/LTX23_video_vae_bf16.safetensors   # 1.45 GB
+    dest: ${WORKSPACE}/ComfyUI/models/vae/LTX23_video_vae_bf16.safetensors
+  - url: https://huggingface.co/GitMylo/LTX-2-comfy_gemma_fp8_e4m3fn/resolve/main/gemma_3_12B_it_fp8_e4m3fn.safetensors # 12.3 GB
+    dest: ${WORKSPACE}/ComfyUI/models/text_encoders/gemma_3_12B_it_fp8_e4m3fn.safetensors    
+  - url: https://huggingface.co/Kijai/LTX2.3_comfy/resolve/main/text_encoders/ltx-2.3_text_projection_bf16.safetensors  # 2.2 GB
+    dest: ${WORKSPACE}/ComfyUI/models/clip/ltx-2.3_text_projection_bf16.safetensors 
+  - url: https://huggingface.co/Kijai/LTX2.3_comfy/resolve/main/loras/ltx-2.3-22b-distilled-1.1_lora-dynamic_fro09_avg_rank_111_bf16.safetensors  # 2.2 GB
+    dest: ${WORKSPACE}/ComfyUI/models/loras/ltx-2.3-22b-distilled-1.1_lora-dynamic_fro09_avg_rank_111_bf16.safetensors    
+  - url: https://huggingface.co/Kijai/LTX2.3_comfy/resolve/main/diffusion_models/ltx-2.3-22b-distilled_transformer_only_fp8_scaled.safetensors   # 23.5 GB
+    dest: ${WORKSPACE}/ComfyUI/models/diffusion_models/ltx-2.3-22b-distilled_transformer_only_fp8_scaled.safetensors
+  - url: https://huggingface.co/Comfy-Org/ltx-2/resolve/main/split_files/text_encoders/gemma_3_12B_it_fp8_scaled.safetensors # 13.2 GB
+    dest: ${WORKSPACE}/ComfyUI/models/text_encoders/gemma_3_12B_it_fp8_scaled.safetensors
