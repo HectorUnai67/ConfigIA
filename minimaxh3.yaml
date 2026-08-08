@@ -3,7 +3,6 @@ extensions:
   - module: provisioner_comfyui
     config:
       workflows:
-        - https://raw.githubusercontent.com/HectorUnai67/ConfigIA/refs/heads/main/AcademiaSD_MiniMax-H3_v14_TurboLoRA.json.json
         - https://raw.githubusercontent.com/HectorUnai67/ConfigIA/refs/heads/main/AcademiaSD_MiniMax-H3_v13.json
 
 downloads:
