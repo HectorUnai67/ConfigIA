@@ -20,12 +20,12 @@ downloads:
     # Descarga existente de HuggingFace
   - url: https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/main/diffusion_models/minimax_h3_fl2va_pruned_int8_convrot.safetensors  # 21 GB
     dest: ${WORKSPACE}/ComfyUI/models/diffusion_models/minimax_h3_fl2va_pruned_int8_convrot.safetensors
-  - url: https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/main/diffusion_models/minimax_h3_fl2va_pruned_bf16.safetensors  # 40.2 GB
-    dest: ${WORKSPACE}/ComfyUI/models/diffusion_models/minimax_h3_fl2va_pruned_bf16.safetensors
+  - url: https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/main/diffusion_models/minimax_h3_fl2va_int8_convrot.safetensors  # 21 GB
+    dest: ${WORKSPACE}/ComfyUI/models/diffusion_models/minimax_h3_fl2va_int8_convrot.safetensors
   - url: https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/main/diffusion_models/minimax_h3_ref2va_pruned_int8_convrot.safetensors  # 21 GB
     dest: ${WORKSPACE}/ComfyUI/models/diffusion_models/minimax_h3_ref2va_pruned_int8_convrot.safetensors
-  - url: https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/main/diffusion_models/minimax_h3_ref2va_pruned_bf16.safetensors  # 40.2 GB
-    dest: ${WORKSPACE}/ComfyUI/models/diffusion_models/minimax_h3_ref2va_pruned_bf16.safetensors
+  - url: https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/main/diffusion_models/minimax_h3_ref2va_int8_convrot.safetensors  # 21 GB
+    dest: ${WORKSPACE}/ComfyUI/models/diffusion_models/minimax_h3_ref2va_int8_convrot.safetensors
   - url: https://huggingface.co/ethanfel/Qwen3-VL-32B-Ultra-Heretic-H3-ComfyUI-INT8-ConvRot/resolve/main/qwen3vl_32b_h3_ultra_uncensored_heretic_int8_convrot.safetensors  # 26.4 GB
     dest: ${WORKSPACE}/ComfyUI/models/text_encoders/qwen3vl_32b_h3_ultra_uncensored_heretic_int8_convrot.safetensors
   - url: https://huggingface.co/ethanfel/Qwen3-VL-32B-Ultra-Heretic-H3-ComfyUI-INT8-ConvRot/resolve/main/qwen3vl_32b_h3_ultra_uncensored_heretic_bf16.safetensors  # 51.5 GB
