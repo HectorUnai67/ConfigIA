@@ -3,7 +3,7 @@ extensions:
   - module: provisioner_comfyui
     config:
       workflows:
-        - https://raw.githubusercontent.com/HectorUnai67/ConfigIA/refs/heads/main/AcademiaSD_MiniMax-H3_v13.json
+        - https://raw.githubusercontent.com/HectorUnai67/ConfigIA/refs/heads/main/MimiMaxH3_interpolated_OK.json
 
 downloads:
   - url: https://raw.githubusercontent.com/Comfy-Org/workflow_templates/refs/heads/main/input/cactus_man.png
@@ -29,6 +29,12 @@ downloads:
   - url: https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/main/vae/minimax_h3_audio_vae_fp32.safetensors  # 605 MB
     dest: ${WORKSPACE}/ComfyUI/models/vae/minimax_h3_audio_vae_fp32.safetensors
   - url: https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/main/vae/minimax_h3_video_vae_fp16.safetensors  # 5.21 GB
-    dest: ${WORKSPACE}/ComfyUI/models/vae/minimax_h3_video_vae_fp16.safetensors
-  - url: hhttps://huggingface.co/Kijai/MiniMax-H3-TAE/resolve/main/vae_approx/taeh3.safetensors # 9.79 MB
+    dest: ${WORKSPACE}/ComfyUI/models/vae/minimax_h3_video_vae_fp16.safetensors  
+  - url: https://huggingface.co/Kijai/MiniMax-H3-TAE/resolve/main/vae_approx/taeh3.safetensors # 9.34 MB
     dest: ${WORKSPACE}/ComfyUI/models/vae_approx/taeh3.safetensors
+  - url: https://huggingface.co/larryvrh/MiniMax-H3-Turbo-Lora/resolve/main/minimax_h3_turbo_v4_step600_ema.safetensors  # 743.72 MB
+    dest: ${WORKSPACE}/ComfyUI/models/loras/minimax_h3_turbo_v4_step600_ema.safetensors
+  - url: https://huggingface.co/Mamad8/MiniMax-H3-Image-VAE/resolve/main/minimax_h3_t1_image_vae_step1597.safetensors  # 4.85 GB
+    dest: ${WORKSPACE}/ComfyUI/models/vae/minimax_h3_t1_image_vae_step1597.safetensors
+  - url: https://huggingface.co/Kijai/MiniMax-H3-experimental/resolve/main/minimax_h3_video_vae_int8_convrot.safetensors  # 2.95 GB
+    dest: ${WORKSPACE}/ComfyUI/models/vae/minimax_h3_video_vae_int8_convrot.safetensors
