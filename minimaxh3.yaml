@@ -4,6 +4,7 @@ extensions:
     config:
       workflows:
         - https://raw.githubusercontent.com/HectorUnai67/ConfigIA/refs/heads/main/MOVIOLA.json
+        - https://raw.githubusercontent.com/HectorUnai67/ConfigIA/refs/heads/main/H3_ExpressionsSheetMaker_6_Panel%20v4.json
 
 downloads:
   - url: https://raw.githubusercontent.com/Comfy-Org/workflow_templates/refs/heads/main/input/cactus_man.png
