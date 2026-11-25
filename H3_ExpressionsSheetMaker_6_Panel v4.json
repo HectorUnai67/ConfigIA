@@ -1,0 +1,3479 @@
+{
+  "id": "a01f5f9e-b14c-4097-9c95-6cbff27ce51e",
+  "revision": 0,
+  "last_node_id": 5914,
+  "last_link_id": 20455,
+  "nodes": [
+    {
+      "id": 119,
+      "type": "VAELoader",
+      "pos": [
+        -1490,
+        5270
+      ],
+      "size": [
+        640,
+        70
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "VAE",
+          "type": "VAE",
+          "links": [
+            251,
+            273
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.46.2",
+        "Node name for S&R": "VAELoader",
+        "models": [
+          {
+            "name": "minimax_h3_video_vae_int8_convrot.safetensors",
+            "url": "https://huggingface.co/Kijai/MiniMax-H3-experimental/resolve/main/minimax_h3_video_vae_int8_convrot.safetensors",
+            "directory": "vae"
+          }
+        ]
+      },
+      "widgets_values": [
+        "minimax_h3_video_vae_int8_convrot.safetensors"
+      ],
+      "widgets_values_named": {
+        "vae_name": "minimax_h3_video_vae_int8_convrot.safetensors"
+      }
+    },
+    {
+      "id": 120,
+      "type": "VAELoader",
+      "pos": [
+        -1490,
+        5400
+      ],
+      "size": [
+        650,
+        70
+      ],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "VAE",
+          "type": "VAE",
+          "links": [
+            274
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.46.2",
+        "Node name for S&R": "VAELoader",
+        "models": [
+          {
+            "name": "minimax_h3_audio_vae_fp32.safetensors",
+            "url": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/main/vae/minimax_h3_audio_vae_fp32.safetensors",
+            "directory": "vae"
+          }
+        ]
+      },
+      "widgets_values": [
+        "minimax_h3_audio_vae_fp32.safetensors"
+      ],
+      "widgets_values_named": {
+        "vae_name": "minimax_h3_audio_vae_fp32.safetensors"
+      }
+    },
+    {
+      "id": 125,
+      "type": "SamplerCustomAdvanced",
+      "pos": [
+        150,
+        5110
+      ],
+      "size": [
+        299.733984375,
+        140
+      ],
+      "flags": {},
+      "order": 34,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "noise",
+          "type": "NOISE",
+          "link": 253
+        },
+        {
+          "name": "guider",
+          "type": "GUIDER",
+          "link": 254
+        },
+        {
+          "name": "sampler",
+          "type": "SAMPLER",
+          "link": 255
+        },
+        {
+          "name": "sigmas",
+          "type": "SIGMAS",
+          "link": 256
+        },
+        {
+          "name": "latent_image",
+          "type": "LATENT",
+          "link": 271
+        }
+      ],
+      "outputs": [
+        {
+          "name": "output",
+          "type": "LATENT",
+          "links": [
+            280
+          ]
+        },
+        {
+          "name": "denoised_output",
+          "type": "LATENT",
+          "links": []
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.46.2",
+        "Node name for S&R": "SamplerCustomAdvanced"
+      }
+    },
+    {
+      "id": 126,
+      "type": "BasicGuider",
+      "pos": [
+        -260,
+        5080
+      ],
+      "size": [
+        360,
+        60
+      ],
+      "flags": {},
+      "order": 32,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 20401
+        },
+        {
+          "name": "conditioning",
+          "type": "CONDITIONING",
+          "link": 270
+        }
+      ],
+      "outputs": [
+        {
+          "name": "GUIDER",
+          "type": "GUIDER",
+          "links": [
+            254
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.46.2",
+        "Node name for S&R": "BasicGuider"
+      }
+    },
+    {
+      "id": 128,
+      "type": "CLIPLoader",
+      "pos": [
+        -1490,
+        5090
+      ],
+      "size": [
+        640,
+        120
+      ],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "CLIP",
+          "type": "CLIP",
+          "links": [
+            272
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.46.2",
+        "Node name for S&R": "CLIPLoader",
+        "models": [
+          {
+            "name": "qwen3vl_32b_minimax_h3_int8_convrot.safetensors",
+            "url": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/main/text_encoders/qwen3vl_32b_minimax_h3_int8_convrot.safetensors",
+            "directory": "text_encoders"
+          }
+        ]
+      },
+      "widgets_values": [
+        "qwen3vl_32b_minimax_h3_int8_convrot.safetensors",
+        "minimax",
+        "default"
+      ],
+      "widgets_values_named": {
+        "clip_name": "qwen3vl_32b_minimax_h3_int8_convrot.safetensors",
+        "type": "minimax",
+        "device": "default"
+      }
+    },
+    {
+      "id": 129,
+      "type": "RandomNoise",
+      "pos": [
+        -260,
+        4940
+      ],
+      "size": [
+        360,
+        90
+      ],
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "NOISE",
+          "type": "NOISE",
+          "links": [
+            253
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.46.2",
+        "Node name for S&R": "RandomNoise"
+      },
+      "widgets_values": [
+        655922550452089,
+        "randomize"
+      ],
+      "widgets_values_named": {
+        "noise_seed": 655922550452089,
+        "control_after_generate": "randomize"
+      }
+    },
+    {
+      "id": 140,
+      "type": "MarkdownNote",
+      "pos": [
+        -1880,
+        4880
+      ],
+      "size": [
+        300,
+        520
+      ],
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "title": "Note: Size Settings Reference",
+      "properties": {},
+      "widgets_values": [
+        "| megapixels | Aspect | Output (multiple=32) |\n|---|---|---|\n| 0.2 | 16:9 | 608 x 352 |\n| 0.3 | 16:9 | 736 x 416 |\n| 0.4 | 16:9 | 864 x 480 |\n| 0.5 | 16:9 | 960 x 544 |\n| 0.6 | 16:9 | 1056 x 608 |\n| 0.7 | 16:9 | 1152 x 640 |\n| 0.8 | 16:9 | 1216 x 672 |\n| 0.9 | 16:9 | 1280 x 736 |\n| 0.98 | 16:9 | 1344 x 768 |\n| 1.0 | 16:9 | 1376 x 768 |\n| 1.2 | 16:9 | 1504 x 832 |\n| 1.5 | 16:9 | 1664 x 928 |\n| 1.8 | 16:9 | 1824 x 1024 |\n| 2.0 | 16:9 | 1920 x 1088 |\n"
+      ],
+      "widgets_values_named": {
+        "text": "| megapixels | Aspect | Output (multiple=32) |\n|---|---|---|\n| 0.2 | 16:9 | 608 x 352 |\n| 0.3 | 16:9 | 736 x 416 |\n| 0.4 | 16:9 | 864 x 480 |\n| 0.5 | 16:9 | 960 x 544 |\n| 0.6 | 16:9 | 1056 x 608 |\n| 0.7 | 16:9 | 1152 x 640 |\n| 0.8 | 16:9 | 1216 x 672 |\n| 0.9 | 16:9 | 1280 x 736 |\n| 0.98 | 16:9 | 1344 x 768 |\n| 1.0 | 16:9 | 1376 x 768 |\n| 1.2 | 16:9 | 1504 x 832 |\n| 1.5 | 16:9 | 1664 x 928 |\n| 1.8 | 16:9 | 1824 x 1024 |\n| 2.0 | 16:9 | 1920 x 1088 |\n"
+      },
+      "color": "#222",
+      "bgcolor": "#000"
+    },
+    {
+      "id": 117,
+      "type": "MarkdownNote",
+      "pos": [
+        -2380,
+        4880
+      ],
+      "size": [
+        440,
+        740
+      ],
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "title": "Note: Model Links",
+      "properties": {},
+      "widgets_values": [
+        "## Model Links\n[🤗 Comfy-Org/MiniMax-H3](https://huggingface.co/Comfy-Org/MiniMax-H3)\n\n**vae**\n\n- [minimax_h3_video_vae_fp16.safetensors](https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/main/vae/minimax_h3_video_vae_fp16.safetensors)\n- [minimax_h3_audio_vae_fp32.safetensors](https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/main/vae/minimax_h3_audio_vae_fp32.safetensors)\n\n**diffusion_models**\n\n- [minimax_h3_ref2va_pruned_int8_convrot.safetensors](https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/main/diffusion_models/minimax_h3_ref2va_pruned_int8_convrot.safetensors)\n\n**text_encoders**\n\n- [qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors](https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/main/text_encoders/qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors)\n\n\n## Model Storage Location\n\n```\n📂 ComfyUI/\n├── 📂 models/\n│   ├── 📂 vae/\n│   │   ├── minimax_h3_video_vae_fp16.safetensors\n│   │   └── minimax_h3_audio_vae_fp32.safetensors\n│   ├── 📂 diffusion_models/\n│   │   └── minimax_h3_ref2va_pruned_int8_convrot.safetensors\n│   └── 📂 text_encoders/\n│       └── qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors\n```\n\n## Report Issue\n\nNote: Please update ComfyUI first ([guide](https://docs.comfy.org/installation/update_comfyui)) and prepare required models. Desktop/Cloud updates follow stable releases, so some nightly-supported models may not be available yet.\n\n- Cannot run / runtime errors: [ComfyUI/issues](https://github.com/comfyanonymous/ComfyUI/issues)\n- UI / frontend issues: [ComfyUI_frontend/issues](https://github.com/Comfy-Org/ComfyUI_frontend/issues)\n- Workflow issues: [workflow_templates/issues](https://github.com/Comfy-Org/workflow_templates/issues)\n"
+      ],
+      "widgets_values_named": {
+        "text": "## Model Links\n[🤗 Comfy-Org/MiniMax-H3](https://huggingface.co/Comfy-Org/MiniMax-H3)\n\n**vae**\n\n- [minimax_h3_video_vae_fp16.safetensors](https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/main/vae/minimax_h3_video_vae_fp16.safetensors)\n- [minimax_h3_audio_vae_fp32.safetensors](https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/main/vae/minimax_h3_audio_vae_fp32.safetensors)\n\n**diffusion_models**\n\n- [minimax_h3_ref2va_pruned_int8_convrot.safetensors](https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/main/diffusion_models/minimax_h3_ref2va_pruned_int8_convrot.safetensors)\n\n**text_encoders**\n\n- [qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors](https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/main/text_encoders/qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors)\n\n\n## Model Storage Location\n\n```\n📂 ComfyUI/\n├── 📂 models/\n│   ├── 📂 vae/\n│   │   ├── minimax_h3_video_vae_fp16.safetensors\n│   │   └── minimax_h3_audio_vae_fp32.safetensors\n│   ├── 📂 diffusion_models/\n│   │   └── minimax_h3_ref2va_pruned_int8_convrot.safetensors\n│   └── 📂 text_encoders/\n│       └── qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors\n```\n\n## Report Issue\n\nNote: Please update ComfyUI first ([guide](https://docs.comfy.org/installation/update_comfyui)) and prepare required models. Desktop/Cloud updates follow stable releases, so some nightly-supported models may not be available yet.\n\n- Cannot run / runtime errors: [ComfyUI/issues](https://github.com/comfyanonymous/ComfyUI/issues)\n- UI / frontend issues: [ComfyUI_frontend/issues](https://github.com/Comfy-Org/ComfyUI_frontend/issues)\n- Workflow issues: [workflow_templates/issues](https://github.com/Comfy-Org/workflow_templates/issues)\n"
+      },
+      "color": "#222",
+      "bgcolor": "#000"
+    },
+    {
+      "id": 142,
+      "type": "MarkdownNote",
+      "pos": [
+        -2000,
+        5720
+      ],
+      "size": [
+        460,
+        980
+      ],
+      "flags": {},
+      "order": 6,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "title": "README — H3 Character Sheet Maker",
+      "properties": {},
+      "widgets_values": [
+        "# H3 Character Sheet Maker\n\nTurn up to **9 reference images** into a clean six-view character sheet in a single generation.\n\nFeed it a face, an outfit, a weapon and a hat, and H3 will assemble them into one coherent character,\nthen show you that character from four sides plus two face close-ups.\n\n---\n\n## Why a video model\n\nSix separate image generations of the same character will disagree with each other — the jaw shifts,\nthe jacket changes, the palette drifts. Six frames from **one** video generation physically cannot,\nbecause they share a single denoising pass.\n\nThis workflow renders one continuous 360° orbit, pulls six frames out of it, and stitches them into a\nsheet. No hard cuts anywhere, so nothing gets a chance to reinvent itself between shots. The camera\ndoes all the moving; the character stays frozen.\n\n---\n\n## Quick start\n\n1. **Load your references.** Any mix of photos, drawings or anime art. The first one sets the style.\n2. **Fill in `Input Text (Prompt)`** — one line per image saying what to take and what to ignore.\n3. **Pick your size** on the Resolution Selector: aspect ratio, then megapixels.\n4. **Leave duration at 5.** Everything downstream is tuned to it.\n5. Queue. The finished sheet lands in `ComfyUI/output/charsheet/`.\n\n---\n\n## The two prompt boxes\n\nThey get joined together automatically, so you only ever touch the first one.\n\n**`Input Text (Prompt)`** — yours. Assign every image one job and one ignore list:\n\n```\n<Picture 1> - keep the photo style. Use the bald head, facial hair, physique.\n<Picture 2> - keep only the black outfit. Remove the hair, remove accessories.\n<Picture 3> - use the shield. It is attached to the man's back.\n```\n\nBeing blunt about what to *ignore* matters as much as what to keep. Backgrounds, poses and the wrong\nperson's face all travel across unless you rule them out by name.\n\nDescribe fabrics and materials **in words** too. Faces carry across on their own; wardrobe drifts.\n\"Black high-collared coat with silver buckles\" survives where \"the outfit from `<Picture 2>`\" wanders.\n\n**`Prompt for orbiting`** — the fixed half. Backdrop, lighting, lens, the A-pose, the statue lock and\nthe three beat timings. Leave it alone unless you're changing the shot structure, and if you do, see\n*Retiming* below.\n\n---\n\n## What you get\n\n| # | View | Source |\n|---|---|---|\n| 1 | Front | orbit 0% |\n| 2 | Left side | orbit 25% |\n| 3 | Back | orbit 50% |\n| 4 | Right side | orbit 75% |\n| 5 | Face, front | beat 2 |\n| 6 | Face, three-quarter | beat 3 |\n\nLaid out 3 wide × 2 tall with thin black gutters.\n\n---\n\n## Settings worth knowing\n\n**Duration — leave at 5.** That's 124 frames. Valid lengths are `17n + 5`: 5, 22, 39, 56, 73, 90,\n107, 124. Anything else rounds up. 124 puts the orbit at roughly 100°/s, an ordinary turntable speed.\nGo much shorter and the spin outruns the model — it smears past about 5° per frame.\n\n**Aspect ratio.** Portrait for people. 9:16 wastes the least frame on a standing figure.\n\n**Megapixels.** 0.5 to scout, 0.7 for normal use, 1.2+ when you want the face crops to hold up. Cost\nscales roughly linearly, so prove the composition cheap before you commit.\n\n**Speed-up nodes.** Sage Attention and caching both cost some prompt adherence here. Deliberately left out. Add them if you like.\n\n**Optional outputs.** Two extra save nodes are bypassed by default: every individual frame, and the\nraw video. Un-bypass either if you want to cherry-pick your own angles.\n\n---\n\n## Getting good results\n\n**Give it a back view if you have one.** With only front-facing references the entire back of your\ncharacter is invented. This is the single biggest quality lever in the workflow, and no amount of\nprompt tuning substitutes for it.\n\n**Watch for flutter.** Hair and cloth want to move. The fixed prompt already freezes them hard; if\nsomething still ripples, name the specific offender in your input box.\n\n**Assembling from many sources?** If the character is built from three or more images, consider two\nstages: run once to get a clean front view, then feed *that* render back in as `<Picture 1>` and\nbuild the sheet from it. A purpose-made reference beats a pile of contradictory ones.\n\n**Retiming.** The six grab points are locked to the beat timings in the fixed prompt. If you change\nthose times or the duration, open the subgraph and move the frame indexes to match, or the grabs will\nland mid-transition.\n\n---\n\n## Then what\n\nUse the character sheet how you would like. You can input it as a reference for future H3 video generation, use it for custom DnD character, use it for visualizing characters or props. "
+      ],
+      "widgets_values_named": {
+        "text": "# H3 Character Sheet Maker\n\nTurn up to **9 reference images** into a clean six-view character sheet in a single generation.\n\nFeed it a face, an outfit, a weapon and a hat, and H3 will assemble them into one coherent character,\nthen show you that character from four sides plus two face close-ups.\n\n---\n\n## Why a video model\n\nSix separate image generations of the same character will disagree with each other — the jaw shifts,\nthe jacket changes, the palette drifts. Six frames from **one** video generation physically cannot,\nbecause they share a single denoising pass.\n\nThis workflow renders one continuous 360° orbit, pulls six frames out of it, and stitches them into a\nsheet. No hard cuts anywhere, so nothing gets a chance to reinvent itself between shots. The camera\ndoes all the moving; the character stays frozen.\n\n---\n\n## Quick start\n\n1. **Load your references.** Any mix of photos, drawings or anime art. The first one sets the style.\n2. **Fill in `Input Text (Prompt)`** — one line per image saying what to take and what to ignore.\n3. **Pick your size** on the Resolution Selector: aspect ratio, then megapixels.\n4. **Leave duration at 5.** Everything downstream is tuned to it.\n5. Queue. The finished sheet lands in `ComfyUI/output/charsheet/`.\n\n---\n\n## The two prompt boxes\n\nThey get joined together automatically, so you only ever touch the first one.\n\n**`Input Text (Prompt)`** — yours. Assign every image one job and one ignore list:\n\n```\n<Picture 1> - keep the photo style. Use the bald head, facial hair, physique.\n<Picture 2> - keep only the black outfit. Remove the hair, remove accessories.\n<Picture 3> - use the shield. It is attached to the man's back.\n```\n\nBeing blunt about what to *ignore* matters as much as what to keep. Backgrounds, poses and the wrong\nperson's face all travel across unless you rule them out by name.\n\nDescribe fabrics and materials **in words** too. Faces carry across on their own; wardrobe drifts.\n\"Black high-collared coat with silver buckles\" survives where \"the outfit from `<Picture 2>`\" wanders.\n\n**`Prompt for orbiting`** — the fixed half. Backdrop, lighting, lens, the A-pose, the statue lock and\nthe three beat timings. Leave it alone unless you're changing the shot structure, and if you do, see\n*Retiming* below.\n\n---\n\n## What you get\n\n| # | View | Source |\n|---|---|---|\n| 1 | Front | orbit 0% |\n| 2 | Left side | orbit 25% |\n| 3 | Back | orbit 50% |\n| 4 | Right side | orbit 75% |\n| 5 | Face, front | beat 2 |\n| 6 | Face, three-quarter | beat 3 |\n\nLaid out 3 wide × 2 tall with thin black gutters.\n\n---\n\n## Settings worth knowing\n\n**Duration — leave at 5.** That's 124 frames. Valid lengths are `17n + 5`: 5, 22, 39, 56, 73, 90,\n107, 124. Anything else rounds up. 124 puts the orbit at roughly 100°/s, an ordinary turntable speed.\nGo much shorter and the spin outruns the model — it smears past about 5° per frame.\n\n**Aspect ratio.** Portrait for people. 9:16 wastes the least frame on a standing figure.\n\n**Megapixels.** 0.5 to scout, 0.7 for normal use, 1.2+ when you want the face crops to hold up. Cost\nscales roughly linearly, so prove the composition cheap before you commit.\n\n**Speed-up nodes.** Sage Attention and caching both cost some prompt adherence here. Deliberately left out. Add them if you like.\n\n**Optional outputs.** Two extra save nodes are bypassed by default: every individual frame, and the\nraw video. Un-bypass either if you want to cherry-pick your own angles.\n\n---\n\n## Getting good results\n\n**Give it a back view if you have one.** With only front-facing references the entire back of your\ncharacter is invented. This is the single biggest quality lever in the workflow, and no amount of\nprompt tuning substitutes for it.\n\n**Watch for flutter.** Hair and cloth want to move. The fixed prompt already freezes them hard; if\nsomething still ripples, name the specific offender in your input box.\n\n**Assembling from many sources?** If the character is built from three or more images, consider two\nstages: run once to get a clean front view, then feed *that* render back in as `<Picture 1>` and\nbuild the sheet from it. A purpose-made reference beats a pile of contradictory ones.\n\n**Retiming.** The six grab points are locked to the beat timings in the fixed prompt. If you change\nthose times or the duration, open the subgraph and move the frame indexes to match, or the grabs will\nland mid-transition.\n\n---\n\n## Then what\n\nUse the character sheet how you would like. You can input it as a reference for future H3 video generation, use it for custom DnD character, use it for visualizing characters or props. "
+      },
+      "color": "#222",
+      "bgcolor": "#000"
+    },
+    {
+      "id": 123,
+      "type": "KSamplerSelect",
+      "pos": [
+        -260,
+        5190
+      ],
+      "size": [
+        370,
+        70
+      ],
+      "flags": {},
+      "order": 7,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "SAMPLER",
+          "type": "SAMPLER",
+          "links": [
+            255
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.46.2",
+        "Node name for S&R": "KSamplerSelect"
+      },
+      "widgets_values": [
+        "euler"
+      ],
+      "widgets_values_named": {
+        "sampler_name": "euler"
+      }
+    },
+    {
+      "id": 141,
+      "type": "SaveImage",
+      "pos": [
+        1280,
+        6160
+      ],
+      "size": [
+        420,
+        340
+      ],
+      "flags": {},
+      "order": 37,
+      "mode": 4,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 283
+        }
+      ],
+      "outputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "links": null
+        }
+      ],
+      "title": "Save ALL frames (pick from the best if you wish)",
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.46.2",
+        "Node name for S&R": "SaveImage"
+      },
+      "widgets_values": [
+        "charsheet/frames/f"
+      ],
+      "widgets_values_named": {
+        "filename_prefix": "charsheet/frames/f"
+      },
+      "color": "#232",
+      "bgcolor": "#353"
+    },
+    {
+      "id": 962,
+      "type": "Note",
+      "pos": [
+        150,
+        5350
+      ],
+      "size": [
+        350,
+        230
+      ],
+      "flags": {},
+      "order": 8,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "title": "<<<<<  STEPS",
+      "properties": {},
+      "widgets_values": [
+        "<<<<<<<<<< NOTE: \n\nIF YOU ARE using the latest speed ups from 26 Aug.\n\n8 Steps - Latest Scheduler with Turbo LORA\n\n20-25 Steps - WITHOUT any speed ups \n"
+      ],
+      "widgets_values_named": {
+        "text": "<<<<<<<<<< NOTE: \n\nIF YOU ARE using the latest speed ups from 26 Aug.\n\n8 Steps - Latest Scheduler with Turbo LORA\n\n20-25 Steps - WITHOUT any speed ups \n"
+      },
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 127,
+      "type": "UNETLoader",
+      "pos": [
+        -1490,
+        4940
+      ],
+      "size": [
+        640,
+        90
+      ],
+      "flags": {},
+      "order": 9,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            20440
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.46.2",
+        "Node name for S&R": "UNETLoader",
+        "models": [
+          {
+            "name": "minimax_h3_ref2va_pruned_int8_convrot.safetensors",
+            "url": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/main/diffusion_models/minimax_h3_ref2va_pruned_int8_convrot.safetensors",
+            "directory": "diffusion_models"
+          }
+        ]
+      },
+      "widgets_values": [
+        "minimax_h3_hybrid_fl2va_ref2va_b30-49-int8.safetensors",
+        "default"
+      ],
+      "widgets_values_named": {
+        "unet_name": "minimax_h3_hybrid_fl2va_ref2va_b30-49-int8.safetensors",
+        "weight_dtype": "default"
+      }
+    },
+    {
+      "id": 130,
+      "type": "CreateVideo",
+      "pos": [
+        1250,
+        5440
+      ],
+      "size": [
+        270,
+        110
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "order": 36,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 258
+        },
+        {
+          "name": "audio",
+          "shape": 7,
+          "type": "AUDIO",
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "VIDEO",
+          "type": "VIDEO",
+          "links": [
+            260
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.46.2",
+        "Node name for S&R": "CreateVideo"
+      },
+      "widgets_values": [
+        24,
+        8,
+        "sRGB",
+        "none",
+        "none"
+      ],
+      "widgets_values_named": {
+        "fps": 24,
+        "bit_depth": 8,
+        "color_space": "sRGB",
+        "chroma_subsampling": "none",
+        "codec": "none"
+      }
+    },
+    {
+      "id": 92,
+      "type": "SaveVideo",
+      "pos": [
+        1410,
+        5440
+      ],
+      "size": [
+        280,
+        378
+      ],
+      "flags": {},
+      "order": 39,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "video",
+          "type": "VIDEO",
+          "link": 260
+        }
+      ],
+      "outputs": [
+        {
+          "name": "video",
+          "type": "VIDEO",
+          "links": null
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.46.2",
+        "Node name for S&R": "SaveVideo"
+      },
+      "widgets_values": [
+        "charsheet/SHEET",
+        "auto",
+        "auto",
+        "auto"
+      ],
+      "widgets_values_named": {
+        "filename_prefix": "charsheet/SHEET",
+        "format": "auto",
+        "format.codec": "auto",
+        "codec": "auto"
+      }
+    },
+    {
+      "id": 136,
+      "type": "MiniMaxH3ReferenceToVideo",
+      "pos": [
+        -750,
+        4940
+      ],
+      "size": [
+        410,
+        424
+      ],
+      "flags": {},
+      "order": 30,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 272
+        },
+        {
+          "name": "vae",
+          "shape": 7,
+          "type": "VAE",
+          "link": 273
+        },
+        {
+          "name": "audio_vae",
+          "shape": 7,
+          "type": "VAE",
+          "link": 274
+        },
+        {
+          "label": "ref_image_0",
+          "name": "ref_images.ref_image_0",
+          "shape": 7,
+          "type": "IMAGE",
+          "link": 278
+        },
+        {
+          "name": "ref_images.ref_image_1",
+          "shape": 7,
+          "type": "IMAGE",
+          "link": 20428
+        },
+        {
+          "name": "ref_images.ref_image_2",
+          "shape": 7,
+          "type": "IMAGE",
+          "link": 20449
+        },
+        {
+          "label": "ref_video_0",
+          "name": "ref_videos.ref_video_0",
+          "shape": 7,
+          "type": "IMAGE",
+          "link": null
+        },
+        {
+          "label": "ref_video_audio_0",
+          "name": "ref_video_audios.ref_video_audio_0",
+          "shape": 7,
+          "type": "AUDIO",
+          "link": null
+        },
+        {
+          "label": "ref_audio_0",
+          "name": "ref_audios.ref_audio_0",
+          "shape": 7,
+          "type": "AUDIO",
+          "link": null
+        },
+        {
+          "name": "ref_audios.ref_audio_1",
+          "shape": 7,
+          "type": "AUDIO",
+          "link": null
+        },
+        {
+          "name": "ref_audios.ref_audio_2",
+          "shape": 7,
+          "type": "AUDIO",
+          "link": null
+        },
+        {
+          "name": "prompt",
+          "type": "STRING",
+          "widget": {
+            "name": "prompt"
+          },
+          "link": 354
+        },
+        {
+          "name": "width",
+          "type": "INT",
+          "widget": {
+            "name": "width"
+          },
+          "link": 347
+        },
+        {
+          "name": "height",
+          "type": "INT",
+          "widget": {
+            "name": "height"
+          },
+          "link": 348
+        },
+        {
+          "name": "ref_images.ref_image_3",
+          "shape": 7,
+          "type": "IMAGE",
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "links": [
+            270
+          ]
+        },
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            271
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.46.2",
+        "Node name for S&R": "MiniMaxH3ReferenceToVideo"
+      },
+      "widgets_values": [
+        "",
+        768,
+        1344,
+        362,
+        "max"
+      ],
+      "widgets_values_named": {
+        "prompt": "",
+        "width": 768,
+        "height": 1344,
+        "length": 362,
+        "ref_image_size": "max"
+      }
+    },
+    {
+      "id": 124,
+      "type": "BasicScheduler",
+      "pos": [
+        -260,
+        5310
+      ],
+      "size": [
+        370,
+        130
+      ],
+      "flags": {},
+      "order": 33,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 20402
+        }
+      ],
+      "outputs": [
+        {
+          "name": "SIGMAS",
+          "type": "SIGMAS",
+          "links": [
+            256
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.46.2",
+        "Node name for S&R": "BasicScheduler"
+      },
+      "widgets_values": [
+        "beta",
+        8,
+        1
+      ],
+      "widgets_values_named": {
+        "scheduler": "beta",
+        "steps": 8,
+        "denoise": 1
+      }
+    },
+    {
+      "id": 115,
+      "type": "ResolutionSelector",
+      "pos": [
+        -1440,
+        5620
+      ],
+      "size": [
+        290,
+        170
+      ],
+      "flags": {},
+      "order": 10,
+      "mode": 0,
+      "showAdvanced": false,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "width",
+          "type": "INT",
+          "links": [
+            347
+          ]
+        },
+        {
+          "name": "height",
+          "type": "INT",
+          "links": [
+            348
+          ]
+        }
+      ],
+      "title": "IMAGE SIZE (pick ratio + megapixels)",
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.46.2",
+        "Node name for S&R": "ResolutionSelector"
+      },
+      "widgets_values": [
+        "1:1 (Square)",
+        0.8,
+        32
+      ],
+      "widgets_values_named": {
+        "aspect_ratio": "1:1 (Square)",
+        "megapixels": 0.8,
+        "multiple": 32
+      },
+      "color": "#322",
+      "bgcolor": "#533"
+    },
+    {
+      "id": 238,
+      "type": "80545511-8d5f-4d2a-826f-06b914ccf423",
+      "pos": [
+        1240,
+        4750
+      ],
+      "size": [
+        150,
+        30
+      ],
+      "flags": {},
+      "order": 38,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 20426
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            356
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.46.2",
+        "previewExposures": []
+      }
+    },
+    {
+      "id": 122,
+      "type": "VAEDecode",
+      "pos": [
+        480,
+        5060
+      ],
+      "size": [
+        230,
+        60
+      ],
+      "flags": {
+        "collapsed": false
+      },
+      "order": 35,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "samples",
+          "type": "LATENT",
+          "link": 280
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 251
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            258,
+            283,
+            20426
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.46.2",
+        "Node name for S&R": "VAEDecode"
+      }
+    },
+    {
+      "id": 218,
+      "type": "SaveImage",
+      "pos": [
+        1400,
+        4750
+      ],
+      "size": [
+        500,
+        490
+      ],
+      "flags": {},
+      "order": 40,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 356
+        }
+      ],
+      "outputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "links": null
+        }
+      ],
+      "title": "SAVE CHARACTER SHEET",
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.46.2",
+        "Node name for S&R": "SaveImage"
+      },
+      "widgets_values": [
+        "charsheet/SHEET"
+      ],
+      "widgets_values_named": {
+        "filename_prefix": "charsheet/SHEET"
+      },
+      "color": "#232",
+      "bgcolor": "#353"
+    },
+    {
+      "id": 137,
+      "type": "LoadImage",
+      "pos": [
+        -620,
+        5700
+      ],
+      "size": [
+        290,
+        330
+      ],
+      "flags": {},
+      "order": 11,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            278
+          ]
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": null
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.46.2",
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        "bertauau! (16)_2.jpg",
+        "image"
+      ],
+      "widgets_values_named": {
+        "image": "bertauau! (16)_2.jpg",
+        "upload": "image"
+      }
+    },
+    {
+      "id": 5904,
+      "type": "LoadImage",
+      "pos": [
+        -261.89638567268537,
+        5718.099628489276
+      ],
+      "size": [
+        290,
+        330
+      ],
+      "flags": {
+        "collapsed": false
+      },
+      "order": 12,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            20428
+          ]
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": null
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.46.2",
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        "558885515_10238597660789032_8319280652160554394_n.jpg",
+        "image"
+      ],
+      "widgets_values_named": {
+        "image": "558885515_10238597660789032_8319280652160554394_n.jpg",
+        "upload": "image"
+      }
+    },
+    {
+      "id": 5891,
+      "type": "Note",
+      "pos": [
+        -1020,
+        6130
+      ],
+      "size": [
+        270,
+        180
+      ],
+      "flags": {},
+      "order": 13,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "properties": {},
+      "widgets_values": [
+        "<<<<< This is the new general purpose prompt. It makes it even more easy to use as you no longer need to describe the picture for many simple cases.\n\n- 10 Sept 2026"
+      ],
+      "widgets_values_named": {
+        "text": "<<<<< This is the new general purpose prompt. It makes it even more easy to use as you no longer need to describe the picture for many simple cases.\n\n- 10 Sept 2026"
+      },
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 5892,
+      "type": "PrimitiveStringMultiline",
+      "pos": [
+        -1016.2242985305744,
+        6370.1001645276265
+      ],
+      "size": [
+        390,
+        200
+      ],
+      "flags": {
+        "collapsed": false
+      },
+      "order": 14,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": []
+        }
+      ],
+      "title": "Exaggerated Expressions",
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.46.2",
+        "Node name for S&R": "PrimitiveStringMultiline"
+      },
+      "widgets_values": [
+        "[STYLE]\nThe output matches the style of <Picture 1>. Sharp detail on the eyes, brows and mouth. The style never changes and never drifts between shots. No shadows.\n\n[STAGING]\nSolid light grey seamless backdrop, one flat uniform tone edge to edge, with no gradient, no vignette, no texture and no floor line. Nothing else is in frame. The subject casts no shadow onto the backdrop and does not sit in its own shadow. Soft form shading on the subject itself is fine and should read its shape. Long telephoto lens, near-orthographic.\n\nFraming is a locked-off portrait from the shoulders to the top of the head: the crown sits just below the top edge of frame, the crop line falls across the shoulders. Face square to camera, eyes into the lens, head level and centred. This framing is identical in every shot — the head never changes size or position in frame.\n\nOnly the face changes. The head does not turn, tilt, nod, lean or move at any point. The shoulders and body are completely frozen. There is no wind, no hair movement, no breathing, no sway, no secondary motion of any kind. Lighting is identical in every shot.\n\nEach expression appears fully formed and is then held perfectly still, like a freeze frame. Changes between expressions happen as a single hard snap lasting under 0.1 seconds, with no easing, no blending, no in-between expression, no cut and no dissolve.\n\n[0-0.8 seconds] Expression 1 is already fully formed on the very first frame: HAPPY. Broad genuine smile, mouth corners pulled up and back, cheeks raised, eyes narrowed and crinkled at the outer corners, brows relaxed. Held dead still.\n\n[0.8-1.7 seconds]  Snap to Expression 2: SAD. Inner corners of the brows pulled up and together, upper eyelids drooping, gaze slightly lowered but eyes still open, mouth corners pulled down, chin tightened. Held dead still.\n\n[1.7-2.5 seconds] Snap to Expression 3: LAUGHING. Head-back openmouthed laugh with the head still level and square to camera — eyes fully closed, eyelids curved in happy crescents, cheeks pushed high, mouth wide open with the upper teeth showing, brows raised, nose slightly wrinkled. Held dead still.\n\n[2.5-3.3 seconds] Snap to Expression 4: ANGRY. Brows pulled down and inward with a vertical crease between them, eyes hard and glaring with tense upper lids, lips pressed into a tight line, jaw set. Held dead still.\n\n[3.3-4.2 seconds] Snap to Expression 5: SURPRISED. Brows raised high and curved, forehead creased, eyes wide with white visible above the iris, jaw dropped, mouth open in a loose O. Held dead still.\n\n[4.2-5.0 seconds]   Snap to Expression 6: AFRAID. Brows raised and drawn together, upper lids lifted and lower lids tensed, eyes very wide, lips stretched tight and pulled back horizontally. Held dead still.\n\n\n[CAMERA] Completely locked off and static for the entire clip. No orbit, no zoom, no push in, no dolly, no pan, no tilt, no roll, no handheld shake, no motion blur, no cuts, no dissolves.\n[AUDIO] Silence. No music, no room tone, no voices."
+      ],
+      "widgets_values_named": {
+        "value": "[STYLE]\nThe output matches the style of <Picture 1>. Sharp detail on the eyes, brows and mouth. The style never changes and never drifts between shots. No shadows.\n\n[STAGING]\nSolid light grey seamless backdrop, one flat uniform tone edge to edge, with no gradient, no vignette, no texture and no floor line. Nothing else is in frame. The subject casts no shadow onto the backdrop and does not sit in its own shadow. Soft form shading on the subject itself is fine and should read its shape. Long telephoto lens, near-orthographic.\n\nFraming is a locked-off portrait from the shoulders to the top of the head: the crown sits just below the top edge of frame, the crop line falls across the shoulders. Face square to camera, eyes into the lens, head level and centred. This framing is identical in every shot — the head never changes size or position in frame.\n\nOnly the face changes. The head does not turn, tilt, nod, lean or move at any point. The shoulders and body are completely frozen. There is no wind, no hair movement, no breathing, no sway, no secondary motion of any kind. Lighting is identical in every shot.\n\nEach expression appears fully formed and is then held perfectly still, like a freeze frame. Changes between expressions happen as a single hard snap lasting under 0.1 seconds, with no easing, no blending, no in-between expression, no cut and no dissolve.\n\n[0-0.8 seconds] Expression 1 is already fully formed on the very first frame: HAPPY. Broad genuine smile, mouth corners pulled up and back, cheeks raised, eyes narrowed and crinkled at the outer corners, brows relaxed. Held dead still.\n\n[0.8-1.7 seconds]  Snap to Expression 2: SAD. Inner corners of the brows pulled up and together, upper eyelids drooping, gaze slightly lowered but eyes still open, mouth corners pulled down, chin tightened. Held dead still.\n\n[1.7-2.5 seconds] Snap to Expression 3: LAUGHING. Head-back openmouthed laugh with the head still level and square to camera — eyes fully closed, eyelids curved in happy crescents, cheeks pushed high, mouth wide open with the upper teeth showing, brows raised, nose slightly wrinkled. Held dead still.\n\n[2.5-3.3 seconds] Snap to Expression 4: ANGRY. Brows pulled down and inward with a vertical crease between them, eyes hard and glaring with tense upper lids, lips pressed into a tight line, jaw set. Held dead still.\n\n[3.3-4.2 seconds] Snap to Expression 5: SURPRISED. Brows raised high and curved, forehead creased, eyes wide with white visible above the iris, jaw dropped, mouth open in a loose O. Held dead still.\n\n[4.2-5.0 seconds]   Snap to Expression 6: AFRAID. Brows raised and drawn together, upper lids lifted and lower lids tensed, eyes very wide, lips stretched tight and pulled back horizontally. Held dead still.\n\n\n[CAMERA] Completely locked off and static for the entire clip. No orbit, no zoom, no push in, no dolly, no pan, no tilt, no roll, no handheld shake, no motion blur, no cuts, no dissolves.\n[AUDIO] Silence. No music, no room tone, no voices."
+      }
+    },
+    {
+      "id": 239,
+      "type": "PrimitiveStringMultiline",
+      "pos": [
+        -1476.190517863874,
+        6288.149160018303
+      ],
+      "size": [
+        430,
+        270
+      ],
+      "flags": {
+        "collapsed": false
+      },
+      "order": 15,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": []
+        }
+      ],
+      "title": "Normal Expressions",
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.46.2",
+        "Node name for S&R": "PrimitiveStringMultiline"
+      },
+      "widgets_values": [
+        "[STYLE]\nThe output matches the style of <Picture 1>. Sharp detail on the eyes, brows and mouth. The style never changes and never drifts between shots. No shadows.\n\n[STAGING]\nSolid light grey seamless backdrop, one flat uniform tone edge to edge, with no gradient, no vignette, no texture and no floor line. Nothing else is in frame. The subject casts no shadow onto the backdrop and does not sit in its own shadow. Soft form shading on the subject itself is fine and should read its shape. Long telephoto lens, near-orthographic.\n\nFraming is a locked-off portrait from the shoulders to the top of the head: the crown sits just below the top edge of frame, the crop line falls across the shoulders. Face square to camera, eyes into the lens, head level and centred. This framing is identical in every shot — the head never changes size or position in frame.\n\nOnly the face changes. The head does not turn, tilt, nod, lean or move at any point. The shoulders and body are completely frozen. There is no wind, no hair movement, no breathing, no sway, no secondary motion of any kind. Lighting is identical in every shot.\n\nEvery expression is a microexpression: the smallest movement that still reads clearly. Only the brows, eyelids, gaze and mouth corners move, and only slightly. The face underneath stays relaxed and smooth in every shot — no forehead creases, no crow's feet, no crinkling at the corners of the eyes, no deepened lines beside the nose or mouth, no nose wrinkling, no squinting, no bulging or straining. Nothing is exaggerated, theatrical or posed. Eyes stay open and into the lens unless a beat below says otherwise.\n\nEach expression appears fully formed and is then held perfectly still, like a freeze frame. Changes between expressions happen as a single hard snap lasting under 0.1 seconds, with no easing, no blending, no in-between expression, no cut and no dissolve.\n\n[0-0.83 seconds] Expression 1 is already fully formed on the very first frame: GENTLE SMILE. Mouth corners lifted a small amount, lips closed and soft, a quiet warmth in the eyes without narrowing them, eyelids at their normal open position, brows relaxed and level. Skin around the eyes and mouth stays completely smooth. Content and calm, not amused, not beaming. Held dead still.\n\n[0.83-1.67 seconds] Snap to Expression 2: SAD. Inner corners of the brows lifted very slightly, upper eyelids a little heavy, gaze dropped a fraction while the eyes stay open, mouth corners barely turned down, lips closed and soft. Quiet and withdrawn, not crying, not grimacing. Held dead still.\n\n[1.67-2.5 seconds] Snap to Expression 3: LAUGHING. Head level and square to camera. Eyes closed with the lids curved in easy relaxed crescents, mouth open in a natural unforced laugh with the upper teeth showing, brows slightly raised, cheeks softly lifted. Skin stays smooth — no squeezing, no nose wrinkle, no strain. A light amused laugh, mouth only moderately open. Held dead still.\n\n[2.5-3.33 seconds] Snap to Expression 4: ANGRY. Brows lowered slightly and drawn a little inward with no crease forming between them, gaze fixed, steady and cool, faint tension in the upper lids, lips closed and lightly pressed together. Displeased and controlled, not glaring, not snarling, jaw not clenched. Held dead still.\n\n[3.33-4.17 seconds] Snap to Expression 5: SURPRISED. Brows lifted with the forehead staying smooth, eyes a touch wider than normal, lips just parted. Caught off guard for a fraction of a second, not shocked — the jaw does not drop and the eyes do not go wide. Held dead still.\n\n[4.17-5.0 seconds] Snap to Expression 6: CONCERN. Brows drawn slightly together with the inner corners raised a small amount, forehead smooth, eyes fully open, alert and attentive with the gaze level and directly into the lens, lips closed and lightly pressed. Worried about something in front of them, engaged and outward-facing — not sad, not withdrawn, not afraid. Held dead still.\n\n[CAMERA] Completely locked off and static for the entire clip. No orbit, no zoom, no push in, no dolly, no pan, no tilt, no roll, no handheld shake, no motion blur, no cuts, no dissolves.\n[AUDIO] Silence. No music, no room tone, no voices."
+      ],
+      "widgets_values_named": {
+        "value": "[STYLE]\nThe output matches the style of <Picture 1>. Sharp detail on the eyes, brows and mouth. The style never changes and never drifts between shots. No shadows.\n\n[STAGING]\nSolid light grey seamless backdrop, one flat uniform tone edge to edge, with no gradient, no vignette, no texture and no floor line. Nothing else is in frame. The subject casts no shadow onto the backdrop and does not sit in its own shadow. Soft form shading on the subject itself is fine and should read its shape. Long telephoto lens, near-orthographic.\n\nFraming is a locked-off portrait from the shoulders to the top of the head: the crown sits just below the top edge of frame, the crop line falls across the shoulders. Face square to camera, eyes into the lens, head level and centred. This framing is identical in every shot — the head never changes size or position in frame.\n\nOnly the face changes. The head does not turn, tilt, nod, lean or move at any point. The shoulders and body are completely frozen. There is no wind, no hair movement, no breathing, no sway, no secondary motion of any kind. Lighting is identical in every shot.\n\nEvery expression is a microexpression: the smallest movement that still reads clearly. Only the brows, eyelids, gaze and mouth corners move, and only slightly. The face underneath stays relaxed and smooth in every shot — no forehead creases, no crow's feet, no crinkling at the corners of the eyes, no deepened lines beside the nose or mouth, no nose wrinkling, no squinting, no bulging or straining. Nothing is exaggerated, theatrical or posed. Eyes stay open and into the lens unless a beat below says otherwise.\n\nEach expression appears fully formed and is then held perfectly still, like a freeze frame. Changes between expressions happen as a single hard snap lasting under 0.1 seconds, with no easing, no blending, no in-between expression, no cut and no dissolve.\n\n[0-0.83 seconds] Expression 1 is already fully formed on the very first frame: GENTLE SMILE. Mouth corners lifted a small amount, lips closed and soft, a quiet warmth in the eyes without narrowing them, eyelids at their normal open position, brows relaxed and level. Skin around the eyes and mouth stays completely smooth. Content and calm, not amused, not beaming. Held dead still.\n\n[0.83-1.67 seconds] Snap to Expression 2: SAD. Inner corners of the brows lifted very slightly, upper eyelids a little heavy, gaze dropped a fraction while the eyes stay open, mouth corners barely turned down, lips closed and soft. Quiet and withdrawn, not crying, not grimacing. Held dead still.\n\n[1.67-2.5 seconds] Snap to Expression 3: LAUGHING. Head level and square to camera. Eyes closed with the lids curved in easy relaxed crescents, mouth open in a natural unforced laugh with the upper teeth showing, brows slightly raised, cheeks softly lifted. Skin stays smooth — no squeezing, no nose wrinkle, no strain. A light amused laugh, mouth only moderately open. Held dead still.\n\n[2.5-3.33 seconds] Snap to Expression 4: ANGRY. Brows lowered slightly and drawn a little inward with no crease forming between them, gaze fixed, steady and cool, faint tension in the upper lids, lips closed and lightly pressed together. Displeased and controlled, not glaring, not snarling, jaw not clenched. Held dead still.\n\n[3.33-4.17 seconds] Snap to Expression 5: SURPRISED. Brows lifted with the forehead staying smooth, eyes a touch wider than normal, lips just parted. Caught off guard for a fraction of a second, not shocked — the jaw does not drop and the eyes do not go wide. Held dead still.\n\n[4.17-5.0 seconds] Snap to Expression 6: CONCERN. Brows drawn slightly together with the inner corners raised a small amount, forehead smooth, eyes fully open, alert and attentive with the gaze level and directly into the lens, lips closed and lightly pressed. Worried about something in front of them, engaged and outward-facing — not sad, not withdrawn, not afraid. Held dead still.\n\n[CAMERA] Completely locked off and static for the entire clip. No orbit, no zoom, no push in, no dolly, no pan, no tilt, no roll, no handheld shake, no motion blur, no cuts, no dissolves.\n[AUDIO] Silence. No music, no room tone, no voices."
+      }
+    },
+    {
+      "id": 5901,
+      "type": "PrimitiveStringMultiline",
+      "pos": [
+        -1478.819720146412,
+        6603.084742986857
+      ],
+      "size": [
+        430,
+        270
+      ],
+      "flags": {
+        "collapsed": false
+      },
+      "order": 16,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": []
+        }
+      ],
+      "title": "Ahegao",
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.46.2",
+        "Node name for S&R": "PrimitiveStringMultiline"
+      },
+      "widgets_values": [
+        "[STYLE]\nThe output matches the style of <Picture 1>. Sharp detail on the eyes, brows and mouth. The style never changes and never drifts between shots. No shadows.\n\n[STAGING]\nSolid light grey seamless backdrop, one flat uniform tone edge to edge, with no gradient, no vignette, no texture and no floor line. Nothing else is in frame. The subject casts no shadow onto the backdrop and does not sit in its own shadow. Soft form shading on the subject itself is fine and should read its shape. Long telephoto lens, near-orthographic.\n\nFraming is a locked-off portrait from the shoulders to the top of the head: the crown sits just below the top edge of frame, the crop line falls across the shoulders. Face square to camera, eyes into the lens, head level and centred. This framing is identical in every shot — the head never changes size or position in frame.\n\nOnly the face changes. The head does not turn, tilt, nod, lean or move at any point. The shoulders and body are completely frozen. There is no wind, no hair movement, no breathing, no sway, no secondary motion of any kind. Lighting is identical in every shot.\n\nEach expression appears fully formed and is then held perfectly still, like a freeze frame. Changes between expressions happen as a single hard snap lasting under 0.1 seconds, with no easing, no blending, no in-between expression, no cut and no dissolve.\n\n[0-0.8 seconds] Expression 1 is already fully formed on the very first frame: ahegao. Eyes rolled upward and strongly cross-eyed, both pupils directed tightly inward toward the bridge of the nose, large amount of white sclera visible below the irises, mouth hanging open, tongue fully out and resting over the lower lip, brows raised and slightly arched. Held dead still.\n\n[0.8-1.7 seconds] Snap to Expression 2: DROOLING FOCUS LOOKING UPWARDS. Eyes locked upward with intense unblinking focus, brows slightly lowered, mouth slightly open, tongue resting on the lower lip with a thin clear trail of drool running from the corner of the mouth. Held dead still.\n\n[1.7-2.5 seconds] Snap to Expression 3: OUT OF BREATH. Heavy-lidded eyes, mouth open, brows relaxed, overall look of being winded and slightly dazed. Held dead still.\n\n[2.5-3.3 seconds] Snap to Expression 4: OPEN-MOUTHED PANT. Heavy-lidded eyes, mouth open in a soft relaxed shape, tongue completely hidden inside the mouth and not visible, brows relaxed. Held dead still.\n\n[3.3-4.2 seconds] Snap to Expression 5: SMUG. One eyebrow raised higher than the other, eyes half-lidded and confident, mouth closed in a small asymmetrical smirk with the corners pulled slightly upward. Held dead still.\n\n[4.2-5.0 seconds]  Snap to Expression 6: COY LIP BITE. Eyes half-lidded and soft, mouth closed, lower lip gently caught between the teeth in a subtle bite, one corner of the mouth pulled slightly upward. Held dead still.\n\n[CAMERA] Completely locked off and static for the entire clip. No orbit, no zoom, no push in, no dolly, no pan, no tilt, no roll, no handheld shake, no motion blur, no cuts, no dissolves.\n[AUDIO] Silence. No music, no room tone, no voices."
+      ],
+      "widgets_values_named": {
+        "value": "[STYLE]\nThe output matches the style of <Picture 1>. Sharp detail on the eyes, brows and mouth. The style never changes and never drifts between shots. No shadows.\n\n[STAGING]\nSolid light grey seamless backdrop, one flat uniform tone edge to edge, with no gradient, no vignette, no texture and no floor line. Nothing else is in frame. The subject casts no shadow onto the backdrop and does not sit in its own shadow. Soft form shading on the subject itself is fine and should read its shape. Long telephoto lens, near-orthographic.\n\nFraming is a locked-off portrait from the shoulders to the top of the head: the crown sits just below the top edge of frame, the crop line falls across the shoulders. Face square to camera, eyes into the lens, head level and centred. This framing is identical in every shot — the head never changes size or position in frame.\n\nOnly the face changes. The head does not turn, tilt, nod, lean or move at any point. The shoulders and body are completely frozen. There is no wind, no hair movement, no breathing, no sway, no secondary motion of any kind. Lighting is identical in every shot.\n\nEach expression appears fully formed and is then held perfectly still, like a freeze frame. Changes between expressions happen as a single hard snap lasting under 0.1 seconds, with no easing, no blending, no in-between expression, no cut and no dissolve.\n\n[0-0.8 seconds] Expression 1 is already fully formed on the very first frame: ahegao. Eyes rolled upward and strongly cross-eyed, both pupils directed tightly inward toward the bridge of the nose, large amount of white sclera visible below the irises, mouth hanging open, tongue fully out and resting over the lower lip, brows raised and slightly arched. Held dead still.\n\n[0.8-1.7 seconds] Snap to Expression 2: DROOLING FOCUS LOOKING UPWARDS. Eyes locked upward with intense unblinking focus, brows slightly lowered, mouth slightly open, tongue resting on the lower lip with a thin clear trail of drool running from the corner of the mouth. Held dead still.\n\n[1.7-2.5 seconds] Snap to Expression 3: OUT OF BREATH. Heavy-lidded eyes, mouth open, brows relaxed, overall look of being winded and slightly dazed. Held dead still.\n\n[2.5-3.3 seconds] Snap to Expression 4: OPEN-MOUTHED PANT. Heavy-lidded eyes, mouth open in a soft relaxed shape, tongue completely hidden inside the mouth and not visible, brows relaxed. Held dead still.\n\n[3.3-4.2 seconds] Snap to Expression 5: SMUG. One eyebrow raised higher than the other, eyes half-lidded and confident, mouth closed in a small asymmetrical smirk with the corners pulled slightly upward. Held dead still.\n\n[4.2-5.0 seconds]  Snap to Expression 6: COY LIP BITE. Eyes half-lidded and soft, mouth closed, lower lip gently caught between the teeth in a subtle bite, one corner of the mouth pulled slightly upward. Held dead still.\n\n[CAMERA] Completely locked off and static for the entire clip. No orbit, no zoom, no push in, no dolly, no pan, no tilt, no roll, no handheld shake, no motion blur, no cuts, no dissolves.\n[AUDIO] Silence. No music, no room tone, no voices."
+      }
+    },
+    {
+      "id": 5902,
+      "type": "PrimitiveStringMultiline",
+      "pos": [
+        -996.2147927624987,
+        6613.363534135282
+      ],
+      "size": [
+        430,
+        270
+      ],
+      "flags": {
+        "collapsed": false
+      },
+      "order": 17,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": []
+        }
+      ],
+      "title": "Orgasmic Bliss",
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.46.2",
+        "Node name for S&R": "PrimitiveStringMultiline"
+      },
+      "widgets_values": [
+        "[STYLE]\n\nThe output matches the style of <Picture 1>. Sharp detail on the eyes, brows and mouth. The style never changes and never drifts between shots. No shadows.\n[STAGING]\n\nSolid light grey seamless backdrop, one flat uniform tone edge to edge, with no gradient, no vignette, no texture and no floor line. Nothing else is in frame. The subject casts no shadow onto the backdrop and does not sit in its own shadow. Soft form shading on the subject itself is fine and should read its shape. Long telephoto lens, near-orthographic.\nFraming is a locked-off portrait from the shoulders to the top of the head: the crown sits just below the top edge of frame, the crop line falls across the shoulders. Face square to camera, eyes into the lens, head level and centred. This framing is identical in every shot — the head never changes size or position in frame.\nOnly the face changes. The head does not turn, tilt, nod, lean or move at any point. The shoulders and body are completely frozen. There is no wind, no hair movement, no breathing, no sway, no secondary motion of any kind. Lighting is identical in every shot.\nEach expression appears fully formed and is then held perfectly still, like a freeze frame. Changes between expressions happen as a single hard snap lasting under 0.1 seconds, with no easing, no blending, no in-between expression, no cut and no dissolve.\n[0-0.8 seconds] Expression 1 is already fully formed on the very first frame: OVERWHELMED ECSTASY. Eyes fully closed and squeezed tight, brows drawn high and together, mouth stretched open in a wide silent cry, upper teeth showing, nose wrinkled, cheeks pushed high and flushed. Held dead still.\n[0.8-1.7 seconds] Snap to Expression 2: PEAK EYES-ROLLED BLISS. Eyes rolled hard upward under closed lids (only the whites and lower lashes visible), brows tightly furrowed and lifted, mouth open even wider in raw release, chin subtly tensed but head still level, face fully taut with pleasure. Held dead still.\n[1.7-2.5 seconds] Snap to Expression 3: TREMBLING CLIMAX. Eyes still closed but lids fluttering at the edges, brows locked high, mouth partially closed around a bitten lower lip, cheeks and forehead tensed, expression caught between strain and pure surrender. Held dead still.\n[2.5-3.3 seconds] Snap to Expression 4: BROKEN AFTERGLOW. Eyes slowly reopen but stay heavy and unfocused, soft dazed smile with lips still parted and wet-looking, brows smoothed but slightly raised, cheeks still deeply flushed, face completely melted and spent. Held dead still.\n[3.3-4.2 seconds] Snap to Expression 5: SAVOURING DELIGHT. Eyes closed in deep sensory enjoyment, eyelids soft and relaxed, brows gently raised, mouth closed in a slow satisfied smile with the corners pulled up, cheeks lifted high, a clear look of pure tasting pleasure. Held dead still.\n[4.2-5.0 seconds] Snap to Expression 6: SOFT AFFECTION. Soft warm gaze directly into the camera, gentle closed-mouth smile, eyes slightly glassy with quiet emotion, brows relaxed and softly arched, cheeks gently raised in tender affection. Held dead still.\n\n[CAMERA] Completely locked off and static for the entire clip. No orbit, no zoom, no push in, no dolly, no pan, no tilt, no roll, no handheld shake, no motion blur, no cuts, no dissolves.\n\n[AUDIO] Silence. No music, no room tone, no voices."
+      ],
+      "widgets_values_named": {
+        "value": "[STYLE]\n\nThe output matches the style of <Picture 1>. Sharp detail on the eyes, brows and mouth. The style never changes and never drifts between shots. No shadows.\n[STAGING]\n\nSolid light grey seamless backdrop, one flat uniform tone edge to edge, with no gradient, no vignette, no texture and no floor line. Nothing else is in frame. The subject casts no shadow onto the backdrop and does not sit in its own shadow. Soft form shading on the subject itself is fine and should read its shape. Long telephoto lens, near-orthographic.\nFraming is a locked-off portrait from the shoulders to the top of the head: the crown sits just below the top edge of frame, the crop line falls across the shoulders. Face square to camera, eyes into the lens, head level and centred. This framing is identical in every shot — the head never changes size or position in frame.\nOnly the face changes. The head does not turn, tilt, nod, lean or move at any point. The shoulders and body are completely frozen. There is no wind, no hair movement, no breathing, no sway, no secondary motion of any kind. Lighting is identical in every shot.\nEach expression appears fully formed and is then held perfectly still, like a freeze frame. Changes between expressions happen as a single hard snap lasting under 0.1 seconds, with no easing, no blending, no in-between expression, no cut and no dissolve.\n[0-0.8 seconds] Expression 1 is already fully formed on the very first frame: OVERWHELMED ECSTASY. Eyes fully closed and squeezed tight, brows drawn high and together, mouth stretched open in a wide silent cry, upper teeth showing, nose wrinkled, cheeks pushed high and flushed. Held dead still.\n[0.8-1.7 seconds] Snap to Expression 2: PEAK EYES-ROLLED BLISS. Eyes rolled hard upward under closed lids (only the whites and lower lashes visible), brows tightly furrowed and lifted, mouth open even wider in raw release, chin subtly tensed but head still level, face fully taut with pleasure. Held dead still.\n[1.7-2.5 seconds] Snap to Expression 3: TREMBLING CLIMAX. Eyes still closed but lids fluttering at the edges, brows locked high, mouth partially closed around a bitten lower lip, cheeks and forehead tensed, expression caught between strain and pure surrender. Held dead still.\n[2.5-3.3 seconds] Snap to Expression 4: BROKEN AFTERGLOW. Eyes slowly reopen but stay heavy and unfocused, soft dazed smile with lips still parted and wet-looking, brows smoothed but slightly raised, cheeks still deeply flushed, face completely melted and spent. Held dead still.\n[3.3-4.2 seconds] Snap to Expression 5: SAVOURING DELIGHT. Eyes closed in deep sensory enjoyment, eyelids soft and relaxed, brows gently raised, mouth closed in a slow satisfied smile with the corners pulled up, cheeks lifted high, a clear look of pure tasting pleasure. Held dead still.\n[4.2-5.0 seconds] Snap to Expression 6: SOFT AFFECTION. Soft warm gaze directly into the camera, gentle closed-mouth smile, eyes slightly glassy with quiet emotion, brows relaxed and softly arched, cheeks gently raised in tender affection. Held dead still.\n\n[CAMERA] Completely locked off and static for the entire clip. No orbit, no zoom, no push in, no dolly, no pan, no tilt, no roll, no handheld shake, no motion blur, no cuts, no dissolves.\n\n[AUDIO] Silence. No music, no room tone, no voices."
+      }
+    },
+    {
+      "id": 236,
+      "type": "StringConcatenate",
+      "pos": [
+        -990,
+        5830
+      ],
+      "size": [
+        210,
+        170
+      ],
+      "flags": {
+        "collapsed": false
+      },
+      "order": 28,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "string_a",
+          "type": "STRING",
+          "widget": {
+            "name": "string_a"
+          },
+          "link": 353
+        },
+        {
+          "name": "string_b",
+          "type": "STRING",
+          "widget": {
+            "name": "string_b"
+          },
+          "link": 20454
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            354
+          ]
+        }
+      ],
+      "title": "Combine Strings",
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.46.2",
+        "Node name for S&R": "StringConcatenate"
+      },
+      "widgets_values": [
+        "",
+        "",
+        ""
+      ],
+      "widgets_values_named": {
+        "string_a": "",
+        "string_b": "",
+        "delimiter": ""
+      }
+    },
+    {
+      "id": 5884,
+      "type": "ModelPreviewOverrideKJ",
+      "pos": [
+        -410,
+        4320
+      ],
+      "size": [
+        260,
+        470
+      ],
+      "flags": {},
+      "order": 31,
+      "mode": 4,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 20410
+        },
+        {
+          "name": "vae",
+          "shape": 7,
+          "type": "VAE",
+          "link": null
+        },
+        {
+          "name": "audio_vae",
+          "shape": 7,
+          "type": "VAE",
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            20401,
+            20402
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfyui-kjnodes",
+        "ver": "aa2b5ea5e7f61b51f5d26d726f23c1d74e951016",
+        "Node name for S&R": "ModelPreviewOverrideKJ"
+      },
+      "widgets_values": [
+        640,
+        80,
+        false,
+        12,
+        3,
+        "taeh3.safetensors",
+        ""
+      ],
+      "widgets_values_named": {
+        "max_resolution": 640,
+        "jpeg_quality": 80,
+        "suppress_default_preview": false,
+        "preview_frames": 12,
+        "preview_fps": 3,
+        "tiny_vae": "taeh3.safetensors",
+        "preview": ""
+      }
+    },
+    {
+      "id": 5890,
+      "type": "a9d3016d-7cbf-4367-a217-488144b79839",
+      "pos": [
+        -790,
+        4570
+      ],
+      "size": [
+        310,
+        110
+      ],
+      "flags": {},
+      "order": 29,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 20439
+        }
+      ],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            20410
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.46.2",
+        "previewExposures": []
+      }
+    },
+    {
+      "id": 138,
+      "type": "PrimitiveStringMultiline",
+      "pos": [
+        -1450,
+        5850
+      ],
+      "size": [
+        370,
+        390
+      ],
+      "flags": {},
+      "order": 18,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            353
+          ]
+        }
+      ],
+      "title": "Input Text (Prompt)",
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.46.2",
+        "Node name for S&R": "PrimitiveStringMultiline"
+      },
+      "widgets_values": [
+        "<Subject 1> is the character shown in <Picture 1>.\n\n\nCopy the character's head and face exactly as they appear in <Picture 1>: the same face, the same hair, the same neckline and collar, and every feature already visible there, unchanged. \n\nDo not carry over anything the character is holding in <Picture 1>.\nDo not carry over the background or setting of <Picture 1>.\n\n"
+      ],
+      "widgets_values_named": {
+        "value": "<Subject 1> is the character shown in <Picture 1>.\n\n\nCopy the character's head and face exactly as they appear in <Picture 1>: the same face, the same hair, the same neckline and collar, and every feature already visible there, unchanged. \n\nDo not carry over anything the character is holding in <Picture 1>.\nDo not carry over the background or setting of <Picture 1>.\n\n"
+      },
+      "color": "#322",
+      "bgcolor": "#533"
+    },
+    {
+      "id": 5906,
+      "type": "PrimitiveStringMultiline",
+      "pos": [
+        461.5608272377344,
+        6059.3744813767125
+      ],
+      "size": [
+        390,
+        200
+      ],
+      "flags": {
+        "collapsed": false
+      },
+      "order": 19,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": []
+        }
+      ],
+      "title": "Blowjob",
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.46.2",
+        "Node name for S&R": "PrimitiveStringMultiline"
+      },
+      "widgets_values": [
+        "[STYLE]\nThe output matches the style of <Picture 1>. Sharp detail on the eyes, brows, lips, and the texture of the skin. The style never changes and never drifts between shots. No shadows.\n\n[STAGING]\nSolid light grey seamless backdrop, one flat uniform tone edge to edge, with no gradient, no vignette, no texture and no floor line. Nothing else is in frame. The subject casts no shadow onto the backdrop and does not sit in its own shadow. Soft form shading on the subject itself is fine and should read its shape. Long telephoto lens, near-orthographic.\n\nFraming is a locked-off shot from the waist up: the crop line falls just below the hips, framing the upper body and head. The view is angled slightly downward to show the action clearly. The subject is square to the camera, face looking down at the crotch area. This framing is identical in every shot — the head and body never change size or position in frame.\n\nOnly the head and hands move. The shoulders and body are completely frozen. There is no wind, no hair movement, no breathing, no sway, no secondary motion of any kind. Lighting is identical in every shot.\n\nEvery movement is a micro-movement: the smallest movement that still reads clearly. Only the lips, tongue, head, and hands move, and only slightly. The body underneath stays relaxed and smooth in every shot — no tension, no strain. Nothing is exaggerated, theatrical or posed. The mouth stays relaxed and soft unless a beat below says otherwise.\n\nEach action is fully formed and is then held perfectly still, like a freeze frame. Changes between actions happen as a single hard snap lasting under 0.1 seconds, with no easing, no blending, no in-between expression, no cut and no dissolve.\n\n[0-0.83 seconds] Expression 1 is already fully formed on the very first frame: The erect penis is clearly visible within the frame against the grey backdrop. The head is positioned directly above it. The mouth is slightly parted, lips relaxed and soft, a quiet anticipation in the eyes. Eyelids at their normal open position, brows relaxed and level. Skin around the eyes and mouth stays completely smooth. Held dead still.\n\n[0.83-1.67 seconds] Snap to Action 2: The lips gently close around the tip of the penis. Inner corners of the brows lifted very slightly, gaze directed downward towards the crotch. Mouth corners slightly turned down as if focusing. Held dead still.\n\n[1.67-2.5 seconds] Snap to Action 3: The head lowers slightly, taking more of the length into the mouth. Eyes closed with the lids curved in easy relaxed crescents, mouth open slightly more to accommodate the girth, cheeks softly lifted. Skin stays smooth — no squinting, no strain. Held dead still.\n\n[2.5-3.33 seconds] Snap to Action 4: The head moves slowly upwards, saliva glistening slightly on the shaft. Brows lowered slightly and drawn a little inward with no crease forming, gaze fixed on the action, faint tension in the upper lids, lips closed and lightly pressed against the skin. Displeased and controlled, not grimacing. Held dead still.\n\n[3.33-4.17 seconds] Snap to Action 5: The head moves back down in a slow, steady rhythm. Brows lifted with the forehead staying smooth, eyes a touch wider than normal, lips just parted to release air. Caught in the rhythm for a fraction of a second — the jaw does not drop and the eyes do not go wide. Held dead still.\n\n[4.17-5.0 seconds] Snap to Action 6: The lips press firmly but gently against the shaft as the head stops moving. Brows drawn slightly together with the inner corners raised a small amount, forehead smooth, eyes fully open, alert and attentive with the gaze level and directly into the lens (or slightly down), lips closed and lightly pressed. Worried about the sensation, engaged and outward-facing. Held dead still.\n\n[CAMERA] Completely locked off and static for the entire clip. No orbit, no zoom, no push in, no dolly, no pan, no tilt, no roll, no handheld shake, no motion blur, no cuts, no dissolves.\n\n[AUDIO] Silence. No music, no room tone, no voices.\n\n"
+      ],
+      "widgets_values_named": {
+        "value": "[STYLE]\nThe output matches the style of <Picture 1>. Sharp detail on the eyes, brows, lips, and the texture of the skin. The style never changes and never drifts between shots. No shadows.\n\n[STAGING]\nSolid light grey seamless backdrop, one flat uniform tone edge to edge, with no gradient, no vignette, no texture and no floor line. Nothing else is in frame. The subject casts no shadow onto the backdrop and does not sit in its own shadow. Soft form shading on the subject itself is fine and should read its shape. Long telephoto lens, near-orthographic.\n\nFraming is a locked-off shot from the waist up: the crop line falls just below the hips, framing the upper body and head. The view is angled slightly downward to show the action clearly. The subject is square to the camera, face looking down at the crotch area. This framing is identical in every shot — the head and body never change size or position in frame.\n\nOnly the head and hands move. The shoulders and body are completely frozen. There is no wind, no hair movement, no breathing, no sway, no secondary motion of any kind. Lighting is identical in every shot.\n\nEvery movement is a micro-movement: the smallest movement that still reads clearly. Only the lips, tongue, head, and hands move, and only slightly. The body underneath stays relaxed and smooth in every shot — no tension, no strain. Nothing is exaggerated, theatrical or posed. The mouth stays relaxed and soft unless a beat below says otherwise.\n\nEach action is fully formed and is then held perfectly still, like a freeze frame. Changes between actions happen as a single hard snap lasting under 0.1 seconds, with no easing, no blending, no in-between expression, no cut and no dissolve.\n\n[0-0.83 seconds] Expression 1 is already fully formed on the very first frame: The erect penis is clearly visible within the frame against the grey backdrop. The head is positioned directly above it. The mouth is slightly parted, lips relaxed and soft, a quiet anticipation in the eyes. Eyelids at their normal open position, brows relaxed and level. Skin around the eyes and mouth stays completely smooth. Held dead still.\n\n[0.83-1.67 seconds] Snap to Action 2: The lips gently close around the tip of the penis. Inner corners of the brows lifted very slightly, gaze directed downward towards the crotch. Mouth corners slightly turned down as if focusing. Held dead still.\n\n[1.67-2.5 seconds] Snap to Action 3: The head lowers slightly, taking more of the length into the mouth. Eyes closed with the lids curved in easy relaxed crescents, mouth open slightly more to accommodate the girth, cheeks softly lifted. Skin stays smooth — no squinting, no strain. Held dead still.\n\n[2.5-3.33 seconds] Snap to Action 4: The head moves slowly upwards, saliva glistening slightly on the shaft. Brows lowered slightly and drawn a little inward with no crease forming, gaze fixed on the action, faint tension in the upper lids, lips closed and lightly pressed against the skin. Displeased and controlled, not grimacing. Held dead still.\n\n[3.33-4.17 seconds] Snap to Action 5: The head moves back down in a slow, steady rhythm. Brows lifted with the forehead staying smooth, eyes a touch wider than normal, lips just parted to release air. Caught in the rhythm for a fraction of a second — the jaw does not drop and the eyes do not go wide. Held dead still.\n\n[4.17-5.0 seconds] Snap to Action 6: The lips press firmly but gently against the shaft as the head stops moving. Brows drawn slightly together with the inner corners raised a small amount, forehead smooth, eyes fully open, alert and attentive with the gaze level and directly into the lens (or slightly down), lips closed and lightly pressed. Worried about the sensation, engaged and outward-facing. Held dead still.\n\n[CAMERA] Completely locked off and static for the entire clip. No orbit, no zoom, no push in, no dolly, no pan, no tilt, no roll, no handheld shake, no motion blur, no cuts, no dissolves.\n\n[AUDIO] Silence. No music, no room tone, no voices.\n\n"
+      }
+    },
+    {
+      "id": 5907,
+      "type": "Power Lora Loader (rgthree)",
+      "pos": [
+        -1480.4386134544782,
+        4571.018383959846
+      ],
+      "size": [
+        340.519921875,
+        166
+      ],
+      "flags": {},
+      "order": 27,
+      "mode": 0,
+      "inputs": [
+        {
+          "dir": 3,
+          "name": "model",
+          "type": "MODEL",
+          "link": 20440
+        },
+        {
+          "dir": 3,
+          "name": "clip",
+          "type": "CLIP",
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "dir": 4,
+          "name": "MODEL",
+          "shape": 3,
+          "type": "MODEL",
+          "links": [
+            20439
+          ]
+        },
+        {
+          "dir": 4,
+          "name": "CLIP",
+          "shape": 3,
+          "type": "CLIP",
+          "links": null
+        }
+      ],
+      "properties": {
+        "cnr_id": "rgthree-comfy",
+        "ver": "bc48c6aaeca87bedbc14245d89f9bc6be37a630e",
+        "Show Strengths": "Single Strength",
+        "Match": ""
+      },
+      "widgets_values": [
+        {},
+        {
+          "type": "PowerLoraLoaderHeaderWidget"
+        },
+        {
+          "on": false,
+          "lora": "epic_cumshots-MiniMaxH3-ALPHA-CUMSH0T.safetensors",
+          "strength": 1,
+          "strengthTwo": null
+        },
+        {
+          "on": true,
+          "lora": "MysticXXX_MMH3-V2.safetensors",
+          "strength": 0.5,
+          "strengthTwo": null
+        },
+        {},
+        ""
+      ],
+      "widgets_values_named": {
+        "divider": {},
+        "PowerLoraLoaderHeaderWidget": {
+          "type": "PowerLoraLoaderHeaderWidget"
+        },
+        "lora_1": {
+          "on": false,
+          "lora": "epic_cumshots-MiniMaxH3-ALPHA-CUMSH0T.safetensors",
+          "strength": 1,
+          "strengthTwo": null
+        },
+        "lora_2": {
+          "on": true,
+          "lora": "MysticXXX_MMH3-V2.safetensors",
+          "strength": 0.5,
+          "strengthTwo": null
+        },
+        "divider#2": {},
+        "➕ Add Lora": ""
+      }
+    },
+    {
+      "id": 5908,
+      "type": "PrimitiveStringMultiline",
+      "pos": [
+        -486.8780816447055,
+        6632.793767656629
+      ],
+      "size": [
+        390,
+        200
+      ],
+      "flags": {
+        "collapsed": false
+      },
+      "order": 20,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": []
+        }
+      ],
+      "title": "Blowjob cum frontal",
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.46.2",
+        "Node name for S&R": "PrimitiveStringMultiline"
+      },
+      "widgets_values": [
+        "[STYLE]\nThe output matches the style of high-definition macro photography. Sharp detail on the lips, tongue, eyes, and the skin texture of the chest. The style never changes and never drifts between shots. No shadows.\n\n[STAGING]\nSolid light grey seamless backdrop, one flat uniform tone edge to edge, with no gradient, no vignette, no texture and no floor line. Nothing else is in frame. The subject casts no shadow onto the backdrop and does not sit in its own shadow. Soft form shading on the subject itself is fine and should read its shape. Long telephoto lens, near-orthographic.\n\n[FRAMING]\nLocked-off frontal portrait from the chest to the top of the head: the crop line falls across the shoulders. Face square to camera. The erect penis is clearly visible in the foreground, glistening with a thick layer of white-transparent semen covering the shaft, glans, lips, tongue, and corners of the mouth. This framing is identical in every shot — the head never changes size or position in frame.\n\n[MOTION]\nOnly the face changes. The head does not turn, tilt, nod, lean or move at any point. The shoulders and body are completely frozen. No wind, no hair movement, no breathing. Changes between expressions happen as a single hard snap lasting under 0.1 seconds, with no easing, no blending, no in-between expression.\n\n[EXPRESSIONS]\n[0-0.83 seconds] Expression 1: CONTENT. Lips slightly parted in a soft smile, eyes half-closed with a warm, dazed gaze, a touch of pink on the cheeks. Relaxed pleasure. White-transparent semen is visible on the lips.\n[0.83-1.67 seconds] Snap to Expression 2: INTENSE. Lips pressed tight around the shaft, eyes wide and alert with intense focus, brows slightly furrowed, tongue working actively to cover the shaft in saliva. White-transparent semen is smeared across the mouth.\n[1.67-2.5 seconds] Snap to Expression 3: ECSTATIC. Head tilted back slightly, mouth open in a moan, eyes rolled back, cheeks flushed, body leaning forward into the action. White-transparent semen is dripping from the chin and corners of the mouth.\n[2.5-3.33 seconds] Snap to Expression 4: DEEP CONCENTRATION. Lips suctioned tight, eyes wide open staring directly into the lens, no expression other than total engagement with the task. White-transparent semen is trapped in the corners of the mouth.\n[3.33-4.17 seconds] Snap to Expression 5: OVERWHELMED. Head tilted forward, mouth open gasping, eyes slightly wider than normal, a look of being overwhelmed by sensation. White-transparent semen glistens on the face.\n[4.17-5.0 seconds] Snap to Expression 6: SATISFIED. Lips slightly parted, eyes soft and half-closed with a satisfied smile, a gentle expression of completion. White-transparent semen coats the face and lips.\n\n[CAMERA]\nCompletely locked off and static for the entire clip.\n[AUDIO]\nSilence."
+      ],
+      "widgets_values_named": {
+        "value": "[STYLE]\nThe output matches the style of high-definition macro photography. Sharp detail on the lips, tongue, eyes, and the skin texture of the chest. The style never changes and never drifts between shots. No shadows.\n\n[STAGING]\nSolid light grey seamless backdrop, one flat uniform tone edge to edge, with no gradient, no vignette, no texture and no floor line. Nothing else is in frame. The subject casts no shadow onto the backdrop and does not sit in its own shadow. Soft form shading on the subject itself is fine and should read its shape. Long telephoto lens, near-orthographic.\n\n[FRAMING]\nLocked-off frontal portrait from the chest to the top of the head: the crop line falls across the shoulders. Face square to camera. The erect penis is clearly visible in the foreground, glistening with a thick layer of white-transparent semen covering the shaft, glans, lips, tongue, and corners of the mouth. This framing is identical in every shot — the head never changes size or position in frame.\n\n[MOTION]\nOnly the face changes. The head does not turn, tilt, nod, lean or move at any point. The shoulders and body are completely frozen. No wind, no hair movement, no breathing. Changes between expressions happen as a single hard snap lasting under 0.1 seconds, with no easing, no blending, no in-between expression.\n\n[EXPRESSIONS]\n[0-0.83 seconds] Expression 1: CONTENT. Lips slightly parted in a soft smile, eyes half-closed with a warm, dazed gaze, a touch of pink on the cheeks. Relaxed pleasure. White-transparent semen is visible on the lips.\n[0.83-1.67 seconds] Snap to Expression 2: INTENSE. Lips pressed tight around the shaft, eyes wide and alert with intense focus, brows slightly furrowed, tongue working actively to cover the shaft in saliva. White-transparent semen is smeared across the mouth.\n[1.67-2.5 seconds] Snap to Expression 3: ECSTATIC. Head tilted back slightly, mouth open in a moan, eyes rolled back, cheeks flushed, body leaning forward into the action. White-transparent semen is dripping from the chin and corners of the mouth.\n[2.5-3.33 seconds] Snap to Expression 4: DEEP CONCENTRATION. Lips suctioned tight, eyes wide open staring directly into the lens, no expression other than total engagement with the task. White-transparent semen is trapped in the corners of the mouth.\n[3.33-4.17 seconds] Snap to Expression 5: OVERWHELMED. Head tilted forward, mouth open gasping, eyes slightly wider than normal, a look of being overwhelmed by sensation. White-transparent semen glistens on the face.\n[4.17-5.0 seconds] Snap to Expression 6: SATISFIED. Lips slightly parted, eyes soft and half-closed with a satisfied smile, a gentle expression of completion. White-transparent semen coats the face and lips.\n\n[CAMERA]\nCompletely locked off and static for the entire clip.\n[AUDIO]\nSilence."
+      }
+    },
+    {
+      "id": 5909,
+      "type": "PrimitiveStringMultiline",
+      "pos": [
+        706.2333728143748,
+        6325.202182535225
+      ],
+      "size": [
+        390,
+        200
+      ],
+      "flags": {
+        "collapsed": false
+      },
+      "order": 21,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": []
+        }
+      ],
+      "title": "Blowjob",
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.46.2",
+        "Node name for S&R": "PrimitiveStringMultiline"
+      },
+      "widgets_values": [
+        "[STYLE]\nThe output matches the style of high-definition macro photography. Sharp detail on the lips, tongue, eyes, and the skin texture of the chest. The style never changes and never drifts between shots. No shadows.\n\n[STAGING]\nSolid light grey seamless backdrop, one flat uniform tone edge to edge, with no gradient, no vignette, no texture and no floor line. Nothing else is in frame. The subject casts no shadow onto the backdrop and does not sit in its own shadow. Soft form shading on the subject itself is fine and should read its shape. Long telephoto lens, near-orthographic.\n\n[FRAMING]\nLocked-off frontal portrait from the chest to the top of the head: the crop line falls across the shoulders. Face square to camera. The erect penis is explicitly visible in the foreground, framed by the subject's hands and mouth. This framing is identical in every shot — the head never changes size or position in frame.\n\n[MOTION]\nOnly the face changes. The head does not turn, tilt, nod, lean or move at any point. The shoulders and body are completely frozen. No wind, no hair movement, no breathing. Changes between expressions happen as a single hard snap lasting under 0.1 seconds, with no easing, no blending, no in-between expression.\n\n[EXPRESSIONS]\n[0-0.83 seconds] Expression 1: CONTENT. Lips slightly parted in a soft smile, eyes half-closed with a warm, dazed gaze, a touch of pink on the cheeks. Relaxed pleasure.\n[0.83-1.67 seconds] Snap to Expression 2: INTENSE. Lips pressed tight around the shaft, eyes wide and alert with intense focus, brows slightly furrowed, tongue working actively.\n[1.67-2.5 seconds] Snap to Expression 3: ECSTATIC. Head tilted back slightly, mouth open in a moan, eyes rolled back, cheeks flushed, body leaning forward into the action.\n[2.5-3.33 seconds] Snap to Expression 4: DEEP CONCENTRATION. Lips suctioned tight, eyes wide open staring directly into the lens, no expression other than total engagement with the task.\n[3.33-4.17 seconds] Snap to Expression 5: OVERWHELMED. Head tilted forward, mouth open gasping, eyes slightly wider than normal, a look of being overwhelmed by sensation.\n[4.17-5.0 seconds] Snap to Expression 6: SATISFIED. Lips slightly parted, eyes soft and half-closed with a satisfied smile, a gentle expression of completion.\n\n[CAMERA]\nCompletely locked off and static for the entire clip.\n[AUDIO]\nSilence."
+      ],
+      "widgets_values_named": {
+        "value": "[STYLE]\nThe output matches the style of high-definition macro photography. Sharp detail on the lips, tongue, eyes, and the skin texture of the chest. The style never changes and never drifts between shots. No shadows.\n\n[STAGING]\nSolid light grey seamless backdrop, one flat uniform tone edge to edge, with no gradient, no vignette, no texture and no floor line. Nothing else is in frame. The subject casts no shadow onto the backdrop and does not sit in its own shadow. Soft form shading on the subject itself is fine and should read its shape. Long telephoto lens, near-orthographic.\n\n[FRAMING]\nLocked-off frontal portrait from the chest to the top of the head: the crop line falls across the shoulders. Face square to camera. The erect penis is explicitly visible in the foreground, framed by the subject's hands and mouth. This framing is identical in every shot — the head never changes size or position in frame.\n\n[MOTION]\nOnly the face changes. The head does not turn, tilt, nod, lean or move at any point. The shoulders and body are completely frozen. No wind, no hair movement, no breathing. Changes between expressions happen as a single hard snap lasting under 0.1 seconds, with no easing, no blending, no in-between expression.\n\n[EXPRESSIONS]\n[0-0.83 seconds] Expression 1: CONTENT. Lips slightly parted in a soft smile, eyes half-closed with a warm, dazed gaze, a touch of pink on the cheeks. Relaxed pleasure.\n[0.83-1.67 seconds] Snap to Expression 2: INTENSE. Lips pressed tight around the shaft, eyes wide and alert with intense focus, brows slightly furrowed, tongue working actively.\n[1.67-2.5 seconds] Snap to Expression 3: ECSTATIC. Head tilted back slightly, mouth open in a moan, eyes rolled back, cheeks flushed, body leaning forward into the action.\n[2.5-3.33 seconds] Snap to Expression 4: DEEP CONCENTRATION. Lips suctioned tight, eyes wide open staring directly into the lens, no expression other than total engagement with the task.\n[3.33-4.17 seconds] Snap to Expression 5: OVERWHELMED. Head tilted forward, mouth open gasping, eyes slightly wider than normal, a look of being overwhelmed by sensation.\n[4.17-5.0 seconds] Snap to Expression 6: SATISFIED. Lips slightly parted, eyes soft and half-closed with a satisfied smile, a gentle expression of completion.\n\n[CAMERA]\nCompletely locked off and static for the entire clip.\n[AUDIO]\nSilence."
+      }
+    },
+    {
+      "id": 5910,
+      "type": "PrimitiveStringMultiline",
+      "pos": [
+        -491.3524533460649,
+        6373.47888268317
+      ],
+      "size": [
+        390,
+        200
+      ],
+      "flags": {
+        "collapsed": false
+      },
+      "order": 22,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": []
+        }
+      ],
+      "title": "Blowjob cum lateral",
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.46.2",
+        "Node name for S&R": "PrimitiveStringMultiline"
+      },
+      "widgets_values": [
+        "[STYLE]\nThe output matches the style of high-definition macro photography. Sharp detail on the lips, tongue, eyes, and the jawline. The style never changes and never drifts between shots. No shadows.\n\n[STAGING]\nSolid light grey seamless backdrop, one flat uniform tone edge to edge, with no gradient, no vignette, no texture and no floor line. Nothing else is in frame. The subject casts no shadow onto the backdrop and does not sit in its own shadow. Soft form shading on the subject itself is fine and should read its shape. Long telephoto lens, near-orthographic.\n\n[FRAMING]\nLocked-off profile shot from the chest to the top of the head: the crop line falls across the shoulders. The face turns 90 degrees to the left. The action of the mouth engulfing the erect penis is clearly visible in the foreground, the shaft glistening with a thick layer of white-transparent semen covering the shaft, glans, lips, and corners of the mouth. This framing is identical in every shot — the head never changes size or position in frame.\n\n[MOTION]\nOnly the face changes. The head does not turn, tilt, nod, lean or move at any point. The shoulders and body are completely frozen. No wind, no hair movement, no breathing. Changes between expressions happen as a single hard snap lasting under 0.1 seconds, with no easing, no blending, no in-between expression.\n\n[EXPRESSIONS]\n[0-0.83 seconds] Expression 1: CONTENT. Head tilted slightly forward, lips slightly parted in a soft smile, eyes half-closed with a warm, dazed gaze, a touch of pink on the cheeks. Relaxed pleasure. White-transparent semen is visible on the lips.\n[0.83-1.67 seconds] Snap to Expression 2: INTENSE. Lips pressed tight around the shaft, eyes wide and alert with intense focus, brows slightly furrowed, tongue visible working actively to cover the shaft in saliva. White-transparent semen is smeared across the mouth.\n[1.67-2.5 seconds] Snap to Expression 3: ECSTATIC. Head tilted back further, mouth open in a moan, eyes rolled back, cheeks flushed, body leaning forward into the action. White-transparent semen is dripping from the chin and corners of the mouth.\n[2.5-3.33 seconds] Snap to Expression 4: DEEP CONCENTRATION. Lips suctioned tight, eyes wide open staring directly into the lens, no expression other than total engagement with the task. White-transparent semen is trapped in the corners of the mouth.\n[3.33-4.17 seconds] Snap to Expression 5: OVERWHELMED. Head tilted forward, mouth open gasping, eyes slightly wider than normal, a look of being overwhelmed by sensation. White-transparent semen glistens on the face.\n[4.17-5.0 seconds] Snap to Expression 6: SATISFIED. Lips slightly parted, eyes soft and half-closed with a satisfied smile, a gentle expression of completion. White-transparent semen coats the face and lips.\n\n[CAMERA]\nCompletely locked off and static for the entire clip.\n[AUDIO]\nSilence."
+      ],
+      "widgets_values_named": {
+        "value": "[STYLE]\nThe output matches the style of high-definition macro photography. Sharp detail on the lips, tongue, eyes, and the jawline. The style never changes and never drifts between shots. No shadows.\n\n[STAGING]\nSolid light grey seamless backdrop, one flat uniform tone edge to edge, with no gradient, no vignette, no texture and no floor line. Nothing else is in frame. The subject casts no shadow onto the backdrop and does not sit in its own shadow. Soft form shading on the subject itself is fine and should read its shape. Long telephoto lens, near-orthographic.\n\n[FRAMING]\nLocked-off profile shot from the chest to the top of the head: the crop line falls across the shoulders. The face turns 90 degrees to the left. The action of the mouth engulfing the erect penis is clearly visible in the foreground, the shaft glistening with a thick layer of white-transparent semen covering the shaft, glans, lips, and corners of the mouth. This framing is identical in every shot — the head never changes size or position in frame.\n\n[MOTION]\nOnly the face changes. The head does not turn, tilt, nod, lean or move at any point. The shoulders and body are completely frozen. No wind, no hair movement, no breathing. Changes between expressions happen as a single hard snap lasting under 0.1 seconds, with no easing, no blending, no in-between expression.\n\n[EXPRESSIONS]\n[0-0.83 seconds] Expression 1: CONTENT. Head tilted slightly forward, lips slightly parted in a soft smile, eyes half-closed with a warm, dazed gaze, a touch of pink on the cheeks. Relaxed pleasure. White-transparent semen is visible on the lips.\n[0.83-1.67 seconds] Snap to Expression 2: INTENSE. Lips pressed tight around the shaft, eyes wide and alert with intense focus, brows slightly furrowed, tongue visible working actively to cover the shaft in saliva. White-transparent semen is smeared across the mouth.\n[1.67-2.5 seconds] Snap to Expression 3: ECSTATIC. Head tilted back further, mouth open in a moan, eyes rolled back, cheeks flushed, body leaning forward into the action. White-transparent semen is dripping from the chin and corners of the mouth.\n[2.5-3.33 seconds] Snap to Expression 4: DEEP CONCENTRATION. Lips suctioned tight, eyes wide open staring directly into the lens, no expression other than total engagement with the task. White-transparent semen is trapped in the corners of the mouth.\n[3.33-4.17 seconds] Snap to Expression 5: OVERWHELMED. Head tilted forward, mouth open gasping, eyes slightly wider than normal, a look of being overwhelmed by sensation. White-transparent semen glistens on the face.\n[4.17-5.0 seconds] Snap to Expression 6: SATISFIED. Lips slightly parted, eyes soft and half-closed with a satisfied smile, a gentle expression of completion. White-transparent semen coats the face and lips.\n\n[CAMERA]\nCompletely locked off and static for the entire clip.\n[AUDIO]\nSilence."
+      }
+    },
+    {
+      "id": 5911,
+      "type": "PrimitiveStringMultiline",
+      "pos": [
+        -58.733721825595374,
+        6374.286542178067
+      ],
+      "size": [
+        390,
+        200
+      ],
+      "flags": {
+        "collapsed": false
+      },
+      "order": 23,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            20454
+          ]
+        }
+      ],
+      "title": "Blowjob cum lateral 2",
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.46.2",
+        "Node name for S&R": "PrimitiveStringMultiline"
+      },
+      "widgets_values": [
+        "[STYLE]\nThe output matches the style of high-definition macro photography. Sharp detail on the lips, tongue, eyes, and the jawline. The style never changes and never drifts between shots. No shadows.\n\n[STAGING]\nSolid light grey seamless backdrop, one flat uniform tone edge to edge, with no gradient, no vignette, no texture and no floor line. Nothing else is in frame. The subject casts no shadow onto the backdrop and does not sit in its own shadow. Soft form shading on the subject itself is fine and should read its shape. Long telephoto lens, near-orthographic.\n\n[FRAMING]\nLocked-off profile shot from the chest to the top of the head: the crop line falls across the shoulders. The face turns 90 degrees to the left. The action of the mouth engulfing the erect penis is clearly visible in the foreground, the shaft glistening with a thick layer of white-transparent semen. Streams of white-transparent semen are released continuously from the tip of the penis, filling the mouth instantly and overflowing. This framing is identical in every shot — the head never changes size or position in frame.\n\n[MOTION]\nOnly the face changes. The head does not turn, tilt, nod, lean or move at any point. The shoulders and body are completely frozen. No wind, no hair movement, no breathing. Changes between expressions happen as a single hard snap lasting under 0.1 seconds, with no easing, no blending, no in-between expression.\n\n[EXPRESSIONS]\n[0-0.83 seconds] Expression 1: CONTENT. Head tilted slightly forward, lips slightly parted in a soft smile, eyes half-closed with a warm, dazed gaze, a touch of pink on the cheeks. Relaxed pleasure. Mouth instantly filled with white-transparent semen from the continuous stream.\n[0.83-1.67 seconds] Snap to Expression 2: INTENSE. Lips pressed tight around the shaft, eyes wide and alert with intense focus, brows slightly furrowed, tongue submerged deep inside the mouth filled with white-transparent semen.\n[1.67-2.5 seconds] Snap to Expression 3: ECSTATIC. Head tilted back further, mouth open in a moan, eyes rolled back, cheeks flushed, body leaning forward into the action. White-transparent semen drips from the corners of the mouth and chin.\n[2.5-3.33 seconds] Snap to Expression 4: DEEP CONCENTRATION. Lips suctioned tight, eyes wide open staring directly into the lens, no expression other than total engagement with the task. Mouth filled with white-transparent semen, tongue visible.\n[3.33-4.17 seconds] Snap to Expression 5: OVERWHELMED. Head tilted forward, mouth open gasping, eyes slightly wider than normal, a look of being overwhelmed by sensation. White-transparent semen glistens on the face and lips.\n[4.17-5.0 seconds] Snap to Expression 6: SATISFIED. Lips slightly parted, eyes soft and half-closed with a satisfied smile, a gentle expression of completion. Mouth filled with white-transparent semen, tongue visible.\n\n[CAMERA]\nCompletely locked off and static for the entire clip.\n[AUDIO]\nSilence."
+      ],
+      "widgets_values_named": {
+        "value": "[STYLE]\nThe output matches the style of high-definition macro photography. Sharp detail on the lips, tongue, eyes, and the jawline. The style never changes and never drifts between shots. No shadows.\n\n[STAGING]\nSolid light grey seamless backdrop, one flat uniform tone edge to edge, with no gradient, no vignette, no texture and no floor line. Nothing else is in frame. The subject casts no shadow onto the backdrop and does not sit in its own shadow. Soft form shading on the subject itself is fine and should read its shape. Long telephoto lens, near-orthographic.\n\n[FRAMING]\nLocked-off profile shot from the chest to the top of the head: the crop line falls across the shoulders. The face turns 90 degrees to the left. The action of the mouth engulfing the erect penis is clearly visible in the foreground, the shaft glistening with a thick layer of white-transparent semen. Streams of white-transparent semen are released continuously from the tip of the penis, filling the mouth instantly and overflowing. This framing is identical in every shot — the head never changes size or position in frame.\n\n[MOTION]\nOnly the face changes. The head does not turn, tilt, nod, lean or move at any point. The shoulders and body are completely frozen. No wind, no hair movement, no breathing. Changes between expressions happen as a single hard snap lasting under 0.1 seconds, with no easing, no blending, no in-between expression.\n\n[EXPRESSIONS]\n[0-0.83 seconds] Expression 1: CONTENT. Head tilted slightly forward, lips slightly parted in a soft smile, eyes half-closed with a warm, dazed gaze, a touch of pink on the cheeks. Relaxed pleasure. Mouth instantly filled with white-transparent semen from the continuous stream.\n[0.83-1.67 seconds] Snap to Expression 2: INTENSE. Lips pressed tight around the shaft, eyes wide and alert with intense focus, brows slightly furrowed, tongue submerged deep inside the mouth filled with white-transparent semen.\n[1.67-2.5 seconds] Snap to Expression 3: ECSTATIC. Head tilted back further, mouth open in a moan, eyes rolled back, cheeks flushed, body leaning forward into the action. White-transparent semen drips from the corners of the mouth and chin.\n[2.5-3.33 seconds] Snap to Expression 4: DEEP CONCENTRATION. Lips suctioned tight, eyes wide open staring directly into the lens, no expression other than total engagement with the task. Mouth filled with white-transparent semen, tongue visible.\n[3.33-4.17 seconds] Snap to Expression 5: OVERWHELMED. Head tilted forward, mouth open gasping, eyes slightly wider than normal, a look of being overwhelmed by sensation. White-transparent semen glistens on the face and lips.\n[4.17-5.0 seconds] Snap to Expression 6: SATISFIED. Lips slightly parted, eyes soft and half-closed with a satisfied smile, a gentle expression of completion. Mouth filled with white-transparent semen, tongue visible.\n\n[CAMERA]\nCompletely locked off and static for the entire clip.\n[AUDIO]\nSilence."
+      }
+    },
+    {
+      "id": 5912,
+      "type": "LoadImage",
+      "pos": [
+        71.74670798659409,
+        5704.877833197281
+      ],
+      "size": [
+        290,
+        330
+      ],
+      "flags": {
+        "collapsed": false
+      },
+      "order": 24,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            20449
+          ]
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": []
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.46.2",
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        "559546_3579735740864_1497275705_33179862_688330063_n2.jpg",
+        "image"
+      ],
+      "widgets_values_named": {
+        "image": "559546_3579735740864_1497275705_33179862_688330063_n2.jpg",
+        "upload": "image"
+      }
+    },
+    {
+      "id": 5913,
+      "type": "PrimitiveStringMultiline",
+      "pos": [
+        -50.479829809166866,
+        6626.582335426632
+      ],
+      "size": [
+        390,
+        200
+      ],
+      "flags": {
+        "collapsed": false
+      },
+      "order": 25,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": []
+        }
+      ],
+      "title": "Blowjob cum lateral 2",
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.46.2",
+        "Node name for S&R": "PrimitiveStringMultiline"
+      },
+      "widgets_values": [
+        "[STYLE]\nThe output matches the style of high-definition macro photography. Sharp detail on the lips, tongue, eyes, and the jawline. The style never changes and never drifts between shots. No shadows.\n\n[STAGING]\nSolid light grey seamless backdrop, one flat uniform tone edge to edge, with no gradient, no vignette, no texture and no floor line. Nothing else is in frame. The subject casts no shadow onto the backdrop and does not sit in its own shadow. Soft form shading on the subject itself is fine and should read its shape. Long telephoto lens, near-orthographic.\n\n[FRAMING]\nLocked-off profile shot from the chest to the top of the head: the crop line falls across the shoulders. The face turns 90 degrees to the left. Her hands are gripping two erect penises visible in the foreground, masturbating them with a steady grip, while Streams of white-transparent semen are released continuously from the tips of both penises, filling the mouth instantly and overflowing. She swallows the semen and shows her mouth clean. This framing is identical in every shot — the head never changes size or position in frame.\n\n[MOTION]\nOnly the face changes. The head does not turn, tilt, nod, lean or move at any point. The shoulders and body are completely frozen. No wind, no hair movement, no breathing. Changes between expressions happen as a single hard snap lasting under 0.1 seconds, with no easing, no blending, no in-between expression.\n\n[EXPRESSIONS]\n[0-0.83 seconds] Expression 1: CONTENT. Head tilted slightly forward, lips slightly parted in a soft smile, eyes half-closed with a warm, dazed gaze, a touch of pink on the cheeks. Relaxed pleasure. Mouth instantly filled with white-transparent semen from the continuous stream on both penises being masturbated.\n[0.83-1.67 seconds] Snap to Expression 2: INTENSE. Lips pressed tight around the shafts, eyes wide and alert with intense focus, brows slightly furrowed, tongue submerged deep inside the mouth filled with white-transparent semen.\n[1.67-2.5 seconds] Snap to Expression 3: ECSTATIC. Head tilted back further, mouth open in a moan, eyes rolled back, cheeks flushed, body leaning forward into the action. White-transparent semen drips from the corners of the mouth and chin.\n[2.5-3.33 seconds] Snap to Expression 4: DEEP CONCENTRATION. Lips suctioned tight, eyes wide open staring directly into the lens, no expression other than total engagement with the task. Mouth filled with white-transparent semen, tongue visible.\n[3.33-4.17 seconds] Snap to Expression 5: OVERWHELMED. Head tilted forward, mouth open gasping, eyes slightly wider than normal, a look of being overwhelmed by sensation. White-transparent semen glistens on the face and lips.\n[4.17-5.0 seconds] Snap to Expression 6: SATISFIED. Lips slightly parted, eyes soft and half-closed with a satisfied smile, a gentle expression of completion. Mouth filled with white-transparent semen, tongue visible.\n[5.0-5.83 seconds] Snap to Expression 7: SWALLOWING. Mouth opens slightly to swallow the semen and then closes, leaving the mouth clean, wet, and completely free of any visible fluid.\n\n[CAMERA]\nCompletely locked off and static for the entire clip.\n[AUDIO]\nSilence."
+      ],
+      "widgets_values_named": {
+        "value": "[STYLE]\nThe output matches the style of high-definition macro photography. Sharp detail on the lips, tongue, eyes, and the jawline. The style never changes and never drifts between shots. No shadows.\n\n[STAGING]\nSolid light grey seamless backdrop, one flat uniform tone edge to edge, with no gradient, no vignette, no texture and no floor line. Nothing else is in frame. The subject casts no shadow onto the backdrop and does not sit in its own shadow. Soft form shading on the subject itself is fine and should read its shape. Long telephoto lens, near-orthographic.\n\n[FRAMING]\nLocked-off profile shot from the chest to the top of the head: the crop line falls across the shoulders. The face turns 90 degrees to the left. Her hands are gripping two erect penises visible in the foreground, masturbating them with a steady grip, while Streams of white-transparent semen are released continuously from the tips of both penises, filling the mouth instantly and overflowing. She swallows the semen and shows her mouth clean. This framing is identical in every shot — the head never changes size or position in frame.\n\n[MOTION]\nOnly the face changes. The head does not turn, tilt, nod, lean or move at any point. The shoulders and body are completely frozen. No wind, no hair movement, no breathing. Changes between expressions happen as a single hard snap lasting under 0.1 seconds, with no easing, no blending, no in-between expression.\n\n[EXPRESSIONS]\n[0-0.83 seconds] Expression 1: CONTENT. Head tilted slightly forward, lips slightly parted in a soft smile, eyes half-closed with a warm, dazed gaze, a touch of pink on the cheeks. Relaxed pleasure. Mouth instantly filled with white-transparent semen from the continuous stream on both penises being masturbated.\n[0.83-1.67 seconds] Snap to Expression 2: INTENSE. Lips pressed tight around the shafts, eyes wide and alert with intense focus, brows slightly furrowed, tongue submerged deep inside the mouth filled with white-transparent semen.\n[1.67-2.5 seconds] Snap to Expression 3: ECSTATIC. Head tilted back further, mouth open in a moan, eyes rolled back, cheeks flushed, body leaning forward into the action. White-transparent semen drips from the corners of the mouth and chin.\n[2.5-3.33 seconds] Snap to Expression 4: DEEP CONCENTRATION. Lips suctioned tight, eyes wide open staring directly into the lens, no expression other than total engagement with the task. Mouth filled with white-transparent semen, tongue visible.\n[3.33-4.17 seconds] Snap to Expression 5: OVERWHELMED. Head tilted forward, mouth open gasping, eyes slightly wider than normal, a look of being overwhelmed by sensation. White-transparent semen glistens on the face and lips.\n[4.17-5.0 seconds] Snap to Expression 6: SATISFIED. Lips slightly parted, eyes soft and half-closed with a satisfied smile, a gentle expression of completion. Mouth filled with white-transparent semen, tongue visible.\n[5.0-5.83 seconds] Snap to Expression 7: SWALLOWING. Mouth opens slightly to swallow the semen and then closes, leaving the mouth clean, wet, and completely free of any visible fluid.\n\n[CAMERA]\nCompletely locked off and static for the entire clip.\n[AUDIO]\nSilence."
+      }
+    },
+    {
+      "id": 5914,
+      "type": "PrimitiveStringMultiline",
+      "pos": [
+        409.6615698807847,
+        6638.669312238414
+      ],
+      "size": [
+        390,
+        200
+      ],
+      "flags": {
+        "collapsed": false
+      },
+      "order": 26,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": []
+        }
+      ],
+      "title": "Blowjob cum lateral 2",
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.46.2",
+        "Node name for S&R": "PrimitiveStringMultiline"
+      },
+      "widgets_values": [
+        "[STYLE]\nThe output matches the style of high-definition macro photography. Extreme sharp detail on the lips, tongue, eyes, and the jawline. The style never changes and never drifts between shots. No shadows.\n\n[STAGING]\nSolid light grey seamless backdrop, one flat uniform tone edge to edge, with no gradient, no vignette, no texture and no floor line. Nothing else is in frame. The subject casts no shadow onto the backdrop and does not sit in its own shadow. Soft form shading on the subject itself is fine and should read its shape. Long telephoto lens, near-orthographic.\n\n[FRAMING]\nLocked-off profile shot from the chest to the top of the head: the crop line falls across the shoulders. The face turns 90 degrees to the left. Her hands are gripping two throbbing erect penises visible in the foreground, vigorously masturbating them, while streams of thick white-transparent semen erupt continuously from the tips, inundating her mouth completely and overflowing. This framing is identical in every shot — the head never changes size or position in frame.\n\n[MOTION]\nOnly the face changes. The head does not turn, tilt, nod, lean or move at any point. The shoulders and body are completely frozen. No wind, no hair movement, no breathing. Changes between expressions happen as a single hard snap lasting under 0.1 seconds, with no easing, no blending, no in-between expression.\n\n[EXPRESSIONS]\n[0-15 seconds] BLOCK 1 - The Initial Flood. [0-7 seconds] Mouth engulfing the shaft. Eyes half-closed with a warm gaze. [7-15 seconds] Mouth visibly full of thick white-transparent semen, overflowing slightly, tongue visible, a look of contentment.\n[15-30 seconds] BLOCK 2 - The Vigorous Action. [15-22 seconds] Hands vigorously masturbating both penises. [22-30 seconds] Eyes rolling back, mouth open gasping, thick white-transparent semen dripping from the chin and corners of the mouth.\n[30-45 seconds] BLOCK 3 - The Climax. [30-37 seconds] Massive stream of thick white-transparent semen erupting from both penises. [37-45 seconds] Head tilted back, mouth open gulping, face glistening with thick white-transparent semen, overwhelmed by pleasure.\n[45-60 seconds] BLOCK 4 - The Cleanup. [45-52 seconds] Swallowing hard, mouth closing tightly. [52-60 seconds] Mouth pristine, clean, and glossy, showing the result of the oral service, with a satisfied, clean smile.\n\n[CAMERA]\nCompletely locked off and static for the entire clip.\n[AUDIO]\nSilence."
+      ],
+      "widgets_values_named": {
+        "value": "[STYLE]\nThe output matches the style of high-definition macro photography. Extreme sharp detail on the lips, tongue, eyes, and the jawline. The style never changes and never drifts between shots. No shadows.\n\n[STAGING]\nSolid light grey seamless backdrop, one flat uniform tone edge to edge, with no gradient, no vignette, no texture and no floor line. Nothing else is in frame. The subject casts no shadow onto the backdrop and does not sit in its own shadow. Soft form shading on the subject itself is fine and should read its shape. Long telephoto lens, near-orthographic.\n\n[FRAMING]\nLocked-off profile shot from the chest to the top of the head: the crop line falls across the shoulders. The face turns 90 degrees to the left. Her hands are gripping two throbbing erect penises visible in the foreground, vigorously masturbating them, while streams of thick white-transparent semen erupt continuously from the tips, inundating her mouth completely and overflowing. This framing is identical in every shot — the head never changes size or position in frame.\n\n[MOTION]\nOnly the face changes. The head does not turn, tilt, nod, lean or move at any point. The shoulders and body are completely frozen. No wind, no hair movement, no breathing. Changes between expressions happen as a single hard snap lasting under 0.1 seconds, with no easing, no blending, no in-between expression.\n\n[EXPRESSIONS]\n[0-15 seconds] BLOCK 1 - The Initial Flood. [0-7 seconds] Mouth engulfing the shaft. Eyes half-closed with a warm gaze. [7-15 seconds] Mouth visibly full of thick white-transparent semen, overflowing slightly, tongue visible, a look of contentment.\n[15-30 seconds] BLOCK 2 - The Vigorous Action. [15-22 seconds] Hands vigorously masturbating both penises. [22-30 seconds] Eyes rolling back, mouth open gasping, thick white-transparent semen dripping from the chin and corners of the mouth.\n[30-45 seconds] BLOCK 3 - The Climax. [30-37 seconds] Massive stream of thick white-transparent semen erupting from both penises. [37-45 seconds] Head tilted back, mouth open gulping, face glistening with thick white-transparent semen, overwhelmed by pleasure.\n[45-60 seconds] BLOCK 4 - The Cleanup. [45-52 seconds] Swallowing hard, mouth closing tightly. [52-60 seconds] Mouth pristine, clean, and glossy, showing the result of the oral service, with a satisfied, clean smile.\n\n[CAMERA]\nCompletely locked off and static for the entire clip.\n[AUDIO]\nSilence."
+      }
+    }
+  ],
+  "links": [
+    [
+      251,
+      119,
+      0,
+      122,
+      1,
+      "VAE"
+    ],
+    [
+      253,
+      129,
+      0,
+      125,
+      0,
+      "NOISE"
+    ],
+    [
+      254,
+      126,
+      0,
+      125,
+      1,
+      "GUIDER"
+    ],
+    [
+      255,
+      123,
+      0,
+      125,
+      2,
+      "SAMPLER"
+    ],
+    [
+      256,
+      124,
+      0,
+      125,
+      3,
+      "SIGMAS"
+    ],
+    [
+      258,
+      122,
+      0,
+      130,
+      0,
+      "IMAGE"
+    ],
+    [
+      270,
+      136,
+      0,
+      126,
+      1,
+      "CONDITIONING"
+    ],
+    [
+      271,
+      136,
+      1,
+      125,
+      4,
+      "LATENT"
+    ],
+    [
+      280,
+      125,
+      0,
+      122,
+      0,
+      "LATENT"
+    ],
+    [
+      283,
+      122,
+      0,
+      141,
+      0,
+      "IMAGE"
+    ],
+    [
+      353,
+      138,
+      0,
+      236,
+      0,
+      "STRING"
+    ],
+    [
+      356,
+      238,
+      0,
+      218,
+      0,
+      "IMAGE"
+    ],
+    [
+      20401,
+      5884,
+      0,
+      126,
+      0,
+      "MODEL"
+    ],
+    [
+      20402,
+      5884,
+      0,
+      124,
+      0,
+      "MODEL"
+    ],
+    [
+      20410,
+      5890,
+      0,
+      5884,
+      0,
+      "MODEL"
+    ],
+    [
+      20426,
+      122,
+      0,
+      238,
+      0,
+      "IMAGE"
+    ],
+    [
+      20439,
+      5907,
+      0,
+      5890,
+      0,
+      "MODEL"
+    ],
+    [
+      20440,
+      127,
+      0,
+      5907,
+      0,
+      "MODEL"
+    ],
+    [
+      20454,
+      5911,
+      0,
+      236,
+      1,
+      "STRING"
+    ],
+    [
+      260,
+      130,
+      0,
+      92,
+      0,
+      "VIDEO"
+    ],
+    [
+      272,
+      128,
+      0,
+      136,
+      0,
+      "CLIP"
+    ],
+    [
+      273,
+      119,
+      0,
+      136,
+      1,
+      "VAE"
+    ],
+    [
+      274,
+      120,
+      0,
+      136,
+      2,
+      "VAE"
+    ],
+    [
+      278,
+      137,
+      0,
+      136,
+      3,
+      "IMAGE"
+    ],
+    [
+      20428,
+      5904,
+      0,
+      136,
+      4,
+      "IMAGE"
+    ],
+    [
+      20449,
+      5912,
+      0,
+      136,
+      5,
+      "IMAGE"
+    ],
+    [
+      354,
+      236,
+      0,
+      136,
+      11,
+      "STRING"
+    ],
+    [
+      347,
+      115,
+      0,
+      136,
+      12,
+      "INT"
+    ],
+    [
+      348,
+      115,
+      1,
+      136,
+      13,
+      "INT"
+    ]
+  ],
+  "groups": [
+    {
+      "id": 1,
+      "title": "Models",
+      "bounding": [
+        -1520,
+        4840,
+        700,
+        670
+      ],
+      "color": "#3f789e",
+      "flags": {}
+    },
+    {
+      "id": 2,
+      "title": "Sampling",
+      "bounding": [
+        -280,
+        4840,
+        690,
+        670
+      ],
+      "color": "#3f789e",
+      "flags": {}
+    },
+    {
+      "id": 3,
+      "title": "Conditioning",
+      "bounding": [
+        -790,
+        4840,
+        480,
+        670
+      ],
+      "color": "#3f789e",
+      "flags": {}
+    },
+    {
+      "id": 4,
+      "title": "Decoding and create video",
+      "bounding": [
+        440,
+        4840,
+        670,
+        670
+      ],
+      "color": "#3f789e",
+      "flags": {}
+    },
+    {
+      "id": 5,
+      "title": "User Inputs",
+      "bounding": [
+        -1520,
+        5540,
+        1908.7784707810001,
+        1345.6521135989997
+      ],
+      "color": "#3f789e",
+      "flags": {}
+    },
+    {
+      "id": 7,
+      "title": "Save Video (optional)",
+      "bounding": [
+        1210,
+        5360,
+        498.60345199613016,
+        685.4972988244399
+      ],
+      "color": "#b58b2a",
+      "flags": {}
+    },
+    {
+      "id": 8,
+      "title": "Save all frames to pick your own (optional)",
+      "bounding": [
+        1210,
+        6070,
+        703.3338622327897,
+        578.2631114122196
+      ],
+      "color": "#b58b2a",
+      "flags": {}
+    },
+    {
+      "id": 107,
+      "title": "Character Sheet",
+      "bounding": [
+        1210,
+        4660,
+        702.4680508879626,
+        666.8525039611404
+      ],
+      "color": "#b58b2a",
+      "flags": {}
+    },
+    {
+      "id": 194,
+      "title": "Optional Speedup - Delete if you want",
+      "bounding": [
+        -970,
+        4280,
+        870,
+        530
+      ],
+      "color": "#8AA",
+      "flags": {}
+    }
+  ],
+  "definitions": {
+    "subgraphs": [
+      {
+        "id": "80545511-8d5f-4d2a-826f-06b914ccf423",
+        "version": 1,
+        "state": {
+          "lastGroupId": 197,
+          "lastNodeId": 5914,
+          "lastLinkId": 20455,
+          "lastRerouteId": 15
+        },
+        "revision": 0,
+        "config": {},
+        "name": "Image Stitching",
+        "inputNode": {
+          "id": -10,
+          "bounding": [
+            1024.3366687660643,
+            5370.105203240926,
+            128,
+            68
+          ]
+        },
+        "outputNode": {
+          "id": -20,
+          "bounding": [
+            2214.551157812043,
+            5370.105203240926,
+            128,
+            68
+          ]
+        },
+        "inputs": [
+          {
+            "id": "fe3a3a38-0eae-476d-9069-a182c3afc6c2",
+            "name": "image",
+            "type": "IMAGE",
+            "linkIds": [
+              331,
+              332,
+              333,
+              334,
+              335,
+              330
+            ],
+            "localized_name": "image",
+            "pos": [
+              1128.3366687660643,
+              5394.105203240926
+            ]
+          }
+        ],
+        "outputs": [
+          {
+            "id": "f050a84c-fa9c-4b5d-8445-dd406d8dcf21",
+            "name": "IMAGE",
+            "type": "IMAGE",
+            "linkIds": [
+              346
+            ],
+            "localized_name": "IMAGE",
+            "pos": [
+              2238.551157812043,
+              5394.105203240926
+            ]
+          }
+        ],
+        "widgets": [],
+        "nodes": [
+          {
+            "id": 201,
+            "type": "ImageFromBatch",
+            "pos": [
+              1220,
+              5190
+            ],
+            "size": [
+              230,
+              90
+            ],
+            "flags": {},
+            "order": 1,
+            "mode": 0,
+            "inputs": [
+              {
+                "localized_name": "imagen",
+                "name": "image",
+                "type": "IMAGE",
+                "link": 331
+              }
+            ],
+            "outputs": [
+              {
+                "localized_name": "IMAGEN",
+                "name": "IMAGE",
+                "type": "IMAGE",
+                "links": [
+                  337
+                ]
+              }
+            ],
+            "title": "2  left side    (orbit 25%)",
+            "properties": {
+              "cnr_id": "comfy-core",
+              "ver": "0.46.2",
+              "Node name for S&R": "ImageFromBatch"
+            },
+            "widgets_values": [
+              31,
+              1
+            ],
+            "widgets_values_named": {
+              "batch_index": 31,
+              "length": 1
+            },
+            "color": "#332922",
+            "bgcolor": "#593930"
+          },
+          {
+            "id": 202,
+            "type": "ImageFromBatch",
+            "pos": [
+              1220,
+              5340
+            ],
+            "size": [
+              230,
+              90
+            ],
+            "flags": {},
+            "order": 2,
+            "mode": 0,
+            "inputs": [
+              {
+                "localized_name": "imagen",
+                "name": "image",
+                "type": "IMAGE",
+                "link": 332
+              }
+            ],
+            "outputs": [
+              {
+                "localized_name": "IMAGEN",
+                "name": "IMAGE",
+                "type": "IMAGE",
+                "links": [
+                  339
+                ]
+              }
+            ],
+            "title": "3  back         (orbit 50%)",
+            "properties": {
+              "cnr_id": "comfy-core",
+              "ver": "0.46.2",
+              "Node name for S&R": "ImageFromBatch"
+            },
+            "widgets_values": [
+              52,
+              1
+            ],
+            "widgets_values_named": {
+              "batch_index": 52,
+              "length": 1
+            },
+            "color": "#332922",
+            "bgcolor": "#593930"
+          },
+          {
+            "id": 203,
+            "type": "ImageFromBatch",
+            "pos": [
+              1220,
+              5490
+            ],
+            "size": [
+              230,
+              90
+            ],
+            "flags": {},
+            "order": 3,
+            "mode": 0,
+            "inputs": [
+              {
+                "localized_name": "imagen",
+                "name": "image",
+                "type": "IMAGE",
+                "link": 333
+              }
+            ],
+            "outputs": [
+              {
+                "localized_name": "IMAGEN",
+                "name": "IMAGE",
+                "type": "IMAGE",
+                "links": [
+                  340
+                ]
+              }
+            ],
+            "title": "4  right side   (orbit 75%)",
+            "properties": {
+              "cnr_id": "comfy-core",
+              "ver": "0.46.2",
+              "Node name for S&R": "ImageFromBatch"
+            },
+            "widgets_values": [
+              72,
+              1
+            ],
+            "widgets_values_named": {
+              "batch_index": 72,
+              "length": 1
+            },
+            "color": "#332922",
+            "bgcolor": "#593930"
+          },
+          {
+            "id": 205,
+            "type": "ImageFromBatch",
+            "pos": [
+              1220,
+              5790
+            ],
+            "size": [
+              230,
+              90
+            ],
+            "flags": {},
+            "order": 5,
+            "mode": 0,
+            "inputs": [
+              {
+                "localized_name": "imagen",
+                "name": "image",
+                "type": "IMAGE",
+                "link": 335
+              }
+            ],
+            "outputs": [
+              {
+                "localized_name": "IMAGEN",
+                "name": "IMAGE",
+                "type": "IMAGE",
+                "links": [
+                  343
+                ]
+              }
+            ],
+            "title": "6  face 3/4     (beat 3)",
+            "properties": {
+              "cnr_id": "comfy-core",
+              "ver": "0.46.2",
+              "Node name for S&R": "ImageFromBatch"
+            },
+            "widgets_values": [
+              113,
+              1
+            ],
+            "widgets_values_named": {
+              "batch_index": 113,
+              "length": 1
+            },
+            "color": "#332922",
+            "bgcolor": "#593930"
+          },
+          {
+            "id": 200,
+            "type": "ImageFromBatch",
+            "pos": [
+              1220,
+              5040
+            ],
+            "size": [
+              230,
+              90
+            ],
+            "flags": {},
+            "order": 0,
+            "mode": 0,
+            "inputs": [
+              {
+                "localized_name": "imagen",
+                "name": "image",
+                "type": "IMAGE",
+                "link": 330
+              }
+            ],
+            "outputs": [
+              {
+                "localized_name": "IMAGEN",
+                "name": "IMAGE",
+                "type": "IMAGE",
+                "links": [
+                  336
+                ]
+              }
+            ],
+            "title": "1  front        (orbit 0%)",
+            "properties": {
+              "cnr_id": "comfy-core",
+              "ver": "0.46.2",
+              "Node name for S&R": "ImageFromBatch"
+            },
+            "widgets_values": [
+              10,
+              1
+            ],
+            "widgets_values_named": {
+              "batch_index": 10,
+              "length": 1
+            },
+            "color": "#332922",
+            "bgcolor": "#593930"
+          },
+          {
+            "id": 210,
+            "type": "ImageStitch",
+            "pos": [
+              1550,
+              4960
+            ],
+            "size": [
+              267.60546875,
+              150
+            ],
+            "flags": {
+              "collapsed": false
+            },
+            "order": 6,
+            "mode": 0,
+            "inputs": [
+              {
+                "localized_name": "imagen1",
+                "name": "image1",
+                "type": "IMAGE",
+                "link": 336
+              },
+              {
+                "localized_name": "imagen2",
+                "name": "image2",
+                "shape": 7,
+                "type": "IMAGE",
+                "link": 337
+              }
+            ],
+            "outputs": [
+              {
+                "localized_name": "IMAGEN",
+                "name": "IMAGE",
+                "type": "IMAGE",
+                "links": [
+                  338
+                ]
+              }
+            ],
+            "title": "Row 1: 1+2",
+            "properties": {
+              "cnr_id": "comfy-core",
+              "ver": "0.46.2",
+              "Node name for S&R": "ImageStitch"
+            },
+            "widgets_values": [
+              "right",
+              true,
+              6,
+              "black"
+            ],
+            "widgets_values_named": {
+              "direction": "right",
+              "match_image_size": true,
+              "spacing_width": 6,
+              "spacing_color": "black"
+            }
+          },
+          {
+            "id": 211,
+            "type": "ImageStitch",
+            "pos": [
+              1560,
+              5220
+            ],
+            "size": [
+              267.60546875,
+              150
+            ],
+            "flags": {
+              "collapsed": false
+            },
+            "order": 7,
+            "mode": 0,
+            "inputs": [
+              {
+                "localized_name": "imagen1",
+                "name": "image1",
+                "type": "IMAGE",
+                "link": 338
+              },
+              {
+                "localized_name": "imagen2",
+                "name": "image2",
+                "shape": 7,
+                "type": "IMAGE",
+                "link": 339
+              }
+            ],
+            "outputs": [
+              {
+                "localized_name": "IMAGEN",
+                "name": "IMAGE",
+                "type": "IMAGE",
+                "links": [
+                  344
+                ]
+              }
+            ],
+            "title": "Row 1: +3",
+            "properties": {
+              "cnr_id": "comfy-core",
+              "ver": "0.46.2",
+              "Node name for S&R": "ImageStitch"
+            },
+            "widgets_values": [
+              "right",
+              true,
+              6,
+              "black"
+            ],
+            "widgets_values_named": {
+              "direction": "right",
+              "match_image_size": true,
+              "spacing_width": 6,
+              "spacing_color": "black"
+            }
+          },
+          {
+            "id": 213,
+            "type": "ImageStitch",
+            "pos": [
+              1580,
+              5450
+            ],
+            "size": [
+              267.60546875,
+              150
+            ],
+            "flags": {
+              "collapsed": false
+            },
+            "order": 8,
+            "mode": 0,
+            "inputs": [
+              {
+                "localized_name": "imagen1",
+                "name": "image1",
+                "type": "IMAGE",
+                "link": 340
+              },
+              {
+                "localized_name": "imagen2",
+                "name": "image2",
+                "shape": 7,
+                "type": "IMAGE",
+                "link": 341
+              }
+            ],
+            "outputs": [
+              {
+                "localized_name": "IMAGEN",
+                "name": "IMAGE",
+                "type": "IMAGE",
+                "links": [
+                  342
+                ]
+              }
+            ],
+            "title": "Row 2: 4+5",
+            "properties": {
+              "cnr_id": "comfy-core",
+              "ver": "0.46.2",
+              "Node name for S&R": "ImageStitch"
+            },
+            "widgets_values": [
+              "right",
+              true,
+              6,
+              "black"
+            ],
+            "widgets_values_named": {
+              "direction": "right",
+              "match_image_size": true,
+              "spacing_width": 6,
+              "spacing_color": "black"
+            }
+          },
+          {
+            "id": 214,
+            "type": "ImageStitch",
+            "pos": [
+              1580,
+              5760
+            ],
+            "size": [
+              267.60546875,
+              150
+            ],
+            "flags": {
+              "collapsed": false
+            },
+            "order": 9,
+            "mode": 0,
+            "inputs": [
+              {
+                "localized_name": "imagen1",
+                "name": "image1",
+                "type": "IMAGE",
+                "link": 342
+              },
+              {
+                "localized_name": "imagen2",
+                "name": "image2",
+                "shape": 7,
+                "type": "IMAGE",
+                "link": 343
+              }
+            ],
+            "outputs": [
+              {
+                "localized_name": "IMAGEN",
+                "name": "IMAGE",
+                "type": "IMAGE",
+                "links": [
+                  345
+                ]
+              }
+            ],
+            "title": "Row 2: +6",
+            "properties": {
+              "cnr_id": "comfy-core",
+              "ver": "0.46.2",
+              "Node name for S&R": "ImageStitch"
+            },
+            "widgets_values": [
+              "right",
+              true,
+              6,
+              "black"
+            ],
+            "widgets_values_named": {
+              "direction": "right",
+              "match_image_size": true,
+              "spacing_width": 6,
+              "spacing_color": "black"
+            }
+          },
+          {
+            "id": 216,
+            "type": "ImageStitch",
+            "pos": [
+              1890,
+              5270
+            ],
+            "size": [
+              267.60546875,
+              150
+            ],
+            "flags": {},
+            "order": 10,
+            "mode": 0,
+            "inputs": [
+              {
+                "localized_name": "imagen1",
+                "name": "image1",
+                "type": "IMAGE",
+                "link": 344
+              },
+              {
+                "localized_name": "imagen2",
+                "name": "image2",
+                "shape": 7,
+                "type": "IMAGE",
+                "link": 345
+              }
+            ],
+            "outputs": [
+              {
+                "localized_name": "IMAGEN",
+                "name": "IMAGE",
+                "type": "IMAGE",
+                "links": [
+                  346
+                ]
+              }
+            ],
+            "title": "Stack rows",
+            "properties": {
+              "cnr_id": "comfy-core",
+              "ver": "0.46.2",
+              "Node name for S&R": "ImageStitch"
+            },
+            "widgets_values": [
+              "down",
+              true,
+              6,
+              "black"
+            ],
+            "widgets_values_named": {
+              "direction": "down",
+              "match_image_size": true,
+              "spacing_width": 6,
+              "spacing_color": "black"
+            }
+          },
+          {
+            "id": 204,
+            "type": "ImageFromBatch",
+            "pos": [
+              1220,
+              5640
+            ],
+            "size": [
+              230,
+              90
+            ],
+            "flags": {},
+            "order": 4,
+            "mode": 0,
+            "inputs": [
+              {
+                "localized_name": "imagen",
+                "name": "image",
+                "type": "IMAGE",
+                "link": 334
+              }
+            ],
+            "outputs": [
+              {
+                "localized_name": "IMAGEN",
+                "name": "IMAGE",
+                "type": "IMAGE",
+                "links": [
+                  341
+                ]
+              }
+            ],
+            "title": "5  face front   (beat 2)",
+            "properties": {
+              "cnr_id": "comfy-core",
+              "ver": "0.46.2",
+              "Node name for S&R": "ImageFromBatch"
+            },
+            "widgets_values": [
+              93,
+              1
+            ],
+            "widgets_values_named": {
+              "batch_index": 93,
+              "length": 1
+            },
+            "color": "#332922",
+            "bgcolor": "#593930"
+          }
+        ],
+        "groups": [
+          {
+            "id": 6,
+            "title": "Character Sheet Assembly",
+            "bounding": [
+              1210,
+              4890,
+              942.2144890459788,
+              1022.5076973999958
+            ],
+            "color": "#8A8",
+            "flags": {}
+          }
+        ],
+        "links": [
+          {
+            "id": 336,
+            "origin_id": 200,
+            "origin_slot": 0,
+            "target_id": 210,
+            "target_slot": 0,
+            "type": "IMAGE"
+          },
+          {
+            "id": 337,
+            "origin_id": 201,
+            "origin_slot": 0,
+            "target_id": 210,
+            "target_slot": 1,
+            "type": "IMAGE"
+          },
+          {
+            "id": 338,
+            "origin_id": 210,
+            "origin_slot": 0,
+            "target_id": 211,
+            "target_slot": 0,
+            "type": "IMAGE"
+          },
+          {
+            "id": 339,
+            "origin_id": 202,
+            "origin_slot": 0,
+            "target_id": 211,
+            "target_slot": 1,
+            "type": "IMAGE"
+          },
+          {
+            "id": 340,
+            "origin_id": 203,
+            "origin_slot": 0,
+            "target_id": 213,
+            "target_slot": 0,
+            "type": "IMAGE"
+          },
+          {
+            "id": 341,
+            "origin_id": 204,
+            "origin_slot": 0,
+            "target_id": 213,
+            "target_slot": 1,
+            "type": "IMAGE"
+          },
+          {
+            "id": 342,
+            "origin_id": 213,
+            "origin_slot": 0,
+            "target_id": 214,
+            "target_slot": 0,
+            "type": "IMAGE"
+          },
+          {
+            "id": 343,
+            "origin_id": 205,
+            "origin_slot": 0,
+            "target_id": 214,
+            "target_slot": 1,
+            "type": "IMAGE"
+          },
+          {
+            "id": 344,
+            "origin_id": 211,
+            "origin_slot": 0,
+            "target_id": 216,
+            "target_slot": 0,
+            "type": "IMAGE"
+          },
+          {
+            "id": 345,
+            "origin_id": 214,
+            "origin_slot": 0,
+            "target_id": 216,
+            "target_slot": 1,
+            "type": "IMAGE"
+          },
+          {
+            "id": 331,
+            "origin_id": -10,
+            "origin_slot": 0,
+            "target_id": 201,
+            "target_slot": 0,
+            "type": "IMAGE"
+          },
+          {
+            "id": 332,
+            "origin_id": -10,
+            "origin_slot": 0,
+            "target_id": 202,
+            "target_slot": 0,
+            "type": "IMAGE"
+          },
+          {
+            "id": 333,
+            "origin_id": -10,
+            "origin_slot": 0,
+            "target_id": 203,
+            "target_slot": 0,
+            "type": "IMAGE"
+          },
+          {
+            "id": 334,
+            "origin_id": -10,
+            "origin_slot": 0,
+            "target_id": 204,
+            "target_slot": 0,
+            "type": "IMAGE"
+          },
+          {
+            "id": 335,
+            "origin_id": -10,
+            "origin_slot": 0,
+            "target_id": 205,
+            "target_slot": 0,
+            "type": "IMAGE"
+          },
+          {
+            "id": 330,
+            "origin_id": -10,
+            "origin_slot": 0,
+            "target_id": 200,
+            "target_slot": 0,
+            "type": "IMAGE"
+          },
+          {
+            "id": 346,
+            "origin_id": 216,
+            "origin_slot": 0,
+            "target_id": -20,
+            "target_slot": 0,
+            "type": "IMAGE"
+          }
+        ],
+        "extra": {}
+      },
+      {
+        "id": "a9d3016d-7cbf-4367-a217-488144b79839",
+        "version": 1,
+        "state": {
+          "lastGroupId": 197,
+          "lastNodeId": 5914,
+          "lastLinkId": 20455,
+          "lastRerouteId": 15
+        },
+        "revision": 0,
+        "config": {},
+        "name": "Optional Speedups - 10 Sept 2026",
+        "inputNode": {
+          "id": -10,
+          "bounding": [
+            -2508,
+            3956,
+            128,
+            68
+          ]
+        },
+        "outputNode": {
+          "id": -20,
+          "bounding": [
+            -390,
+            3956,
+            128,
+            68
+          ]
+        },
+        "inputs": [
+          {
+            "id": "e5374e45-aeef-44d6-a592-608e55d6f546",
+            "name": "model",
+            "type": "MODEL",
+            "linkIds": [
+              20405
+            ],
+            "localized_name": "model",
+            "pos": [
+              -2404,
+              3980
+            ]
+          }
+        ],
+        "outputs": [
+          {
+            "id": "62a0eef7-f158-491c-8d3a-e6b34cc5ad2c",
+            "name": "MODEL",
+            "type": "MODEL",
+            "linkIds": [
+              20433
+            ],
+            "localized_name": "MODEL",
+            "pos": [
+              -366,
+              3980
+            ]
+          }
+        ],
+        "widgets": [],
+        "nodes": [
+          {
+            "id": 5888,
+            "type": "MarkdownNote",
+            "pos": [
+              -2180,
+              3610
+            ],
+            "size": [
+              700,
+              320
+            ],
+            "flags": {},
+            "order": 0,
+            "mode": 0,
+            "inputs": [],
+            "outputs": [],
+            "title": "Note: Speed Patches (PK)",
+            "properties": {},
+            "widgets_values": [
+              "## Speed Patches — PK / H3 SLA\n\nChain applies bottom-up on the MODEL. Toggle each group on/off with the bypasser above.\n\n- **1. FP16 Accumulation** (`ModelPatchTorchSettings`): free speed on RTX 30xx+ / most modern GPUs. Safe to leave on.\n- **2. LowVRAM Attention** (`MiniMaxLowVRAMAttention`): splits attention into head chunks. Reduces peak VRAM; tiny cost, sometimes a small speedup. Widget: `head_chunks` (default 4).\n- **3. Chunk FeedForward** (`MiniMaxChunkFeedForward`): splits FF blocks. Reduces peak VRAM at longer sequence lengths. Widgets: `chunks` (2–4), `seq_threshold` (4096).\n- **4. H3 SLA Attention** (`H3SLAAttention`): the big one. Sparse Linear Attention — main speedup. `sparsity_ratio` 0.9 keeps 10% of tokens for very fast, decent-quality; drop to ~0.7 if you see artifacts. `dense_last_steps` controls how many final steps run dense (better quality tail).\n\n### Wiring\n\nFeed the raw `MODEL` from `UNETLoader` into `model`. Take the output `MODEL` to whatever comes next (sampler / patcher).\n\n### Notes\n\n- SLA patches attention — anything else patching attention should sit *before* it in the chain. That is why H3SLAAttention is last.\n- `protect_audio=True` avoids audio-latent glitches at some speed cost. Leave on unless testing.\n- If the workflow refuses to load, install `comfyui-kjnodes` and `plaguekind-nodes` (H3SLAAttention lives in one of these packs)."
+            ],
+            "widgets_values_named": {
+              "text": "## Speed Patches — PK / H3 SLA\n\nChain applies bottom-up on the MODEL. Toggle each group on/off with the bypasser above.\n\n- **1. FP16 Accumulation** (`ModelPatchTorchSettings`): free speed on RTX 30xx+ / most modern GPUs. Safe to leave on.\n- **2. LowVRAM Attention** (`MiniMaxLowVRAMAttention`): splits attention into head chunks. Reduces peak VRAM; tiny cost, sometimes a small speedup. Widget: `head_chunks` (default 4).\n- **3. Chunk FeedForward** (`MiniMaxChunkFeedForward`): splits FF blocks. Reduces peak VRAM at longer sequence lengths. Widgets: `chunks` (2–4), `seq_threshold` (4096).\n- **4. H3 SLA Attention** (`H3SLAAttention`): the big one. Sparse Linear Attention — main speedup. `sparsity_ratio` 0.9 keeps 10% of tokens for very fast, decent-quality; drop to ~0.7 if you see artifacts. `dense_last_steps` controls how many final steps run dense (better quality tail).\n\n### Wiring\n\nFeed the raw `MODEL` from `UNETLoader` into `model`. Take the output `MODEL` to whatever comes next (sampler / patcher).\n\n### Notes\n\n- SLA patches attention — anything else patching attention should sit *before* it in the chain. That is why H3SLAAttention is last.\n- `protect_audio=True` avoids audio-latent glitches at some speed cost. Leave on unless testing.\n- If the workflow refuses to load, install `comfyui-kjnodes` and `plaguekind-nodes` (H3SLAAttention lives in one of these packs)."
+            },
+            "color": "#222",
+            "bgcolor": "#000"
+          },
+          {
+            "id": 5889,
+            "type": "MiniMaxLowVRAMAttention",
+            "pos": [
+              -1920,
+              4040
+            ],
+            "size": [
+              320,
+              60
+            ],
+            "flags": {},
+            "order": 5,
+            "mode": 0,
+            "inputs": [
+              {
+                "localized_name": "model",
+                "name": "model",
+                "type": "MODEL",
+                "link": 20406
+              }
+            ],
+            "outputs": [
+              {
+                "localized_name": "model",
+                "name": "model",
+                "type": "MODEL",
+                "links": [
+                  20407
+                ]
+              }
+            ],
+            "properties": {
+              "cnr_id": "comfyui-kjnodes",
+              "ver": "aa2b5ea5e7f61b51f5d26d726f23c1d74e951016",
+              "Node name for S&R": "MiniMaxLowVRAMAttention"
+            },
+            "widgets_values": [
+              4
+            ],
+            "widgets_values_named": {
+              "head_chunks": 4
+            },
+            "color": "#222",
+            "bgcolor": "#000"
+          },
+          {
+            "id": 5886,
+            "type": "MiniMaxChunkFeedForward",
+            "pos": [
+              -1520,
+              4040
+            ],
+            "size": [
+              320,
+              90
+            ],
+            "flags": {},
+            "order": 3,
+            "mode": 0,
+            "inputs": [
+              {
+                "localized_name": "model",
+                "name": "model",
+                "type": "MODEL",
+                "link": 20407
+              }
+            ],
+            "outputs": [
+              {
+                "localized_name": "model",
+                "name": "model",
+                "type": "MODEL",
+                "links": [
+                  20408
+                ]
+              }
+            ],
+            "properties": {
+              "cnr_id": "comfyui-kjnodes",
+              "ver": "aa2b5ea5e7f61b51f5d26d726f23c1d74e951016",
+              "Node name for S&R": "MiniMaxChunkFeedForward"
+            },
+            "widgets_values": [
+              2,
+              4096
+            ],
+            "widgets_values_named": {
+              "chunks": 2,
+              "seq_threshold": 4096
+            },
+            "color": "#222",
+            "bgcolor": "#000"
+          },
+          {
+            "id": 5882,
+            "type": "H3SLAAttention",
+            "pos": [
+              -1140,
+              4030
+            ],
+            "size": [
+              290,
+              370
+            ],
+            "flags": {},
+            "order": 1,
+            "mode": 0,
+            "inputs": [
+              {
+                "localized_name": "model",
+                "name": "model",
+                "type": "MODEL",
+                "link": 20408
+              }
+            ],
+            "outputs": [
+              {
+                "localized_name": "MODELO",
+                "name": "MODEL",
+                "type": "MODEL",
+                "links": [
+                  20397
+                ]
+              }
+            ],
+            "title": "1. H3 Sparse Attention (SLA)",
+            "properties": {
+              "cnr_id": "plaguekind-nodes",
+              "ver": "1.6.4",
+              "Node name for S&R": "H3SLAAttention"
+            },
+            "widgets_values": [
+              0.7,
+              "128",
+              8192,
+              1,
+              false,
+              true,
+              "0",
+              "comfy_kitchen",
+              true,
+              false,
+              "Light",
+              false,
+              true,
+              "comfy_kitchen"
+            ],
+            "widgets_values_named": {
+              "sparsity_ratio": 0.7,
+              "block_size": "128",
+              "min_seq_len": 8192,
+              "dense_last_steps": 1,
+              "protect_audio": false,
+              "enabled": true,
+              "dense_steps": "0",
+              "dense_backend": "comfy_kitchen",
+              "disable_fp16_accum": true,
+              "stabilize_motion": false,
+              "reference_protection": "Light",
+              "tail_correction": false,
+              "use_int8_qk": true,
+              "engine": "comfy_kitchen"
+            }
+          },
+          {
+            "id": 5887,
+            "type": "ModelPatchTorchSettings",
+            "pos": [
+              -2290,
+              4040
+            ],
+            "size": [
+              270,
+              60
+            ],
+            "flags": {},
+            "order": 4,
+            "mode": 0,
+            "inputs": [
+              {
+                "localized_name": "model",
+                "name": "model",
+                "type": "MODEL",
+                "link": 20405
+              }
+            ],
+            "outputs": [
+              {
+                "localized_name": "MODELO",
+                "name": "MODEL",
+                "type": "MODEL",
+                "links": [
+                  20406
+                ]
+              }
+            ],
+            "properties": {
+              "cnr_id": "comfyui-kjnodes",
+              "ver": "aa2b5ea5e7f61b51f5d26d726f23c1d74e951016",
+              "Node name for S&R": "ModelPatchTorchSettings"
+            },
+            "widgets_values": [
+              true
+            ],
+            "widgets_values_named": {
+              "enable_fp16_accumulation": true
+            },
+            "color": "#222",
+            "bgcolor": "#000"
+          },
+          {
+            "id": 5883,
+            "type": "LoraLoaderModelOnly",
+            "pos": [
+              -810,
+              4030
+            ],
+            "size": [
+              340,
+              100
+            ],
+            "flags": {},
+            "order": 2,
+            "mode": 0,
+            "inputs": [
+              {
+                "localized_name": "modelo",
+                "name": "model",
+                "type": "MODEL",
+                "link": 20397
+              }
+            ],
+            "outputs": [
+              {
+                "localized_name": "MODELO",
+                "name": "MODEL",
+                "type": "MODEL",
+                "links": [
+                  20433
+                ]
+              }
+            ],
+            "title": "5. Turbo LoRA",
+            "properties": {
+              "cnr_id": "comfy-core",
+              "ver": "0.31.0",
+              "Node name for S&R": "LoraLoaderModelOnly"
+            },
+            "widgets_values": [
+              "minimax_h3_turbo_v4_step600_ema.safetensors",
+              1
+            ],
+            "widgets_values_named": {
+              "lora_name": "minimax_h3_turbo_v4_step600_ema.safetensors",
+              "strength_model": 1
+            },
+            "color": "#222",
+            "bgcolor": "#000"
+          }
+        ],
+        "groups": [
+          {
+            "id": 195,
+            "title": "1. FP16 Accumulation",
+            "bounding": [
+              -2320,
+              3970,
+              330,
+              160
+            ],
+            "color": "#8AA",
+            "flags": {}
+          },
+          {
+            "id": 196,
+            "title": "2. LowVRAM Attention",
+            "bounding": [
+              -1950,
+              3970,
+              380,
+              160
+            ],
+            "color": "#8AA",
+            "flags": {}
+          },
+          {
+            "id": 197,
+            "title": "3. Chunk FeedForward",
+            "bounding": [
+              -1550,
+              3970,
+              380,
+              190
+            ],
+            "color": "#8AA",
+            "flags": {}
+          }
+        ],
+        "links": [
+          {
+            "id": 20406,
+            "origin_id": 5887,
+            "origin_slot": 0,
+            "target_id": 5889,
+            "target_slot": 0,
+            "type": "MODEL"
+          },
+          {
+            "id": 20407,
+            "origin_id": 5889,
+            "origin_slot": 0,
+            "target_id": 5886,
+            "target_slot": 0,
+            "type": "MODEL"
+          },
+          {
+            "id": 20408,
+            "origin_id": 5886,
+            "origin_slot": 0,
+            "target_id": 5882,
+            "target_slot": 0,
+            "type": "MODEL"
+          },
+          {
+            "id": 20397,
+            "origin_id": 5882,
+            "origin_slot": 0,
+            "target_id": 5883,
+            "target_slot": 0,
+            "type": "MODEL"
+          },
+          {
+            "id": 20405,
+            "origin_id": -10,
+            "origin_slot": 0,
+            "target_id": 5887,
+            "target_slot": 0,
+            "type": "MODEL"
+          },
+          {
+            "id": 20433,
+            "origin_id": 5883,
+            "origin_slot": 0,
+            "target_id": -20,
+            "target_slot": 0,
+            "type": "MODEL"
+          }
+        ],
+        "extra": {}
+      }
+    ]
+  },
+  "config": {},
+  "extra": {
+    "frontendVersion": "1.59.6",
+    "VHS_latentpreview": false,
+    "VHS_latentpreviewrate": 0,
+    "VHS_MetadataImage": true,
+    "VHS_KeepIntermediate": true,
+    "ds": {
+      "scale": 1.269935014467477,
+      "offset": [
+        128.69022384159672,
+        -4708.138250852767
+      ]
+    }
+  },
+  "extensions": {
+    "seed_widgets": {
+      "129": 0
+    }
+  },
+  "version": 0.4,
+  "seed_widgets": {
+    "129": 0
+  }
+}
